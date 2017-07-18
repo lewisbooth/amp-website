@@ -43,7 +43,7 @@ gulp.task('serve', ['sass'], function() {
 // Watch
 gulp.task('watch', function () {
     gulp.watch('./app/**/*.html', ['html-include']);
-    gulp.watch("dist/**/*.html").on('change', browserSync.reload);
+    gulp.watch(['dist/**/*.{html,php}', 'dist/js/scripts.js']).on('change', browserSync.reload);
     gulp.watch('app/sass/*.scss', ['sass']);
     gulp.watch('app/js/*.js', ['babel']);
 });

@@ -404,6 +404,7 @@ nav li:last-child {
 }
 
 .services h1 {
+  z-index: -1;
   position: absolute;
   top: 50%;
   right: 0;
@@ -423,6 +424,7 @@ nav li:last-child {
 }
 
 .services-circle {
+  z-index: -1;
   position: absolute;
   top: 50%;
   right: 0;
