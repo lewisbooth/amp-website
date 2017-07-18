@@ -1,0 +1,54 @@
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 314 328">
+    <style>
+        .st0 {
+            fill: none;
+        }
+        .st1 {
+            fill: none;
+            stroke: #FFFFFF;
+            stroke-width: 3;
+        }
+        .st2 {
+            fill: #FFFFFF;
+        }
+        .st3 {
+            opacity: 0.5088;
+            fill: none;
+            stroke: #FFFFFF;
+            stroke-width: 2;
+            enable-background: new;
+        }
+        .st4 {
+            opacity: 0.35;
+            fill: none;
+            stroke: #FFFFFF;
+            stroke-width: 2;
+            enable-background: new;
+        }
+        .st5 {
+            opacity: 0.15;
+            fill: none;
+            stroke: #FFFFFF;
+            stroke-width: 2;
+            enable-background: new;
+        }
+    </style>
+    <g id="Oval-2-Copy-4">
+        <circle id="path-4_2_" class="st0" cx="156.8" cy="160.8" r="116.8" />
+        <circle id="path-4_1_" class="st1" cx="156.8" cy="160.8" r="116.8" />
+    </g>
+    <g id="Group-2">
+        <g id="Oval-2-Copy-5">
+            <g transform="translate(131 270)">
+                <circle id="path-2_2_" class="st2" cx="25" cy="7.6" r="6" />
+            </g>
+            <g transform="translate(131 270)">
+                <circle id="path-2_1_" class="st2" cx="25" cy="7.6" r="6" />
+            </g>
+        </g>
+    </g>
+    <path class="st3" d="M42.7 186.5c-1.8-8.1-2.7-16.5-2.7-25.2 0-8.8 1-17.4 2.9-25.6" id="Oval-2-Copy-4_2_" />
+    <path class="st3" d="M156.8 44.6c64.5 0 116.7 52.2 116.7 116.7S221.2 278 156.8 278" id="Oval-2-Copy-4_1_" />
+    <path class="st4" d="M118.9 50.1c12.1-3.8 25-5.8 38.4-5.8 14.5 0 28.5 2.4 41.5 6.8" id="Oval-2-Copy-4_3_" />
+    <circle id="Oval-2-Copy-4_4_" class="st5" cx="157.2" cy="161.3" r="116.8" />
+</svg>

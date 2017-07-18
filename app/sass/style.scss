@@ -277,6 +277,7 @@ $breakpoint-large: 1640px;
 nav {
   width: 100%;
   position: fixed;
+  z-index: 99;
   padding: 2.5em 0;
 }
 
@@ -291,13 +292,17 @@ nav ul {
 nav li {
   display: inline-block;
   vertical-align: top;
-  height: 25px;
-  line-height: 25px;
+  height: 23px;
+  line-height: 23px;
   text-transform: uppercase;
   font-family: 'Play', Helvetica, sans-serif;
   font-size: 0.8rem;
   font-weight: 700;
   margin-right: 1em;
+}
+
+nav a {
+  display: inline-block;
 }
 
 nav li:last-child {
@@ -308,10 +313,12 @@ nav li:last-child {
   text-align: right;
 }
 
-.social-nav img {
-  display: inline-block;
-  box-sizing: border-box;
+.social-nav a {
   margin-right: 1em;
+}
+
+.social-nav img {
+  box-sizing: border-box;
 }
 
 .facebook {
@@ -370,10 +377,10 @@ nav li:last-child {
   transition: all .3s ease-out;
 }
 
-.home-bg {
+.main-bg {
   position: absolute;
   top: 0;
-  height: 100vh;
+  max-height: auto;
   width: 100%;
   z-index: -99;
   background-image:
@@ -382,6 +389,69 @@ nav li:last-child {
       $blue, 
       $pink
     );
+    transition: max-height .5s linear;
+    will-change: max-height;
+}
+
+.main-bg.active {
+  max-height: 10000px;
+}
+
+.services {
+  position: relative;
+  margin-top: 100vh;
+  height: 100vh;
+}
+
+.services h1 {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 0;
+  transform: translateY(-50%);
+  text-align: center;
+  font-size: 12rem;
+  line-height: 0.9;
+  background-image:
+  radial-gradient(
+    rgba(255, 255, 255, 0.15),
+    rgba(255, 255, 255, 0)
+  );
+  color:transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.services-circle {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+  transform: translateY(-50%);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  width: 50%;
+  padding-top: 50%;
+  height: auto;
+}
+
+.circle-2 {
+  width: 51%;
+  padding-top: 51%;
+  height: auto;
+  border: 2px solid rgba(255, 255, 255, 0.1);;
+}
+
+.service-bubbles {
+  height: 100vh;
+  margin-left: 16.6666666%;
+  display: flex;
+  align-items: center;
+}
+
+.bubble {
+  flex-basis: 25%;
 }
 
 
