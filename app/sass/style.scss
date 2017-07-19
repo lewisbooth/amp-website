@@ -241,7 +241,7 @@ $breakpoint-large: 1640px;
 
 .services-btn:hover .service-menu {
   animation: rotation 4s infinite linear;
-  margin-left: calc(0.7rem + 7.5px);
+  margin-left: calc(0.7rem + 7px);
 }
 
 .services-btn:hover .service-menu span {
@@ -268,6 +268,15 @@ $breakpoint-large: 1640px;
 .services-btn:hover .service-menu-bottom span:nth-child(2) {
   background-color: $pink;
   transform: translate(6px, 6px);
+}
+
+@keyframes rotation {
+		from {
+				transform: rotate(0deg);
+		}
+		to {
+				transform: rotate(359deg);
+		}
 }
 
 @-webkit-keyframes rotation {
@@ -381,6 +390,7 @@ nav li:last-child {
 	border-top: 100vh solid #ffffff;
   border-right: 50vw solid transparent;
   transition: all .3s ease-out;
+  will-change: transition;
 }
 
 .main-bg {
@@ -428,6 +438,18 @@ nav li:last-child {
   color:transparent;
   -webkit-background-clip: text;
   background-clip: text;
+}
+
+@media all and (-ms-high-contrast:none) {
+  .services h1 {
+    color: #ffffff;
+    opacity: 0.1;
+  }
+
+  svg {
+    width: 300px;
+    height: 300px;
+  }
 }
 
 .services-circle {
