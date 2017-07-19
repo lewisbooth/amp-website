@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 314 328" enable-background="new 0 0 314 328">
+  <style>
+    .st0{filter:url(#filter-5);} .st1{fill:none;stroke:#FFFFFF;stroke-width:3;} .st2{filter:url(#Adobe_OpacityMaskFilter);} .st3{fill:#FFFFFF;} .st4{opacity:0.5088;mask:url(#mask-7);fill:none;stroke:#FFFFFF;stroke-width:2;enable-background:new ;} .st5{filter:url(#Adobe_OpacityMaskFilter_1_);} .st6{opacity:0.5088;mask:url(#mask-9);fill:none;stroke:#FFFFFF;stroke-width:2;enable-background:new ;} .st7{filter:url(#Adobe_OpacityMaskFilter_2_);} .st8{opacity:0.35;mask:url(#mask-11);fill:none;stroke:#FFFFFF;stroke-width:2;enable-background:new ;} .st9{filter:url(#filter-3);} .st10{opacity:0.15;fill:none;stroke:#FFFFFF;stroke-width:2;enable-background:new ;}
+  </style>
+  <filter filterUnits="objectBoundingBox" height="157.3%" id="filter-5" width="157.3%" x="-28.7%" y="-27.8%">
+    <feMorphology in="SourceAlpha" operator="dilate" radius="5.5" result="shadowSpreadOuter1"/>
+    <feOffset dy="2" in="shadowSpreadOuter1" result="shadowOffsetOuter1"/>
+    <feMorphology in="SourceAlpha" radius="5.5" result="shadowInner"/>
+    <feOffset dy="2" in="shadowInner" result="shadowInner"/>
+    <feComposite in="shadowOffsetOuter1" in2="shadowInner" operator="out" result="shadowOffsetOuter1"/>
+    <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="17.5"/>
+    <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.5 0"/>
+  </filter>
+  <filter filterUnits="objectBoundingBox" height="816.7%" id="filter-3" width="816.7%" x="-358.3%" y="-341.7%">
+    <feMorphology in="SourceAlpha" operator="dilate" radius="2.5" result="shadowSpreadOuter1"/>
+    <feOffset dy="2" in="shadowSpreadOuter1" result="shadowOffsetOuter1"/>
+    <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="11.5"/>
+    <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.5 0"/>
+  </filter>
+  <g id="Oval-2-Copy-4">
+    <g class="st0">
+      <circle cx="156.8" cy="161.7" r="116.8"/>
+    </g>
+    <circle class="st1" cx="156.8" cy="161.7" r="116.8"/>
+  </g>
+  <g transform="translate(137 26)">
+    <defs>
+      <filter filterUnits="userSpaceOnUse" x="-98.1" y="17.9" width="235.7" height="235.7">
+        <feColorMatrix values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0"/>
+      </filter>
+    </defs>
+    <mask maskUnits="userSpaceOnUse" x="-98.1" y="17.9" width="235.7" height="235.7" id="mask-7">
+      <g class="st2">
+        <path class="st3" d="M17.8 12.3h123.9v248.4H17.8z"/>
+      </g>
+    </mask>
+    <circle class="st4" cx="19.8" cy="135.7" r="116.8"/>
+  </g>
+  <g id="Oval-2-Copy-4_2_" transform="translate(13 115)">
+    <defs>
+      <filter filterUnits="userSpaceOnUse" x="25.9" y="-71.1" width="235.7" height="235.7">
+        <feColorMatrix values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0"/>
+      </filter>
+    </defs>
+    <mask maskUnits="userSpaceOnUse" x="25.9" y="-71.1" width="235.7" height="235.7" id="mask-9">
+      <g class="st5">
+        <path id="path-8" class="st3" d="M5.6 21h49.3v50.7H5.6z"/>
+      </g>
+    </mask>
+    <circle class="st6" cx="143.8" cy="46.7" r="116.8"/>
+  </g>
+  <g transform="translate(100 6)">
+    <defs>
+      <filter filterUnits="userSpaceOnUse" x="-60.6" y="38.4" width="235.7" height="235.7">
+        <feColorMatrix values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0"/>
+      </filter>
+    </defs>
+    <mask maskUnits="userSpaceOnUse" x="-60.6" y="38.4" width="235.7" height="235.7" id="mask-11">
+      <g class="st7">
+        <path class="st3" d="M22.4 36.3h72.8v20.6H22.4z"/>
+      </g>
+    </mask>
+    <circle class="st8" cx="57.2" cy="156.2" r="116.8"/>
+  </g>
+  <g>
+    <g class="st9" transform="translate(131 270)">
+      <circle class="st3" cx="24.6" cy="8" r="5.1"/>
+    </g>
+    <g transform="translate(131 270)">
+      <circle class="st3" cx="24.6" cy="8" r="5.1"/>
+    </g>
+  </g>
+  <circle class="st10" cx="156.8" cy="161.7" r="116.8"/>
+</svg>

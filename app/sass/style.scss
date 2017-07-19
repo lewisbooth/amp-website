@@ -9,6 +9,9 @@ $margin-small: 2.2222222em;
 // colours
 $pink: #E20674;
 $blue: #3400AC;
+.white {
+  color: #ffffff;
+}
 
 // universal
 html,
@@ -46,6 +49,7 @@ img {
 svg, img {
   outline: 0;
   border: 0px;
+  max-width: 100%;
 }
 
 // typography
@@ -66,6 +70,8 @@ h3 {
 
 p {
   font-size: 1rem;
+  font-family: $montserrat;
+  line-height: 1.6;
 }
 
 // grid
@@ -401,6 +407,7 @@ nav li:last-child {
   position: relative;
   margin-top: 100vh;
   height: 100vh;
+  display: flex;
 }
 
 .services h1 {
@@ -411,7 +418,7 @@ nav li:last-child {
   left: 0;
   transform: translateY(-50%);
   text-align: center;
-  font-size: 12rem;
+  font-size: 14vw;
   line-height: 0.9;
   background-image:
   radial-gradient(
@@ -433,27 +440,51 @@ nav li:last-child {
   transform: translateY(-50%);
   border: 2px solid rgba(255, 255, 255, 0.2);
   border-radius: 50%;
-  width: 50%;
-  padding-top: 50%;
+  width: 45%;
+  padding-top: 45%;
   height: auto;
 }
 
 .circle-2 {
-  width: 51%;
-  padding-top: 51%;
+  width: 46%;
+  padding-top: 46%;
   height: auto;
   border: 2px solid rgba(255, 255, 255, 0.1);;
 }
 
+.service-content {
+  align-self: center;
+}
+
+.service-text p {
+  margin: 0 auto;
+  text-align: center;
+  font-weight: 300;
+  max-width: 530px;
+}
+
 .service-bubbles {
-  height: 100vh;
-  margin-left: 16.6666666%;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
   display: flex;
   align-items: center;
 }
 
 .bubble {
   flex-basis: 25%;
+}
+
+.bubble-2 {
+  transform: translateY(30%);
+}
+
+.bubble-3 {
+  transform: translateY(15%);
+}
+
+.bubble-4 {
+  transform: translateY(45%);
 }
 
 
