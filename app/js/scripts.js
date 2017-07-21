@@ -43,17 +43,34 @@ window.onload = function() {
 
 };
 
-
 // Top animations
 let transitioning = false;
 
 function scrollDetect(e) {
 
   var mainBg = document.querySelector(".main-bg");
-  var navLinks = document.querySelectorAll(".nav-link");
+  var colourChange = document.querySelectorAll(".change-colour");
   var slideOutLeft = document.querySelectorAll(".slide-out-left");
   var slideOutLeftFade = document.querySelectorAll(".slide-out-left-fade");
   var services = document.querySelector(".services");
+  // var contactTop = document.querySelector('.contact');
+  // var contactBottom = contactTop.offsetTop + contactTop.offsetHeight / 1.2;
+  // var isNotScrolledPast = (window.scrollY + window.innerHeight) > contactBottom;
+  // var isScrolledPast = (window.scrollY + window.innerHeight) < contactBottom;
+
+  // if (isNotScrolledPast) {
+  //   TweenMax.to(colourChange, 0.5, {
+  //     color: "#000000",
+  //     fill: "#000000",
+  //     ease:Power3.easeInOut,
+  //   }).timeScale(1);
+  // } else if (isScrolledPast) {
+  //   TweenMax.to(colourChange, 0.5, {
+  //     color: "#ffffff",
+  //     fill: "#ffffff",
+  //     ease:Power3.easeInOut,
+  //   }).timeScale(1);
+  // }
 
   // scroll up
   if ((e.deltaY < 0) && window.scrollY < 20 && transitioning == false) {
@@ -68,8 +85,9 @@ function scrollDetect(e) {
     }).timeScale(1);
 
     // Nav link colour change
-    TweenMax.to(navLinks, 1, {
+    TweenMax.to(colourChange, 1, {
       color: "#000000",
+      fill: "#000000",
       ease:Power3.easeInOut,
     }).timeScale(1);
 
@@ -122,8 +140,9 @@ function scrollDetect(e) {
     }).timeScale(1);
 
     // Nav link colour change
-    TweenMax.to(navLinks, 1, {
+    TweenMax.to(colourChange, 1, {
       color: "#ffffff",
+      fill: "#ffffff",
       ease:Power3.easeInOut,
       delay: 0.1,
     }).timeScale(1);

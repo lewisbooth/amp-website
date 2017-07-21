@@ -322,8 +322,12 @@ nav {
   padding: 2.5em 0;
 }
 
-.logo img {
+.logo svg {
   max-width: 88px;
+}
+
+.logo-fill {
+  fill: #000000;
 }
 
 nav ul {
