@@ -39,7 +39,6 @@ a, li {
   text-decoration: none;
   list-style: none;
   white-space: nowrap;
-  color: #000000;
 }
 
 a:focus {
@@ -852,6 +851,10 @@ nav {
 
 .service-text {
   opacity: 0;
+}
+
+.nav-link {
+  color: #000000;
 }
 
 //Generic animations

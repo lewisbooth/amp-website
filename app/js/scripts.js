@@ -50,6 +50,7 @@ let transitioning = false;
 function scrollDetect(e) {
 
   var mainBg = document.querySelector(".main-bg");
+  var navLinks = document.querySelectorAll(".nav-link");
   var slideOutLeft = document.querySelectorAll(".slide-out-left");
   var slideOutLeftFade = document.querySelectorAll(".slide-out-left-fade");
   var services = document.querySelector(".services");
@@ -64,6 +65,12 @@ function scrollDetect(e) {
       x: "0%",
       ease:Power3.easeInOut,
       onComplete: function() { transitioning = false }
+    }).timeScale(1);
+
+    // Nav link colour change
+    TweenMax.to(navLinks, 1, {
+      color: "#000000",
+      ease:Power3.easeInOut,
     }).timeScale(1);
 
     // Title slide in from left width fade and delay
@@ -111,8 +118,14 @@ function scrollDetect(e) {
     TweenMax.to(slideOutLeft, 1, {
       x: "-100%",
       ease:Power3.easeInOut,
-      delay: 0.2,
       onComplete: function() { transitioning = false }
+    }).timeScale(1);
+
+    // Nav link colour change
+    TweenMax.to(navLinks, 1, {
+      color: "#ffffff",
+      ease:Power3.easeInOut,
+      delay: 0.1,
     }).timeScale(1);
 
     // Title slide in from left width fade and delay
