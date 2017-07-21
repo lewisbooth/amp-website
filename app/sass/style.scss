@@ -26,6 +26,7 @@ body {
   left: 0;
   top: 0;
   font-size: calc(0.8em + 0.3vw);
+  overflow-y: scroll;
 }
 
 * {
@@ -374,6 +375,9 @@ nav li:last-child {
   height: 100vh;
   width: 100%;
   display: flex;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
 }
 
 .home-title .row {
@@ -388,6 +392,8 @@ nav li:last-child {
 }
 
 .title-content {
+  position: relative;
+  z-index: 2;
   h1, span {
     font-size: 5rem;
     line-height: 0.9;
@@ -408,13 +414,11 @@ nav li:last-child {
 
 .home-top-bg {
   position: absolute;
-  z-index: -1;
+  z-index: 2;
   top: 0;
   width: 25vw;
 	border-top: 100vh solid #ffffff;
   border-right: 50vw solid transparent;
-  transition: all .3s ease-out;
-  will-change: transition;
 }
 
 .main-bg {
@@ -422,7 +426,7 @@ nav li:last-child {
   top: 0;
   max-height: auto;
   width: 100%;
-  z-index: -99;
+  z-index: 1;
   background-image:
     linear-gradient(
       to top right, 
@@ -433,14 +437,11 @@ nav li:last-child {
   will-change: max-height;
 }
 
-.main-bg.active {
-  max-height: 10000px;
-}
-
 .services {
   position: relative;
   height: 100vh;
   display: flex;
+  z-index: 99;
 }
 
 .services h1 {
@@ -521,6 +522,7 @@ nav li:last-child {
   flex-basis: 25%;
   position: relative;
   cursor: pointer;
+  transform: scale(0);
 }
 
 .bubble:hover .bubble-text {
@@ -528,15 +530,15 @@ nav li:last-child {
 }
 
 .bubble-2 {
-  transform: translateY(30%);
+  transform: translateY(30%) scale(0);
 }
 
 .bubble-3 {
-  transform: translateY(15%);
+  transform: translateY(15%) scale(0);
 }
 
 .bubble-4 {
-  transform: translateY(45%);
+  transform: translateY(45%) scale(0);
 }
 
 .bubble-text {
@@ -620,6 +622,7 @@ nav li:last-child {
   transition: opacity .2s linear;
   will-change: opacity;
   padding: 1em;
+  z-index: 99;
 }
 
 .section-scroll h3 {
@@ -832,6 +835,40 @@ footer p, .social-nav-footer, .footer-nav {
 .footer-nav {
   text-align: right;
 }
+
+// Home animations
+nav {
+  transform: translateY(-100%);
+}
+
+.main-bg {
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+.services, .bubble {
+  opacity: 0;
+}
+
+.service-text {
+  opacity: 0;
+}
+
+//Generic animations
+.slide-in-left {
+  transform: translateX(-100%);
+}
+
+.slide-in-left-delay {
+  opacity: 0;
+  transform: translateX(-10%);
+}
+
+.slide-in-bottom {
+  transform: translateY(100%);
+}
+
+
 
 
 //Media queries
