@@ -145,7 +145,7 @@ function scrollDetect(e) {
     // Services text fade in
     TweenMax.to(".service-text", 0.8, {
       opacity: 1,
-      delay: 1,
+      delay: 1.4,
       ease:Power0.easeNone
     }).timeScale(1);
 
