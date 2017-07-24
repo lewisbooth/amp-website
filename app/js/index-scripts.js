@@ -304,3 +304,14 @@ $(serviceBubbles).hover(
     TweenMax.to($(this).find('.inner-right'), .3, {rotation:'0', transformOrigin: "center center", ease:Linear.easeIn,repeat:0}).timeScale(1);
   }
 );
+
+// Service card aniations
+// init controller
+// var controller = new ScrollMagic.Controller();
+  
+// var scene = new ScrollMagic.Scene({
+// 							triggerElement: "#card1"
+// 						})
+// 						.setTween(".service-card", 0.5, {scale: 1, opacity: 1}) // trigger a TweenMax.to tween
+// 						.addIndicators({name: "1 (duration: 0)"}) // add indicators (requires plugin)
+// 						.addTo(controller);

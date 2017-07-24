@@ -58,3 +58,10 @@ function navRecolour() {
 };
 
 window.addEventListener('scroll', navRecolour);
+
+// Scroll to contact form
+$(".contactScroll").click(function() {
+    $('html, body').animate({
+        scrollTop: $(".contact").offset().top
+    }, 500);
+});
