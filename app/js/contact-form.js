@@ -9,7 +9,7 @@ $(document).ready(function() {
     }
     $.ajax({
       type: 'POST',
-      url: 'http://amp.dev/contact_submit.php',
+      url: '/contact-form.php',
       data: formData,
       dataType: 'json',
       encode: true
