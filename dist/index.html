@@ -526,24 +526,28 @@
                 <div class="container contact-form">
                     <div class="row">
                         <div class="title">
-                            <h2>Hello, <span>You</span>.</h2>
+                            <h2>Hello, <span id="contact-name">You</span>.</h2>
                             <h4>Let's get down to business.</h4>
                         </div>
-                        <form action="" method="post">
+                        <form action="/contact_submit.php" method="post">
                             <div class="form-input">
-                                <input type="text" name="name" required>
+                                <input type="text" name="name" id="form-name" required>
                                 <label>Your Name</label>
+                                <span class="form-valid"></span>
                             </div>
                             <div class="form-input">
-                                <input type="text" name="email" required>
+                                <input type="text" name="email" id="form-email" required>
                                 <label>Your Email</label>
                             </div>
                             <div class="form-input">
-                                <textarea type="text" name="message" rows="1" required></textarea>
+                                <textarea type="text" name="message" id="form-message" rows="1" required></textarea>
                                 <label>How can we help?</label>
                             </div>
                             <div class="button-wrapper">
-                                <button name="submit" type="submit">Send<div class="arrow"><img src="images/arrow-right.svg"></div></button>
+                                <button name="submit" type="submit" disabled><div class="arrow"><img src="images/arrow-right.svg"></div></button>
+                            </div>
+                            <div id="form-reset-container">
+                                <div id="form-reset-text">Send another message</div>
                             </div>
                         </form>
                         <div class="contact-details">
@@ -573,6 +577,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TweenMax.min.js"></script>
         <script src="js/scripts.js"></script>
         <script src="js/canvas.js"></script>
+        <script src="js/contact-form.js"></script>
         <script src="js/index-scripts.js"></script>
     </body>
 </html>
