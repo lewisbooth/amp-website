@@ -741,6 +741,11 @@ input:focus, input:valid, textarea:focus, textarea:valid {
   border-bottom: 1px solid rgba(0, 0, 0, 1);
 }
 
+input.valid,
+textarea.valid {
+  border-bottom: 1px solid $pink;
+}
+
 input:focus ~ label, input:valid ~ label, textarea:focus ~ label, textarea:valid ~ label {
   top:-1.2em;
   font-size:0.8rem;
@@ -783,17 +788,85 @@ input:focus ~ label, input:valid ~ label, textarea:focus ~ label, textarea:valid
   will-change: transform, opacity;
 }
 
-.contact-form button:hover {
+.contact-form button:disabled {
+  opacity: 0.3;
+}
+
+.contact-form button {
+  opacity: 1;
+}
+
+.contact-form button:enabled:hover {
   -webkit-box-shadow: 0px 0px 20px 5px rgba(0,0,0,0);
   -moz-box-shadow: 0px 0px 20px 5px rgba(0,0,0,0);
   box-shadow: 0px 0px 20px 5px rgba(0,0,0,0);
   color: $pink;
 }
 
-.contact-form button:hover .arrow {
+.contact-form button:enabled:hover .arrow {
   opacity: 1;
   transform: translateX(0);
   width: 15px;
+}
+
+.contact-form button.processing{   
+  -webkit-box-shadow: 0px 0px 20px 5px rgba(0,0,0,0);
+  -moz-box-shadow: 0px 0px 20px 5px rgba(0,0,0,0);
+  box-shadow: 0px 0px 20px 5px rgba(0,0,0,0);
+  color: $pink;
+}
+
+.contact-form button::before{   
+  content: 'Send'
+}
+
+.contact-form button.processing::after{   
+  content: 'ing message...'
+}
+.contact-form button.processing .arrow,
+.contact-form button.success .arrow,
+.contact-form button.failed .arrow {
+  display: none;
+}
+
+.contact-form button.success {   
+  color: green;
+  -webkit-box-shadow: 0px 0px 0px 3px green;
+  -moz-box-shadow: 0px 0px 0px 3px green;
+  box-shadow: 0px 0px 0px 3px green;
+}
+
+.contact-form button.success::before{   
+  content: "Success! We'll get back to you soon."
+}
+
+.contact-form button.failed {   
+  color: red;
+  -webkit-box-shadow: 0px 0px 0px 3px red;
+  -moz-box-shadow: 0px 0px 0px 3px red;
+  box-shadow: 0px 0px 0px 3px red;
+}
+
+.contact-form button.failed::before{   
+  content: "Sorry, there was an error processing your request";
+}
+
+#form-reset-container {
+  width: 100%;
+  display: none;
+  text-align: center;
+}
+
+#form-reset-container.active {
+  display: block;
+}
+
+#form-reset-text {
+  display: inline-block;
+  margin: 20px auto;
+  text-decoration: underline;
+  cursor: pointer;
+  font-family: $montserrat;
 }
 
 .contact-details p {
