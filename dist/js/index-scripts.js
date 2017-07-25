@@ -70,14 +70,12 @@ function scrollDetect(e) {
   if (e.deltaY < 0 && window.scrollY < 20 && transitioning == false) {
 
     transitioning = true;
+    $(".scrollDown").removeClass("transitioned");
 
     // BG slide in left
     TweenMax.to(slideOutLeft, 1, {
       x: "0%",
-      ease: Power3.easeInOut,
-      onComplete: function onComplete() {
-        transitioning = false;
-      }
+      ease: Power3.easeInOut
     }).timeScale(1);
 
     // Nav link colour change
@@ -125,7 +123,10 @@ function scrollDetect(e) {
     TweenMax.to("#canvas", 0.5, {
       opacity: 1,
       delay: 1.5,
-      ease: Power0.easeNone
+      ease: Power0.easeNone,
+      onComplete: function onComplete() {
+        transitioning = false;
+      }
     }).timeScale(1);
 
     $("#canvas").removeClass("hidden");
@@ -136,6 +137,7 @@ function scrollDetect(e) {
   if (e.deltaY > 0 && transitioning == false && window.scrollY < window.innerHeight) {
 
     transitioning = true;
+    $(".scrollDown").addClass("transitioned");
 
     // Canvas fade out
     TweenMax.to("#canvas", 0.5, {
@@ -150,10 +152,7 @@ function scrollDetect(e) {
     // BG slide out left
     TweenMax.to(slideOutLeft, 1, {
       x: "-100%",
-      ease: Power3.easeInOut,
-      onComplete: function onComplete() {
-        transitioning = false;
-      }
+      ease: Power3.easeInOut
     }).timeScale(1);
 
     // Nav link colour change
@@ -190,7 +189,10 @@ function scrollDetect(e) {
       opacity: 1,
       scale: "1",
       delay: 1.4,
-      ease: Back.easeInOut
+      ease: Back.easeInOut,
+      onComplete: function onComplete() {
+        transitioning = false;
+      }
     }, 0.3);
 
     // Expand BG
@@ -210,6 +212,7 @@ $('.scrollDown').click(function () {
   if (transitioning == false) {
 
     transitioning = true;
+    $(".scrollDown").addClass("transitioned");
 
     // Canvas fade out
     TweenMax.to("#canvas", 0.5, {
@@ -224,10 +227,7 @@ $('.scrollDown').click(function () {
     // BG slide out left
     TweenMax.to(slideOutLeft, 1, {
       x: "-100%",
-      ease: Power3.easeInOut,
-      onComplete: function onComplete() {
-        transitioning = false;
-      }
+      ease: Power3.easeInOut
     }).timeScale(1);
 
     // Nav link colour change
@@ -264,7 +264,10 @@ $('.scrollDown').click(function () {
       opacity: 1,
       scale: "1",
       delay: 1.4,
-      ease: Back.easeInOut
+      ease: Back.easeInOut,
+      onComplete: function onComplete() {
+        transitioning = false;
+      }
     }, 0.3);
 
     // Expand BG
@@ -274,6 +277,14 @@ $('.scrollDown').click(function () {
       delay: 1,
       ease: Power3.easeInOut
     }).timeScale(1);
+  }
+});
+
+$('.scrollDown').click(function () {
+  if (this.classList.contains("transitioned")) {
+    $('html, body').animate({
+      scrollTop: $(".services").offset().top
+    }, 600);
   }
 });
 
@@ -302,13 +313,55 @@ $(serviceBubbles).hover(function () {
   TweenMax.to($(this).find('.inner-right'), .3, { rotation: '0', transformOrigin: "center center", ease: Linear.easeIn, repeat: 0 }).timeScale(1);
 });
 
-// Service card aniations
-// init controller
-// var controller = new ScrollMagic.Controller();
+// Service bubble scrolls to
+var card = document.querySelector("#card1");
+var style = card.currentStyle || window.getComputedStyle(card);
+var cardBottomMargin = style.marginBottom;
+var cardScrollOffset = parseInt(cardBottomMargin, 10);
 
-// var scene = new ScrollMagic.Scene({
-// 							triggerElement: "#card1"
-// 						})
-// 						.setTween(".service-card", 0.5, {scale: 1, opacity: 1}) // trigger a TweenMax.to tween
-// 						.addIndicators({name: "1 (duration: 0)"}) // add indicators (requires plugin)
-// 						.addTo(controller);
+$(".bubble-1").click(function () {
+  $('html, body').animate({
+    scrollTop: $("#card1").offset().top - cardScrollOffset
+  }, 600);
+});
+
+$(".bubble-2").click(function () {
+  $('html, body').animate({
+    scrollTop: $("#card2").offset().top - cardScrollOffset
+  }, 600);
+});
+
+$(".bubble-3").click(function () {
+  $('html, body').animate({
+    scrollTop: $("#card3").offset().top - cardScrollOffset
+  }, 600);
+});
+
+$(".bubble-4").click(function () {
+  $('html, body').animate({
+    scrollTop: $("#card4").offset().top - cardScrollOffset
+  }, 600);
+});
+
+// init controller
+var controller = new ScrollMagic.Controller();
+
+// Scene 1
+var tween1 = TweenMax.staggerFromTo("#text1", 1, { x: -150, opacity: 0 }, { x: 0, opacity: 1 }, 1);
+
+var scene1 = new ScrollMagic.Scene({ triggerElement: "#card1" }).setTween(tween1).addTo(controller);
+
+// Scene 2
+var tween2 = TweenMax.staggerFromTo("#text2", 1, { x: 150, opacity: 0 }, { x: 0, opacity: 1 }, 1);
+
+var scene2 = new ScrollMagic.Scene({ triggerElement: "#card2" }).setTween(tween2).addTo(controller);
+
+// Scene 3
+var tween2 = TweenMax.staggerFromTo("#text3", 1, { x: -150, opacity: 0 }, { x: 0, opacity: 1 }, 1);
+
+var scene2 = new ScrollMagic.Scene({ triggerElement: "#card3" }).setTween(tween2).addTo(controller);
+
+// Scene 4
+var tween2 = TweenMax.staggerFromTo("#text4", 1, { x: 150, opacity: 0 }, { x: 0, opacity: 1 }, 1);
+
+var scene2 = new ScrollMagic.Scene({ triggerElement: "#card4" }).setTween(tween2).addTo(controller);
