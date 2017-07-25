@@ -43,6 +43,7 @@ a, li {
   -webkit-user-select: none;     
   -moz-user-select: none;
   -ms-user-select: none;
+  -webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
 }
 
 a:focus {
@@ -444,7 +445,8 @@ canvas {
 .main-bg {
   position: absolute;
   top: 0;
-  max-height: auto;
+  max-height: 100vh;
+  overflow: hidden;
   width: 100%;
   z-index: 1;
   background-image:
@@ -980,11 +982,6 @@ nav {
   transform: translateY(-100%);
 }
 
-.main-bg {
-  max-height: 100vh;
-  overflow: hidden;
-}
-
 .services, .bubble {
   opacity: 0;
 }
@@ -1011,8 +1008,109 @@ nav {
   transform: translateY(100%);
 }
 
+.mobile-bg {
+  display: none;
+}
+
+// Touchscreen styling
+html.touch {
+
+  canvas, .home-top-bg, .scroll-wrapper, .section-scroll, #bubbles {
+    display: none;
+  }
+
+  .services {
+    position: relative;
+    height: 65vw;
+    margin-bottom: -15vh;
+    z-index: -99;
+  }
+
+  .mobile-bg {
+    display: block;
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 40vh 100vw 0 0;
+    border-color: #ffffff transparent transparent transparent;
+  }
+
+  .services, .service-text {
+    opacity: 1;
+  }
+  
+  nav {
+    position: relative;
+  }
+
+  .main-bg {
+    position: relative;
+    max-height: 10000px !important;
+    transform: translateY(-40vh);
+    margin-bottom: -40vh;
+  }
 
 
+  .change-colour2 {
+    fill: #000000;
+  }
+
+  .services-btn:hover {
+    -webkit-box-shadow: 0px 0px 0px 3px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 0px 3px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 0px 3px rgba(0,0,0,0.75);
+    color: #000000;
+  }
+
+  .services-btn:hover .service-menu span {
+    width: 7px;
+    height: 7px;
+    background-color: black;
+  }
+
+  .services-btn:hover .service-menu-top span,
+  .services-btn:hover .service-menu-bottom span {
+    background-color: #000000;
+    border-radius: 0;
+  }
+
+  .services-btn:hover .service-menu-top span:nth-child(1) {
+    transform: translate(-1px, -1px);
+  }
+
+  .services-btn:hover .service-menu-top span:nth-child(2) {
+    transform: translate(1px, -1px);
+  }
+  .services-btn:hover .service-menu-bottom span:nth-child(1) {
+    transform: translate(-1px, 1px);
+  }
+
+  .services-btn:hover .service-menu-bottom span:nth-child(2) {
+    transform: translate(1px, 1px);
+  }
+
+  .services-btn:hover .service-menu {
+    animation: none;
+    margin-left: 0.7rem;
+  }
+
+  //Generic animations
+  .slide-in-left {
+    transform: translateX(0);
+  }
+
+  .slide-in-left-delay {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .slide-in-bottom, nav {
+    transform: translateY(0);
+  }
+    
+}
 
 //Media queries
 
@@ -1025,7 +1123,10 @@ nav {
   }
 }
 
-@media only screen and (min-width: $breakpoint-med) {
+@media only screen and (max-width: $breakpoint-med) {
 
+  .hide-1280 {
+    display: none;
+  }
 
 }

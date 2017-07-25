@@ -1,5 +1,6 @@
 // Home scripts
 
+var html = document.querySelector('html');
 
 // On load animations
 function load() {
@@ -54,6 +55,9 @@ function load() {
    }, 1800);
 
 };
+
+// Disable animations on touchscreen
+if (html.classList.contains("no-touch")) {
 
 // Top animations
 let transitioning = false;
@@ -208,6 +212,75 @@ window.addEventListener('wheel', scrollDetect);
 
 // Services button function
 $('.scrollDown').click(function(){
+  if (transitioning == false) {
+
+    transitioning = true;
+    $(".scrollDown").removeClass("transitioned");
+
+    // BG slide in left
+    TweenMax.to(slideOutLeft, 1, {
+      x: "0%",
+      ease:Power3.easeInOut,
+    }).timeScale(1);
+
+    // Nav link colour change
+    TweenMax.to(colourChange, 1, {
+      color: "#000000",
+      fill: "#000000",
+      ease:Power3.easeInOut,
+    }).timeScale(1);
+
+    // Title slide in from left width fade and delay
+    TweenMax.to(slideOutLeftFade, 0.8, {
+      x: "0%",
+      opacity: 1,
+      delay: 0.8,
+      ease:Power1.easeNone
+    }).timeScale(1);
+
+    // Services fade out
+    TweenMax.to(services, 0.5, {
+      opacity: 0,
+      ease:Power0.easeIn
+    }).timeScale(1);
+
+    // Services text fade in
+    TweenMax.to(".service-text", 0.5, {
+      opacity: 0,
+      ease:Power0.easeNone
+    }).timeScale(1);
+
+    // Bubbles fade out
+    TweenMax.staggerTo(".bubble", 1, {
+      opacity: 0,
+      scale: "0",
+      ease:Back.easeInOut
+    }, 0.4);
+
+    // Retract BG
+    TweenMax.to(mainBg, 0.4, {
+      maxHeight: "100vh",
+      zIndex: "1",
+      ease: Linear.easeNone
+    }).timeScale(1);
+
+    // Canvas fade in
+    TweenMax.to("#canvas", 0.5, {
+      opacity: 1,
+      delay: 1.5,
+      ease:Power0.easeNone,
+      onComplete: function() { transitioning = false }
+    }).timeScale(1);
+    
+    $("#canvas").removeClass("hidden");
+    stepCanvas();
+
+  }
+
+});
+
+// Home index button
+$('.scrollUp').click(function(){
   if (transitioning == false) {
 
     transitioning = true;
@@ -376,3 +449,17 @@ var tween2 =  TweenMax.staggerFromTo("#text4", 1, {x: 150, opacity: 0}, {x: 0, o
 var scene2 = new ScrollMagic.Scene({triggerElement: "#card4"})
 					.setTween(tween2)
           .addTo(controller);
+
+}
+
+// Mobile scripts {
+if (html.classList.contains("touch")) {
+
+  // Full screen top section
+  var titleSection = document.querySelector('.home-title');
+
+  var navHeight = document.querySelector('.nav').offsetHeight;
+
+  titleSection.style.height =  `calc(100vh - ${navHeight}px)`;
+  titleSection.style.transform =  `translateY(-${navHeight / 2}px)`;
+  };
