@@ -223,12 +223,10 @@ $breakpoint-large: 1640px;
   vertical-align: bottom;
   margin-left: 0.7rem;
   transition: all .2s ease-in-out;
-  will-change: transform;
 }
 
 .service-menu span {
   transition: all .2s ease-in;
-  will-change: transform;
 }
 
 .service-menu-top span {
@@ -525,11 +523,15 @@ canvas {
   align-self: center;
 }
 
+.service-text h2 {
+  text-align: center;
+}
+
 .service-text p {
-  margin: 0 auto;
+  margin: 1em auto 0 auto;
   text-align: center;
   font-weight: 300;
-  max-width: 530px;
+  max-width: 600px;
 }
 
 .service-bubbles {
@@ -545,6 +547,7 @@ canvas {
   position: relative;
   cursor: pointer;
   transform: scale(0);
+  will-change: opacity;
 }
 
 .bubble:hover .bubble-text {
@@ -633,7 +636,6 @@ canvas {
   align-items: center;
   opacity: 0.6;
   transition: opacity .2s linear;
-  will-change: opacity;
   padding: 1em;
   z-index: 99;
   cursor: pointer;
@@ -689,6 +691,7 @@ li a.scrollDown {
 
 .contact {
   height: 100vh;
+  min-height: 850px;
   background-color: #ffffff;
   position: relative;
 }
@@ -829,7 +832,6 @@ input:focus ~ label, input:valid ~ label, textarea:focus ~ label, textarea:valid
   transform: translateX(-18px);
   opacity: 0;
   transition: all .3s ease-in-out;
-  will-change: transform, opacity;
 }
 
 .contact-form button:disabled {
@@ -1015,26 +1017,19 @@ nav {
 // Touchscreen styling
 html.touch {
 
-  canvas, .home-top-bg, .scroll-wrapper, .section-scroll, #bubbles {
+  canvas, .scroll-wrapper, .section-scroll, #bubbles {
     display: none;
+  }
+
+  .home-top-bg {
+    width: 0;
+    border-top: 100vh solid #fff;
+    border-right: 100vw solid transparent;
   }
 
   .services {
     position: relative;
-    height: 65vw;
-    margin-bottom: -15vh;
     z-index: -99;
-  }
-
-  .mobile-bg {
-    display: block;
-    position: absolute;
-    top: 0;
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 40vh 100vw 0 0;
-    border-color: #ffffff transparent transparent transparent;
   }
 
   .services, .service-text {
@@ -1043,13 +1038,12 @@ html.touch {
   
   nav {
     position: relative;
+    z-index: 99;
   }
 
   .main-bg {
-    position: relative;
     max-height: 10000px !important;
-    transform: translateY(-40vh);
-    margin-bottom: -40vh;
+    padding-top: 100vh;
   }
 
 
@@ -1123,10 +1117,45 @@ html.touch {
   }
 }
 
+@media only screen and (max-width: $breakpoint-large) {
+  //Home styles
+  .service-info {
+    max-width: calc(100% - 40px);
+    padding: 0;
+  }
+  .service-card-text p.even {
+    margin-left: 0;
+  }
+  .home-top-bg {
+    width: 30vw;
+    border-top: 100vh solid #fff;
+    border-right: 40vw solid transparent;
+  }
+  .title-content {
+    margin-left: 7.5%;
+  }
+}
+
 @media only screen and (max-width: $breakpoint-med) {
 
-  .hide-1280 {
+  .service-card-text p {
+    max-width: 450px;
+  }
+
+  .service-card-text p.even {
+    transform: translateX(10%);
+  }
+
+}
+
+@media only screen and (max-width: 1020px) {
+
+  .hide-1020 {
     display: none;
+  }
+
+  .service-card-text p.even {
+    transform: translateX(0);
   }
 
 }

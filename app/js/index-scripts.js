@@ -1,66 +1,66 @@
 // Home scripts
 
 var html = document.querySelector('html');
-
-// On load animations
-function load() {
-    const navDown = document.querySelectorAll("nav");
-    const fadeIn = document.querySelectorAll(".fade-in");
-    const slideInLeft = document.querySelectorAll(".slide-in-left");
-    const slideInBottom = document.querySelectorAll(".slide-in-bottom");
-    const slideInLeftDelay = document.querySelectorAll(".slide-in-left-delay");
-
-    // Nav slide down
-    TweenMax.to(navDown, 2, {
-      y: 0,
-      ease:Power3.easeInOut
-    }).timeScale(1);
-
-    // Slide in from bottom
-    TweenMax.to(slideInBottom, 2, {
-      y: 0,
-      ease:Power3.easeInOut
-    }).timeScale(1);
-
-    // Slide in from left
-    TweenMax.to(slideInLeft, 1, {
-      x: 0,
-      ease:Power3.easeInOut
-    }).timeScale(1);
-
-    // Fade in
-    TweenMax.to(fadeIn, 1, {
-      opacity: 1,
-      ease:Power3.easeInOut
-    }).timeScale(1);
-
-    // Slide in from left width fade and delay
-    TweenMax.to(slideInLeftDelay, 0.6, {
-      x: 0,
-      opacity: 1,
-      delay: 0.8,
-      ease:Power1.easeNone
-    }).timeScale(1);
-
-    // Canvas fade in
-    TweenMax.to("#canvas", 0.8, {
-      opacity: 1,
-      delay: 1.8,
-      ease:Power0.easeNone
-    }).timeScale(1);
-    
-    setTimeout(function(){
-       $("#canvas").removeClass("hidden");
-       stepCanvas();
-   }, 1800);
-
-};
+let transitioning = false;
 
 // Disable animations on touchscreen
 if (html.classList.contains("no-touch")) {
 
+// On load animations
+function load() {
+
+  transitioning = true;
+  const navDown = document.querySelectorAll("nav");
+  const fadeIn = document.querySelectorAll(".fade-in");
+  const slideInLeft = document.querySelectorAll(".slide-in-left");
+  const slideInBottom = document.querySelectorAll(".slide-in-bottom");
+  const slideInLeftDelay = document.querySelectorAll(".slide-in-left-delay");
+
+  // Nav slide down
+  TweenMax.to(navDown, 2, {
+    y: 0,
+    ease:Power3.easeInOut
+  }).timeScale(1);
+
+  // Slide in from bottom
+  TweenMax.to(slideInBottom, 2, {
+    y: 0,
+    ease:Power3.easeInOut
+  }).timeScale(1);
+
+  // Slide in from left
+  TweenMax.to(slideInLeft, 1, {
+    x: 0,
+    ease:Power3.easeInOut
+  }).timeScale(1);
+
+  // Fade in
+  TweenMax.to(fadeIn, 1, {
+    opacity: 1,
+    ease:Power3.easeInOut
+  }).timeScale(1);
+
+  // Slide in from left width fade and delay
+  TweenMax.to(slideInLeftDelay, 0.6, {
+    x: 0,
+    opacity: 1,
+    delay: 0.8,
+    ease:Power1.easeNone
+  }).timeScale(1);
+
+  // Canvas fade in
+  TweenMax.to("#canvas", 0.8, {
+    opacity: 1,
+    delay: 1.5,
+    onComplete: function() { transitioning = false },
+    ease:Power0.easeNone
+  }).timeScale(1);
+
+  $("#canvas").removeClass("hidden");
+
+};
+
 // Top animations
-let transitioning = false;
 var mainBg = document.querySelector(".main-bg");
 var colourChange = document.querySelectorAll(".change-colour");
 var slideOutLeft = document.querySelectorAll(".slide-out-left");
@@ -69,10 +69,14 @@ var services = document.querySelector(".services");
 
 function scrollDetect(e) {
 
-  // scroll up
-  if ((e.deltaY < 0) && window.scrollY < 20 && transitioning == false) {
+  if (transitioning) {
+    return;
+  }
 
+  // scroll up
+  if ((e.deltaY < 0) && window.scrollY < 20 && transitioning === false) {
     transitioning = true;
+
     $(".scrollDown").removeClass("transitioned");
 
     // BG slide in left
@@ -109,14 +113,15 @@ function scrollDetect(e) {
     }).timeScale(1);
 
     // Bubbles fade out
-    TweenMax.staggerTo(".bubble", 1, {
+    TweenMax.to(".bubble", 0.5, {
       opacity: 0,
       scale: "0",
+      delay: 2,
       ease:Back.easeInOut
-    }, 0.4);
+    }).timeScale(1);
 
     // Retract BG
-    TweenMax.to(mainBg, 0.4, {
+    TweenMax.to(mainBg, 0.1, {
       maxHeight: "100vh",
       zIndex: "1",
       ease: Linear.easeNone
@@ -127,24 +132,25 @@ function scrollDetect(e) {
       opacity: 1,
       delay: 1.5,
       ease:Power0.easeNone,
-      onComplete: function() { transitioning = false }
+      onComplete: function() { transitioning = false },
+      display: "block"
     }).timeScale(1);
     
     $("#canvas").removeClass("hidden");
-    stepCanvas();
 
   }
 
   // scroll down
-  if ((e.deltaY > 0) && transitioning == false && window.scrollY < window.innerHeight) {
+  if ((e.deltaY > 0) && transitioning === false && window.scrollY < window.innerHeight) {
 
     transitioning = true;
     $(".scrollDown").addClass("transitioned");
 
     // Canvas fade out
-    TweenMax.to("#canvas", 0.5, {
+    TweenMax.to("#canvas", 0.3, {
       opacity: 0,
-      ease:Power0.easeNone
+      ease:Power0.easeNone,
+      display: "none"
     }).timeScale(1);
 
     setTimeout(function(){
@@ -182,7 +188,7 @@ function scrollDetect(e) {
     // Services text fade in
     TweenMax.to(".service-text", 0.8, {
       opacity: 1,
-      delay: 1.4,
+      delay: 0.6,
       ease:Power0.easeNone
     }).timeScale(1);
 
@@ -209,87 +215,16 @@ function scrollDetect(e) {
 
 window.addEventListener('wheel', scrollDetect);
 
-
 // Services button function
 $('.scrollDown').click(function(){
-  if (transitioning == false) {
-
-    transitioning = true;
-    $(".scrollDown").removeClass("transitioned");
-
-    // BG slide in left
-    TweenMax.to(slideOutLeft, 1, {
-      x: "0%",
-      ease:Power3.easeInOut,
-    }).timeScale(1);
-
-    // Nav link colour change
-    TweenMax.to(colourChange, 1, {
-      color: "#000000",
-      fill: "#000000",
-      ease:Power3.easeInOut,
-    }).timeScale(1);
-
-    // Title slide in from left width fade and delay
-    TweenMax.to(slideOutLeftFade, 0.8, {
-      x: "0%",
-      opacity: 1,
-      delay: 0.8,
-      ease:Power1.easeNone
-    }).timeScale(1);
-
-    // Services fade out
-    TweenMax.to(services, 0.5, {
-      opacity: 0,
-      ease:Power0.easeIn
-    }).timeScale(1);
-
-    // Services text fade in
-    TweenMax.to(".service-text", 0.5, {
-      opacity: 0,
-      ease:Power0.easeNone
-    }).timeScale(1);
-
-    // Bubbles fade out
-    TweenMax.staggerTo(".bubble", 1, {
-      opacity: 0,
-      scale: "0",
-      ease:Back.easeInOut
-    }, 0.4);
-
-    // Retract BG
-    TweenMax.to(mainBg, 0.4, {
-      maxHeight: "100vh",
-      zIndex: "1",
-      ease: Linear.easeNone
-    }).timeScale(1);
-
-    // Canvas fade in
-    TweenMax.to("#canvas", 0.5, {
-      opacity: 1,
-      delay: 1.5,
-      ease:Power0.easeNone,
-      onComplete: function() { transitioning = false }
-    }).timeScale(1);
-    
-    $("#canvas").removeClass("hidden");
-    stepCanvas();
-
-  }
-
-});
-
-// Home index button
-$('.scrollUp').click(function(){
-  if (transitioning == false) {
-
-    transitioning = true;
+  transitioning = true;
     $(".scrollDown").addClass("transitioned");
 
     // Canvas fade out
     TweenMax.to("#canvas", 0.5, {
       opacity: 0,
-      ease:Power0.easeNone
+      ease:Power0.easeNone,
+      display: "none"
     }).timeScale(1);
 
     setTimeout(function(){
@@ -327,7 +262,7 @@ $('.scrollUp').click(function(){
     // Services text fade in
     TweenMax.to(".service-text", 0.8, {
       opacity: 1,
-      delay: 1.4,
+      delay: 0.6,
       ease:Power0.easeNone
     }).timeScale(1);
 
@@ -347,8 +282,6 @@ $('.scrollUp').click(function(){
       delay: 1,
       ease: Power3.easeInOut,
     }).timeScale(1);
-
-  }
 
 });
 
