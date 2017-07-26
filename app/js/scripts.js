@@ -22,43 +22,42 @@ textarea.addEventListener('keydown', autosize);
 
 // Change nav colour on contact form
 function navRecolour() {
-  if (html.classList.contains("no-touch")) {
-    var navHeight = document.querySelector('.nav').offsetHeight;
-    var colourChange = document.querySelectorAll('.change-colour');
-    var colourChangeOnce = document.querySelectorAll('.change-colour2');
-    var contactTop = document.querySelector('.contact');
-    var contactBottom = (contactTop.offsetTop + contactTop.offsetHeight) - (navHeight / 2);
-    var isNotScrolledPast = (window.scrollY + window.innerHeight) > contactBottom;
+  if (window.scrollY < 500) { return; }
+  var navHeight = document.querySelector('.nav').offsetHeight;
+  var colourChange = document.querySelectorAll('.change-colour');
+  var colourChangeOnce = document.querySelectorAll('.change-colour2');
+  var contactTop = document.querySelector('.contact');
+  var contactBottom = (contactTop.offsetTop + contactTop.offsetHeight) - (navHeight / 2);
+  var isNotScrolledPast = (window.scrollY + window.innerHeight) > contactBottom;
 
-    if (isNotScrolledPast) {
+  if (isNotScrolledPast) {
 
-      TweenMax.to(colourChange, 0.5, {
-        color: "#000000",
-        fill: "#000000",
-        ease:Power3.easeInOut,
-      }).timeScale(1);
+    TweenMax.to(colourChange, 0.5, {
+      color: "#000000",
+      fill: "#000000",
+      ease: Linear.easeNone
+    }).timeScale(1);
 
-      TweenMax.to(colourChangeOnce, 0.5, {
-        color: "#000000",
-        fill: "#000000",
-        ease:Power3.easeInOut,
-      }).timeScale(1);
+    TweenMax.to(colourChangeOnce, 0.5, {
+      color: "#000000",
+      fill: "#000000",
+      ease: Linear.easeNone
+    }).timeScale(1);
 
-    } else {
+  } else {
 
-      TweenMax.to(colourChange, 0.5, {
-        color: "#ffffff",
-        fill: "#ffffff",
-        ease:Power3.easeInOut,
-      }).timeScale(1);
+    TweenMax.to(colourChange, 0.5, {
+      color: "#ffffff",
+      fill: "#ffffff",
+      ease: Linear.easeNone
+    }).timeScale(1);
 
-      TweenMax.to(colourChangeOnce, 0.5, {
-        color: "#ffffff",
-        fill: "#ffffff",
-        ease:Power3.easeInOut,
-      }).timeScale(1);
+    TweenMax.to(colourChangeOnce, 0.5, {
+      color: "#ffffff",
+      fill: "#ffffff",
+      ease: Linear.easeNone
+    }).timeScale(1);
 
-    }
   }
 }
 

@@ -38,9 +38,7 @@ var winX = window.innerWidth,
     winY = window.innerHeight;
 
 // Initialise the canvas
-window.onload = function () {
-
-  load();
+function initCanvas() {
 
   // No animations on mobile
   if (window.innerWidth <= 768) {
