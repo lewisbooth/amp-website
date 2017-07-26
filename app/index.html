@@ -3,21 +3,23 @@
     <include src="includes/header.html" title="" keywords="" description=""></include>
     
     <body>
-        <canvas id="canvas" class="hidden"></canvas>
+        <canvas id="canvas" class="hidden hide-1020"></canvas>
         <include src="includes/nav.html"></include>
         <div class="home-top-bg slide-in-left slide-out-left"></div>
         <section class="container home-title">
             <div class="row">
                 <div class="col-10 title-content slide-in-left-delay slide-out-left-fade">
                     <h1>Loud<br />&amp; clear<span>.</span></h1>
-                    <p>We cut through the noise to deliver smart digital experiences that help your brand grow.</p>
+                    <p>We cut through the noise to deliver effective digital marketing that helps your business grow.</p>
                     <a class="button btn-md services-btn scrollDown">our services<div class="service-menu"><div class="service-menu-top"><span></span><span></span></div><div class="service-menu-bottom"><span></span><span></span></div></div></a>
                 </div>
             </div>
         </section>
+        <div class="scroll-wrapper">
             <a class="scrollDown"><div class="section-scroll slide-in-bottom">
                 <img src="images/arrow-down.svg">
             </div></a>
+        </div>
         
         <section class="main-bg">
 
@@ -28,10 +30,11 @@
                 <div class="services-circle circle-2"></div>
                 <div class="container service-content">
                     <div class="service-text">
-                        <p class="white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et odio at ex pharetra vehicula. Donec sed orci elementum, sollicitudin urna id, venenatis diam.</p>
+                        <h2 class="white">Bespoke digital solutions</h2>
+                        <p class="white">ΛMP is a brand new digital marketing agency dedicated to producing high quality custom websites, online marketing campaigns, brand strategies and content creation.</p>
                     </div>
                     <div id="bubbles" class="service-bubbles">
-                        <div class="bubble">
+                        <div class="bubble bubble-1">
                             <div class="bubble-text">
                                 <h2 class="white">01</h2>
                                 <h3 class="white">Online<br />Marketing</h3>
@@ -245,7 +248,7 @@
                         <div class="bubble bubble-3">
                             <div class="bubble-text">
                                 <h2 class="white">03</h2>
-                                <h3 class="white">Motion<br />Graphics + CGI</h3>
+                                <h3 class="white">CGI +<br />Image Creation</h3>
                             </div>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 314 328" enable-background="new 0 0 314 328">
                                 <filter filterUnits="objectBoundingBox" height="157.3%" id="filter-5" width="157.3%" x="-28.7%" y="-27.8%">
@@ -322,7 +325,7 @@
                         <div class="bubble bubble-4">
                             <div class="bubble-text">
                                 <h2 class="white">04</h2>
-                                <h3 class="white">Web<br />Development</h3>
+                                <h3 class="white">Web<br />Design</h3>
                             </div>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 314 328" enable-background="new 0 0 314 328">
                                 <filter filterUnits="objectBoundingBox" height="157.3%" id="filter-5" width="157.3%" x="-28.7%" y="-27.8%">
@@ -403,54 +406,50 @@
             <!-- Services Expanded -->
             <section class="container services-expanded">
                 <div class="row service-info">
-                    <div class="service-card">
+                    <div id="card1" class="service-card">
                         <div class="col-6 service-image">
-                            <h3 class="white">01<span>_04</span></h3>
                             <img src="images/service-test-image.png" alt="Digital Marketing">
                         </div>
-                        <div class="col-6 service-card-text"> 
-                            <h3 class="pink">Online Marketing_</h3>
-                            <h2 class="white">Social Media, PPC, Email<br />&amp; Affiliate Marketing</h2>
-                            <p class="white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer a ante sit amet turpis hendrerit mollis. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <div id="text1" class="col-6 service-card-text"> 
+                            <h3 class="pink odd">Online Marketing_</h3>
+                            <h2 class="white odd">Social Media, PPC, Email<br />&amp; Affiliate Marketing</h2>
+                            <p class="white odd">Whether it’s friendly advice or a fully managed online marketing campaign, we set clear  data-driven goals and offer constant feedback to ensure that your brand builds and maintains a strong social presence.</p>
                         </div>
                     </div>
-                    <div class="service-card">
-                        <div class="col-6 service-card-text forward"> 
+                    <div id="card2" class="service-card">
+                        <div id="text2" class="col-6 service-card-text"> 
                             <h3 class="pink">Graphic Design_</h3>
-                            <h2 class="white">Branding, Print<br />&amp; Digital Design</h2>
-                            <p class="white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer a ante sit amet turpis hendrerit mollis. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <h2 class="white">Branding, Graphic Design<br class=""> Marketing Strategy</h2>
+                            <p class="white even">Our experience building some of the fastest growing brands in the UK allows us to deliver confident, tailored designs that put you ahead of the pack. We’ll help you to define goals, understand the market and find your voice in an increasingly noisy world.</p>
                         </div>
                         <div class="col-6 service-image">
-                            <h3 class="white">02<span>_04</span></h3>
                             <img src="images/service-test-image.png" alt="Digital Marketing">
                         </div>
                     </div>
-                    <div class="service-card">
+                    <div id="card3" class="service-card">
                         <div class="col-6 service-image">
-                            <h3 class="white">03 <span>_04</span></h3>
                             <img src="images/service-test-image.png" alt="Digital Marketing">
                         </div>
-                        <div class="col-6 service-card-text"> 
-                            <h3 class="pink">Motion Graphics + CGI_</h3>
-                            <h2 class="white">Video, Animation<br class="hidden-1600" />&amp; TV Advertising</h2>
-                            <p class="white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer a ante sit amet turpis hendrerit mollis. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <div id="text3" class="col-6 service-card-text"> 
+                            <h3 class="pink odd">CGI + Image Creation_</h3>
+                            <h2 class="white odd">Video, CGI Animation<br class="" />&amp; TV Advertising</h2>
+                            <p class="white odd">From entertaining social media content to national TV campaigns, our CGI imagery & video production skills help you to visualise your ideas, communicate with your audience and offer a competitive edge for your business.</p>
                         </div>
                     </div>
-                    <div class="service-card">
-                        <div class="col-6 service-card-text forward"> 
-                            <h3 class="pink">Web Development_</h3>
-                            <h2 class="white">UX + UI Design, Ecommerce<br />&amp; Website  Development</h2>
-                            <p class="white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer a ante sit amet turpis hendrerit mollis. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <div id="card4" class="service-card">
+                        <div id="text4" class="col-6 service-card-text"> 
+                            <h3 class="pink">Web Design</h3>
+                            <h2 class="white">Website Development,<br />SEO, E-commerce &amp; Hosting</h2>
+                            <p class="white even">We strive to build fast, reliable websites that deliver content efficiently on all devices as standard. Our rock-solid hosting packages are capable of scaling seamlessly to handle busy periods, backed with 24/7 monitoring and easy-to-use content management systems.</p>
                         </div>
                         <div class="col-6 service-image">
-                            <h3 class="white">04<span>_04</span></h3>
                             <img src="images/service-test-image.png" alt="Digital Marketing">
                         </div>
-                        <a href="#"><div class="section-scroll">
+                    </div>
+                        <a class="contactScroll"><div class="section-scroll">
                             <h3 class="white">Get in Touch</h3>
                             <img src="images/arrow-down.svg">
                         </div></a>
-                    </div>
                 </div>
             </section>
 

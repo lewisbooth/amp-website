@@ -5,22 +5,22 @@ var config = {
     // Number of nodes per 500px of canvas width
     density: 40,
     // Size and randomness in pixels
-    size: 1,
+    size: 2,
     sizeVariation: 0.5,
-    nodeOpacity: 0.1,
+    nodeOpacity: 0.5,
     // Movement speed and randomness in pixels/sec
-    speed: 0.5,
-    speedVariation: 0.5,
+    speed: 1,
+    speedVariation: 1,
     // How far away in pixels the nodes will link up
     linkLength: 200,
-    // Link width in pixels
-    linkOpacity: 0.3
+    // Link opacity in pixels
+    linkOpacity: 0.2
   },
   pulse: {
     // Frequency of random pulses in milliseconds
     frequency: 4000,
     // How large the nodes become when pulsed
-    intensity: 5,
+    intensity: 3,
     // Speed of pulse in pixels/sec
     speed: 400,
     // Falloff of pulse in milliseconds
@@ -39,15 +39,22 @@ var winX = window.innerWidth,
 
 // Initialise the canvas
 window.onload = function () {
+
   load();
+
   // No animations on mobile
   if (window.innerWidth <= 768) {
     return;
   }
 
   resizeCanvas();
-  // Set frame draw interval to 60fps
-  stepCanvas();
+
+  setInterval(function () {
+    if (canvas.classList.contains('hidden')) {
+      return;
+    }
+    stepCanvas();
+  }, 1000 / 30);
 
   // Pulse random node every X milliseconds
   setInterval(function () {
@@ -60,6 +67,9 @@ window.onload = function () {
 };
 
 window.onresize = function () {
+  if (window.innerWidth <= 768) {
+    return;
+  }
   resizeCanvas();
 };
 
@@ -72,23 +82,23 @@ document.addEventListener('click', function (e) {
 });
 
 // Returns a random number between min and max
-var getRandom = function getRandom(min, max) {
+function getRandom(min, max) {
   return Math.random() * (max - min) + min;
 };
 
 // Returns the desired number of nodes for the current screen width
-var getNodeQuantity = function getNodeQuantity() {
+function getNodeQuantity() {
   return Math.floor(winX / 500 * config.nodes.density);
 };
 
 // Returns the distance between two points with Pythagoras' Theorem 
-var getDistance = function getDistance(a, b, x, y) {
+function getDistance(a, b, x, y) {
   var xDelta = Math.abs(a - x),
       yDelta = Math.abs(b - y);
   return Math.sqrt(xDelta ** 2 + yDelta ** 2);
-};
+}
 
-var addNodes = function addNodes() {
+function addNodes() {
   var int = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
   var x = arguments[1];
   var y = arguments[2];
@@ -106,7 +116,7 @@ var addNodes = function addNodes() {
   }
 };
 
-var resizeCanvas = function resizeCanvas() {
+function resizeCanvas() {
   // Save last size so we can calculate the change and adjust the nodes
   var oldWinX = winX,
       oldWinY = winY;
@@ -133,7 +143,7 @@ var resizeCanvas = function resizeCanvas() {
   c.canvas.height = winY;
 };
 
-var stepCanvas = function stepCanvas() {
+function stepCanvas() {
   // Clear the canvas
   c.clearRect(0, 0, canvas.width, canvas.height);
   // Draw frame
@@ -142,11 +152,9 @@ var stepCanvas = function stepCanvas() {
     c.beginPath();
     var radius = node[4] * node[5];
     c.arc(node[0], node[1], radius, 0, 360);
-    var fillOpacity = node[5] * 3 * config.nodes.nodeOpacity;
+    var fillOpacity = (node[5] - 1) * 2 + config.nodes.nodeOpacity;
     c.fillStyle = 'rgba(225,225,225,' + fillOpacity + ')';
-    c.strokeStyle = 'rgba(225,225,225,' + fillOpacity + ')';
     c.fill();
-    c.stroke();
     // Search for other close nodes and connect with a line
     nodes.forEach(function (otherNode) {
       // Find distance between points            
@@ -159,9 +167,9 @@ var stepCanvas = function stepCanvas() {
         // Links become stronger based on distance
         var strokeOpacity = config.nodes.linkOpacity - config.nodes.linkOpacity / config.nodes.linkLength * distance;
         // Links become stronger based on pulse strength
-        strokeOpacity *= node[5];
+        strokeOpacity *= node[5] ** 2;
         c.strokeStyle = 'rgba(225,225,225,' + strokeOpacity + ')';
-        c.lineWidth = 1;
+        c.lineWidth = 1.5;
         c.stroke();
       }
     });
@@ -192,11 +200,11 @@ var stepCanvas = function stepCanvas() {
   // Animate pulses
   pulses.forEach(function (pulse) {
     // Increase pulse size by speed in pixels/sec divided by framerate
-    pulse[2] += config.pulse.speed / 60;
+    pulse[2] += config.pulse.speed / 30;
     // Fade the pulse over the falloff duration
-    var falloff = 1 / (60 * config.pulse.falloff / 1000);
+    var falloff = 1 / (30 * config.pulse.falloff / 1000);
     if (pulse[3] <= falloff) {
-      // Remove from array when falloff is complete
+      // Remove from array when falloff is compvare
       pulses.unshift();
       return;
     } else {
@@ -204,18 +212,9 @@ var stepCanvas = function stepCanvas() {
       pulse[3] -= falloff;
     }
   });
-
-  // Break infinite loop if canvas is no longer needed
-  if (canvas.classList.contains('hidden')) {
-    return;
-  }
-
-  // Await next frame for redraw
-  window.requestAnimationFrame(stepCanvas);
 };
 
-var pulse = function pulse(x, y) {
+function pulse(x, y) {
   // Create a new pulse with x, y, size, intensity
-  var newPulse = [x, y, 0, 1];
-  pulses.push(newPulse);
+  pulses.push([x, y, 0, 1]);
 };
