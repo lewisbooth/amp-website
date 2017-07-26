@@ -1,8 +1,3 @@
-var html = document.querySelector('html');
-
-// Disable animations on touchscreen
-if (html.classList.contains("no-touch")) {
-
 var config = {
   nodes: {
     // Number of nodes per 500px of canvas width
@@ -41,13 +36,10 @@ var winX = window.innerWidth,
     winY = window.innerHeight;
 
 // Initialise the canvas
-window.onload = function() { 
-
-  load();
+function initCanvas() { 
   
   // No animations on mobile
-  if (window.innerWidth <= 768) { return }
-
+  if (window.innerWidth <= 1020) { return }
 
   resizeCanvas()
 
@@ -73,6 +65,7 @@ window.onresize = function () {
 
 // Add a node and fire off a pulse when mouse is clicked
 document.addEventListener('click', function(e) {
+  if (canvas.classList.contains('hidden')) { return }
   var x = e.clientX;
   var y = e.clientY;
   addNodes(1, x, y)
@@ -216,5 +209,3 @@ function pulse(x, y) {
   // Create a new pulse with x, y, size, intensity
   pulses.push([x, y, 0, 1]);
 };
-
-}

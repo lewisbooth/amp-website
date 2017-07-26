@@ -6,25 +6,41 @@ let transitioning = false;
 // Disable animations on touchscreen
 if (html.classList.contains("no-touch")) {
 
+// Top animations
+var mainBg = document.querySelector(".main-bg");
+var colourChange = document.querySelectorAll(".change-colour");
+var slideOutLeft = document.querySelectorAll(".slide-out-left");
+var slideOutLeftFade = document.querySelectorAll(".slide-out-left-fade");
+var services = document.querySelector(".services");
+var navDown = document.querySelector("nav");
+var fadeIn = document.querySelectorAll(".fade-in");
+var slideInLeft = document.querySelectorAll(".slide-in-left");
+var slideInBottom = document.querySelectorAll(".slide-in-bottom");
+var slideInLeftDelay = document.querySelectorAll(".slide-in-left-delay");
+
+window.onload = function() {
+    initCanvas();
+    load();
+};
+
+
 // On load animations
 function load() {
 
   transitioning = true;
-  const navDown = document.querySelectorAll("nav");
-  const fadeIn = document.querySelectorAll(".fade-in");
-  const slideInLeft = document.querySelectorAll(".slide-in-left");
-  const slideInBottom = document.querySelectorAll(".slide-in-bottom");
-  const slideInLeftDelay = document.querySelectorAll(".slide-in-left-delay");
+  canvas.classList.remove("hidden");
 
   // Nav slide down
-  TweenMax.to(navDown, 2, {
+  TweenMax.to(navDown, 1, {
     y: 0,
+    delay: 0.5,
     ease:Power3.easeInOut
   }).timeScale(1);
 
   // Slide in from bottom
-  TweenMax.to(slideInBottom, 2, {
+  TweenMax.to(slideInBottom, 1, {
     y: 0,
+    delay: 0.5,
     ease:Power3.easeInOut
   }).timeScale(1);
 
@@ -51,238 +67,171 @@ function load() {
   // Canvas fade in
   TweenMax.to("#canvas", 0.8, {
     opacity: 1,
-    delay: 1.5,
+    delay: 1.6,
     onComplete: function() { transitioning = false },
     ease:Power0.easeNone
   }).timeScale(1);
 
-  $("#canvas").removeClass("hidden");
-
+  window.addEventListener('wheel', scrollDetect);
 };
-
-// Top animations
-var mainBg = document.querySelector(".main-bg");
-var colourChange = document.querySelectorAll(".change-colour");
-var slideOutLeft = document.querySelectorAll(".slide-out-left");
-var slideOutLeftFade = document.querySelectorAll(".slide-out-left-fade");
-var services = document.querySelector(".services");
 
 function scrollDetect(e) {
-
-  if (transitioning) {
-    return;
+  if (transitioning) { return; }
+  if ((e.deltaY < 0) && window.scrollY === 0 && canvas.classList.contains('hidden')) {    
+    scrollUp();
   }
-
-  // scroll up
-  if ((e.deltaY < 0) && window.scrollY < 20 && transitioning === false) {
-    transitioning = true;
-
-    $(".scrollDown").removeClass("transitioned");
-
-    // BG slide in left
-    TweenMax.to(slideOutLeft, 1, {
-      x: "0%",
-      ease:Power3.easeInOut,
-    }).timeScale(1);
-
-    // Nav link colour change
-    TweenMax.to(colourChange, 1, {
-      color: "#000000",
-      fill: "#000000",
-      ease:Power3.easeInOut,
-    }).timeScale(1);
-
-    // Title slide in from left width fade and delay
-    TweenMax.to(slideOutLeftFade, 0.8, {
-      x: "0%",
-      opacity: 1,
-      delay: 0.8,
-      ease:Power1.easeNone
-    }).timeScale(1);
-
-    // Services fade out
-    TweenMax.to(services, 0.5, {
-      opacity: 0,
-      ease:Power0.easeIn
-    }).timeScale(1);
-
-    // Services text fade in
-    TweenMax.to(".service-text", 0.5, {
-      opacity: 0,
-      ease:Power0.easeNone
-    }).timeScale(1);
-
-    // Bubbles fade out
-    TweenMax.to(".bubble", 0.5, {
-      opacity: 0,
-      scale: "0",
-      delay: 2,
-      ease:Back.easeInOut
-    }).timeScale(1);
-
-    // Retract BG
-    TweenMax.to(mainBg, 0.1, {
-      maxHeight: "100vh",
-      zIndex: "1",
-      ease: Linear.easeNone
-    }).timeScale(1);
-
-    // Canvas fade in
-    TweenMax.to("#canvas", 0.5, {
-      opacity: 1,
-      delay: 1.5,
-      ease:Power0.easeNone,
-      onComplete: function() { transitioning = false },
-      display: "block"
-    }).timeScale(1);
-    
-    $("#canvas").removeClass("hidden");
-
+  if ((e.deltaY > 0) && window.scrollY === 0 && !canvas.classList.contains('hidden')) {
+    scrollDown();
   }
-
-  // scroll down
-  if ((e.deltaY > 0) && transitioning === false && window.scrollY < window.innerHeight) {
-
-    transitioning = true;
-    $(".scrollDown").addClass("transitioned");
-
-    // Canvas fade out
-    TweenMax.to("#canvas", 0.3, {
-      opacity: 0,
-      ease:Power0.easeNone,
-      display: "none"
-    }).timeScale(1);
-
-    setTimeout(function(){
-       $("#canvas").addClass("hidden");
-    }, 500);
-
-    // BG slide out left
-    TweenMax.to(slideOutLeft, 1, {
-      x: "-100%",
-      ease:Power3.easeInOut
-    }).timeScale(1);
-
-    // Nav link colour change
-    TweenMax.to(colourChange, 1, {
-      color: "#ffffff",
-      fill: "#ffffff",
-      ease:Power3.easeInOut,
-      delay: 0.1,
-    }).timeScale(1);
-
-    // Title slide in from left width fade and delay
-    TweenMax.to(slideOutLeftFade, 0.4, {
-      x: "-10%",
-      opacity: 0,
-      ease:Power0.easeNone
-    }).timeScale(1);
-
-    // Services fade in
-    TweenMax.to(services, 0.5, {
-      opacity: 1,
-      delay: 1,
-      ease:Power0.easeNone
-    }).timeScale(1);
-
-    // Services text fade in
-    TweenMax.to(".service-text", 0.8, {
-      opacity: 1,
-      delay: 0.6,
-      ease:Power0.easeNone
-    }).timeScale(1);
-
-    // Bubbles fade in
-    TweenMax.staggerTo(".bubble", 1.2, {
-      opacity: 1,
-      scale: "1",
-      delay: 1.4,
-      ease:Back.easeInOut,
-      onComplete: function() { transitioning = false }
-    }, 0.3);
-
-    // Expand BG
-    TweenMax.to(mainBg, 0.4, {
-      maxHeight: "10000px",
-      zIndex: "2",
-      delay: 1,
-      ease: Power3.easeInOut,
-    }).timeScale(1);
-
-  }
-
 };
 
-window.addEventListener('wheel', scrollDetect);
+function scrollDown() {
+  if (transitioning) { return; }
+  transitioning = true;
+  setTimeout(function() { 
+    transitioning = false 
+  }, 1500)
+
+  $(".scrollDown").addClass("transitioned");
+
+  // Canvas fade out
+  TweenMax.to(canvas, 0.3, {
+    opacity: 0,
+    ease:Power0.easeNone,
+    display: "none",
+    onComplete: function() { canvas.classList.add("hidden") }
+  }).timeScale(1);
+
+  // BG slide out left
+  TweenMax.to(slideOutLeft, 1, {
+    x: "-100%",
+    ease:Power3.easeInOut
+  }).timeScale(1);
+
+  // Nav link colour change
+  TweenMax.to(colourChange, 1, {
+    color: "#ffffff",
+    fill: "#ffffff",
+    ease:Power3.easeInOut,
+    delay: 0.1
+  }).timeScale(1);
+
+  // Title slide out from left width fade and delay
+  TweenMax.to(slideOutLeftFade, 0.4, {
+    x: "-10%",
+    opacity: 0,
+    ease:Power0.easeNone
+  }).timeScale(1);
+
+  // Services fade in
+  TweenMax.to(services, 0.5, {
+    opacity: 1,
+    delay: 1,
+    ease:Power0.easeNone
+  }).timeScale(1);
+
+  // Services text fade in
+  TweenMax.to(".service-text", 0.8, {
+    opacity: 1,
+    delay: 0.6,
+    ease:Power0.easeNone
+  }).timeScale(1);
+
+  // Bubbles fade in
+  TweenMax.staggerTo(".bubble", 1.2, {
+    opacity: 1,
+    scale: "1",
+    delay: 1.2,
+    ease: Back.easeInOut
+  }, 0.3);
+
+  // Expand BG
+  TweenMax.to(mainBg, 0, {
+    maxHeight: "10000px",
+    zIndex: "2",
+    delay: 1,
+    ease: Power3.easeInOut,
+  }).timeScale(1);
+
+  // Remove scroll down arrow
+  TweenMax.to(".scroll-wrapper", 0.2, {
+    opacity: 0,
+    ease:Power0.easeNone,
+    display: "none"
+  }).timeScale(1);
+}
+
+function scrollUp() {
+  if (transitioning) { return; }
+  transitioning = true;
+  setTimeout(function() { 
+    transitioning = false 
+  }, 1500)
+
+  mainBg.style.maxHeight = "100vh";
+  mainBg.style.zIndex = "1";
+
+  $(".scrollDown").removeClass("transitioned");
+
+  // BG slide in left
+  TweenMax.to(slideOutLeft, 1, {
+    x: "0%",
+    ease:Power3.easeInOut,
+    delay: 0.5
+  }).timeScale(1);
+
+  // Nav link colour change
+  TweenMax.to(colourChange, 1, {
+    color: "#000000",
+    fill: "#000000",
+    ease:Power3.easeInOut,
+    delay: 0.6
+  }).timeScale(1);
+
+  // Title slide in from left width fade and delay
+  TweenMax.to(slideOutLeftFade, 0.6, {
+    x: "0%",
+    opacity: 1,
+    delay: 1.2,
+    ease:Power1.easeOut
+  }).timeScale(1);
+
+  // Services fade out
+  TweenMax.to(services, 0.5, {
+    opacity: 0,
+    ease:Power0.easeIn
+  }).timeScale(1);
+
+  // Bubbles fade out
+  TweenMax.to(".bubble", 0.5, {
+    opacity: 0,
+    scale: "0",
+    ease: Back.easeInOut
+  }).timeScale(1);
+
+  // Canvas fade in
+  TweenMax.to(canvas, 0.5, {
+    opacity: 1,
+    delay: 1.5,
+    ease:Power0.easeNone,
+    display: "block",
+    onStart: function() {
+      canvas.classList.remove("hidden");
+    }
+  }).timeScale(1);
+
+  // Add scroll down arrow
+  TweenMax.to(".scroll-wrapper", 0.2, {
+    opacity: 1,
+    ease:Power0.easeNone,
+    display: "block"
+  }).timeScale(1);
+  
+}
 
 // Services button function
 $('.scrollDown').click(function(){
-  transitioning = true;
-    $(".scrollDown").addClass("transitioned");
-
-    // Canvas fade out
-    TweenMax.to("#canvas", 0.5, {
-      opacity: 0,
-      ease:Power0.easeNone,
-      display: "none"
-    }).timeScale(1);
-
-    setTimeout(function(){
-       $("#canvas").addClass("hidden");
-    }, 500);
-
-    // BG slide out left
-    TweenMax.to(slideOutLeft, 1, {
-      x: "-100%",
-      ease:Power3.easeInOut
-    }).timeScale(1);
-
-    // Nav link colour change
-    TweenMax.to(colourChange, 1, {
-      color: "#ffffff",
-      fill: "#ffffff",
-      ease:Power3.easeInOut,
-      delay: 0.1,
-    }).timeScale(1);
-
-    // Title slide in from left width fade and delay
-    TweenMax.to(slideOutLeftFade, 0.4, {
-      x: "-10%",
-      opacity: 0,
-      ease:Power0.easeNone
-    }).timeScale(1);
-
-    // Services fade in
-    TweenMax.to(services, 0.5, {
-      opacity: 1,
-      delay: 1,
-      ease:Power0.easeNone
-    }).timeScale(1);
-
-    // Services text fade in
-    TweenMax.to(".service-text", 0.8, {
-      opacity: 1,
-      delay: 0.6,
-      ease:Power0.easeNone
-    }).timeScale(1);
-
-    // Bubbles fade in
-    TweenMax.staggerTo(".bubble", 1.2, {
-      opacity: 1,
-      scale: "1",
-      delay: 1.4,
-      ease:Back.easeInOut,
-      onComplete: function() { transitioning = false }
-    }, 0.3);
-
-    // Expand BG
-    TweenMax.to(mainBg, 0.4, {
-      maxHeight: "10000px",
-      zIndex: "2",
-      delay: 1,
-      ease: Power3.easeInOut,
-    }).timeScale(1);
-
+  scrollDown();
 });
 
 $('.scrollDown').click(function(){
@@ -302,7 +251,6 @@ $(serviceBubbles).hover(
     TweenMax.to($(this).find('.outer-top'), 1, {scale:1.1, transformOrigin: "center center", ease:Back.easeOut}).timeScale(1);
     TweenMax.to($(this).find('.inner-left'), 1, {scale:0.9, transformOrigin: "center center", ease:Back.easeOut}).timeScale(1);
     TweenMax.to($(this).find('.inner-right'), 1, {scale:0.9, transformOrigin: "center center", ease:Back.easeOut}).timeScale(1);
-    TweenMax.to($(this).find('.glow'), 1, {opacity: 1, ease:Back.easeOut});
     TweenMax.to($(this).find('.outer-full'), 10, {rotation:'360', transformOrigin: "center 49%", ease:Linear.easeNone,repeat:-1}).timeScale(1);
     TweenMax.to($(this).find('.outer-top'), 3.5, {rotation:'-360', transformOrigin: "center center", ease: Power2.easeInOut, repeat:-1}).timeScale(1);
     TweenMax.to($(this).find('.inner-left'), 5, {rotation:'-360', transformOrigin: "center center", ease:Linear.easeNone,repeat:-1}).timeScale(1);
@@ -313,7 +261,6 @@ $(serviceBubbles).hover(
     TweenMax.to($(this).find('.outer-top'), .5, {scale:1, transformOrigin: "center center", ease:Linear.easeOut}).timeScale(1);
     TweenMax.to($(this).find('.inner-left'), .5, {scale:1, transformOrigin: "center center", ease:Linear.easeOut}).timeScale(1);
     TweenMax.to($(this).find('.inner-right'), .5, {scale:1, transformOrigin: "center center", ease:Linear.easeOut}).timeScale(1);
-    TweenMax.to($(this).find('.glow'), .3, {opacity: 0.5, ease:Back.easeOut});
     TweenMax.to($(this).find('.outer-full'), .3, {rotation:'0', transformOrigin: "center 49%", ease:Linear.easeIn,repeat:0}).timeScale(1);
     TweenMax.to($(this).find('.outer-top'), .3, {rotation:'0', transformOrigin: "center center", ease:Linear.easeIn,repeat:0}).timeScale(1);
     TweenMax.to($(this).find('.inner-left'), .3, {rotation:'0', transformOrigin: "center center", ease:Linear.easeIn,repeat:0}).timeScale(1);
@@ -407,13 +354,30 @@ if (html.classList.contains("touch")) {
       }, 600);
   });
 
-  };
+  var slideInLeftDelay = document.querySelectorAll(".slide-in-left-delay");
+  var slideInDown1 = document.querySelectorAll(".slide-in-down1");
+  var slideInDown2 = document.querySelectorAll(".slide-in-down2");
 
-const slideInLeftDelay = document.querySelectorAll(".slide-in-left-delay");
+  // Slide in left with fade and delay
+  TweenMax.to(slideInLeftDelay, 0.6, {
+    x: 0,
+    opacity: 1,
+    delay: 0.8,
+    ease:Power1.easeNone
+  }).timeScale(1);
 
-TweenMax.to(slideInLeftDelay, 0.6, {
-  x: 0,
-  opacity: 1,
-  delay: 0.4,
-  ease:Power1.easeNone
-}).timeScale(1);
+  // Slide top bg in from top
+  TweenMax.to(slideInDown2, 0.8, {
+    y: 0,
+    ease:Power3.easeInOut
+  }).timeScale(1);
+
+  // Slide in mobile bg from top
+  TweenMax.to(slideInDown1, 0.3, {
+    y: 0,
+    delay: 0.39,
+    ease:Power3.easeInOut
+  }).timeScale(1);
+
+};
+
