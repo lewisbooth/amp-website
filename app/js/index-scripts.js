@@ -293,7 +293,6 @@ $('.scrollDown').click(function(){
     }
 });
 
-
 // Service bubbles animation
 const serviceBubbles = document.querySelectorAll(".bubble");
 
@@ -395,4 +394,26 @@ if (html.classList.contains("touch")) {
 
   titleSection.style.height =  `calc(100vh - ${navHeight}px)`;
   titleSection.style.transform =  `translateY(-${navHeight / 2}px)`;
+
+  $('.scrollDown').click(function(){
+
+    var card = document.querySelector("#card1");
+    var style = card.currentStyle || window.getComputedStyle(card);
+    var cardBottomMargin = style.marginBottom;
+    var cardScrollOffset = parseInt(cardBottomMargin, 10);
+
+      $('html, body').animate({
+          scrollTop: $("#card1").offset().top - cardScrollOffset
+      }, 600);
+  });
+
   };
+
+const slideInLeftDelay = document.querySelectorAll(".slide-in-left-delay");
+
+TweenMax.to(slideInLeftDelay, 0.6, {
+  x: 0,
+  opacity: 1,
+  delay: 0.4,
+  ease:Power1.easeNone
+}).timeScale(1);

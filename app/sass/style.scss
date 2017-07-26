@@ -1010,102 +1010,6 @@ nav {
   transform: translateY(100%);
 }
 
-.mobile-bg {
-  display: none;
-}
-
-// Touchscreen styling
-html.touch {
-
-  canvas, .scroll-wrapper, .section-scroll, #bubbles {
-    display: none;
-  }
-
-  .home-top-bg {
-    width: 0;
-    border-top: 100vh solid #fff;
-    border-right: 100vw solid transparent;
-  }
-
-  .services {
-    position: relative;
-    z-index: -99;
-  }
-
-  .services, .service-text {
-    opacity: 1;
-  }
-  
-  nav {
-    position: relative;
-    z-index: 99;
-  }
-
-  .main-bg {
-    max-height: 10000px !important;
-    padding-top: 100vh;
-  }
-
-
-  .change-colour2 {
-    fill: #000000;
-  }
-
-  .services-btn:hover {
-    -webkit-box-shadow: 0px 0px 0px 3px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px 0px 0px 3px rgba(0,0,0,0.75);
-    box-shadow: 0px 0px 0px 3px rgba(0,0,0,0.75);
-    color: #000000;
-  }
-
-  .services-btn:hover .service-menu span {
-    width: 7px;
-    height: 7px;
-    background-color: black;
-  }
-
-  .services-btn:hover .service-menu-top span,
-  .services-btn:hover .service-menu-bottom span {
-    background-color: #000000;
-    border-radius: 0;
-  }
-
-  .services-btn:hover .service-menu-top span:nth-child(1) {
-    transform: translate(-1px, -1px);
-  }
-
-  .services-btn:hover .service-menu-top span:nth-child(2) {
-    transform: translate(1px, -1px);
-  }
-  .services-btn:hover .service-menu-bottom span:nth-child(1) {
-    transform: translate(-1px, 1px);
-  }
-
-  .services-btn:hover .service-menu-bottom span:nth-child(2) {
-    transform: translate(1px, 1px);
-  }
-
-  .services-btn:hover .service-menu {
-    animation: none;
-    margin-left: 0.7rem;
-  }
-
-  //Generic animations
-  .slide-in-left {
-    transform: translateX(0);
-  }
-
-  .slide-in-left-delay {
-    opacity: 1;
-    transform: translateX(0);
-  }
-
-  .slide-in-bottom, nav {
-    transform: translateY(0);
-  }
-    
-}
-
 //Media queries
 
 @media only screen and (min-width: $breakpoint-large) {
@@ -1146,6 +1050,119 @@ html.touch {
     transform: translateX(10%);
   }
 
+}
+
+// Large touchscreen styling
+@media only screen and (min-width: 1024px) {
+  // Touchscreen styling
+  html.touch {
+
+    canvas, .scroll-wrapper, .section-scroll, #bubbles {
+      display: none;
+    }
+
+    .mobile-top-bg {
+      height: 20vh;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      background-color: #ffffff;
+      z-index: 2;
+    }
+
+    .change-colour2 {
+      fill: #000000;
+    }
+
+    .home-top-bg {
+      width: 0;
+      border-top: 100vh solid #fff;
+      border-right: 100vw solid transparent;
+      margin-top: calc(20vh - 1px);
+    }
+
+    .services {
+      position: relative;
+      z-index: -99;
+      height: 50vh;
+    }
+
+    .services-circle {
+      width: 50%;
+      padding-top: 50%;
+    }
+    .circle-2 {
+      width: 52%;
+      padding-top: 52%;
+    }
+
+    .services, .service-text {
+      opacity: 1;
+    }
+
+    .service-card {
+      margin-bottom: 8em;
+    }
+    
+    nav {
+      position: relative;
+      z-index: 99;
+    }
+
+    .main-bg {
+      max-height: 10000px !important;
+      padding-top: 100vh;
+    }
+
+    .services-btn:hover {
+      -webkit-box-shadow: 0px 0px 0px 3px rgba(0,0,0,0.75);
+      -moz-box-shadow: 0px 0px 0px 3px rgba(0,0,0,0.75);
+      box-shadow: 0px 0px 0px 3px rgba(0,0,0,0.75);
+      color: #000000;
+    }
+
+    .services-btn:hover .service-menu span {
+      width: 7px;
+      height: 7px;
+      background-color: black;
+    }
+
+    .services-btn:hover .service-menu-top span,
+    .services-btn:hover .service-menu-bottom span {
+      background-color: #000000;
+      border-radius: 0;
+    }
+
+    .services-btn:hover .service-menu-top span:nth-child(1) {
+      transform: translate(-1px, -1px);
+    }
+
+    .services-btn:hover .service-menu-top span:nth-child(2) {
+      transform: translate(1px, -1px);
+    }
+    .services-btn:hover .service-menu-bottom span:nth-child(1) {
+      transform: translate(-1px, 1px);
+    }
+
+    .services-btn:hover .service-menu-bottom span:nth-child(2) {
+      transform: translate(1px, 1px);
+    }
+
+    .services-btn:hover .service-menu {
+      animation: none;
+      margin-left: 0.7rem;
+    }
+
+    //Generic animations
+    .slide-in-left {
+      transform: translateX(0);
+    }
+
+    .slide-in-bottom, nav {
+      transform: translateY(0);
+    }
+    
+  }
 }
 
 @media only screen and (max-width: 1020px) {

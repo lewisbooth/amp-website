@@ -1,3 +1,8 @@
+var html = document.querySelector('html');
+
+// Disable animations on touchscreen
+if (html.classList.contains("no-touch")) {
+
 var config = {
   nodes: {
     // Number of nodes per 500px of canvas width
@@ -211,3 +216,5 @@ function pulse(x, y) {
   // Create a new pulse with x, y, size, intensity
   pulses.push([x, y, 0, 1]);
 };
+
+}
