@@ -20,10 +20,13 @@ function autosize() {
 textarea.addEventListener('keydown', autosize);
 
 // Disable animations on touchscreen
+if (html.classList.contains("no-touch")) {
 
-// Change nav colour on contact form
-function navRecolour() {
-  if (html.classList.contains("no-touch")) {
+  // Change nav colour on contact form
+  var navRecolour = function navRecolour() {
+    if (window.scrollY < 500) {
+      return;
+    }
     var navHeight = document.querySelector('.nav').offsetHeight;
     var colourChange = document.querySelectorAll('.change-colour');
     var colourChangeOnce = document.querySelectorAll('.change-colour2');
@@ -36,15 +39,27 @@ function navRecolour() {
       TweenMax.to(colourChange, 0.5, {
         color: "#000000",
         fill: "#000000",
-        ease: Power3.easeInOut
+        ease: Linear.easeNone
       }).timeScale(1);
 
       TweenMax.to(colourChangeOnce, 0.5, {
         color: "#000000",
         fill: "#000000",
-        ease: Power3.easeInOut
+        ease: Linear.easeNone
       }).timeScale(1);
     } else {
+
+      TweenMax.to(colourChange, 0.5, {
+        color: "#ffffff",
+        fill: "#ffffff",
+        ease: Linear.easeNone
+      }).timeScale(1);
+
+      TweenMax.to(colourChangeOnce, 0.5, {
+        color: "#ffffff",
+        fill: "#ffffff",
+        ease: Linear.easeNone
+      }).timeScale(1);
 
       TweenMax.to(colourChange, 0.5, {
         color: "#ffffff",
@@ -58,10 +73,10 @@ function navRecolour() {
         ease: Power3.easeInOut
       }).timeScale(1);
     }
-  }
-}
+  };
 
-window.addEventListener('scroll', navRecolour);
+  window.addEventListener('scroll', navRecolour);
+}
 
 // Scroll to contact form
 $(".contactScroll").click(function () {

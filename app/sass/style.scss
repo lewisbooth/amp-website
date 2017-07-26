@@ -10,6 +10,11 @@ $margin-small: 2.2222222em;
 $pink: #E20674;
 $blue: #3400AC;
 
+::selection {
+  background-color: $pink;
+  color: white;
+}
+
 .white {
   color: #ffffff;
 }
@@ -1057,6 +1062,10 @@ nav {
   // Touchscreen styling
   html.touch {
 
+    body {
+      overflow: hidden;
+    }
+
     canvas, .scroll-wrapper, .section-scroll, #bubbles {
       display: none;
     }
@@ -1160,6 +1169,14 @@ nav {
 
     .slide-in-bottom, nav {
       transform: translateY(0);
+    }
+
+    .slide-in-down1 {
+      transform: translateY(-100%);
+    }
+
+    .slide-in-down2 {
+      transform: translateY(calc(-100% - 20vh));
     }
     
   }
