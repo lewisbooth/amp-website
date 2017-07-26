@@ -90,7 +90,7 @@ function scrollDown() {
   transitioning = true;
   setTimeout(function() { 
     transitioning = false 
-  }, 1500)
+  }, 2800)
 
   $(".scrollDown").addClass("transitioned");
 
