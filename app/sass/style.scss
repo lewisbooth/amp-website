@@ -576,6 +576,10 @@ canvas {
   transform: translateY(45%) scale(0);
 }
 
+.service-card video {
+  width: 100%;
+}
+
 .bubble-text {
   position: absolute;
   width: 100%;

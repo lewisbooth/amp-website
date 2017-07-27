@@ -316,33 +316,65 @@ if (html.classList.contains("no-touch") && window.innerWidth > 1020) {
   var fadeIn1 = TweenMax.to("#text1", 1, { x: 0, opacity: 1 }, 1);
   var fadeOut1 = TweenMax.to("#text1", 1, { x: -150, opacity: 0 }, 1);
 
-  var scene1 = new ScrollMagic.Scene({ triggerElement: "#card1" }).setTween(fadeIn1).addTo(controller);
+  var scene1 = new ScrollMagic.Scene({ triggerElement: "#card1" }).setTween(fadeIn1).addTo(controller).on('start', function () {
+    document.querySelector('#service-social').play();
+  }).on('leave', function () {
+    document.querySelector('#service-social').pause();
+  });
 
-  var scene1_5 = new ScrollMagic.Scene({ triggerElement: "#card2" }).setTween(fadeOut1).addTo(controller);
+  var scene1_5 = new ScrollMagic.Scene({ triggerElement: "#card2" }).setTween(fadeOut1).addTo(controller).on('start', function () {
+    document.querySelector('#service-social').pause();
+  }).on('leave', function () {
+    document.querySelector('#service-social').play();
+  });
 
   // Card 2
   var fadeIn2 = TweenMax.to("#text2", 1, { x: 0, opacity: 1 }, 1);
   var fadeOut2 = TweenMax.to("#text2", 1, { x: -150, opacity: 0 }, 1);
 
-  var scene2 = new ScrollMagic.Scene({ triggerElement: "#card2" }).setTween(fadeIn2).addTo(controller);
+  var scene2 = new ScrollMagic.Scene({ triggerElement: "#card2" }).setTween(fadeIn2).addTo(controller).on('start', function () {
+    document.querySelector('#service-design').play();
+  }).on('leave', function () {
+    document.querySelector('#service-design').pause();
+  });
 
-  var scene2_5 = new ScrollMagic.Scene({ triggerElement: "#card3" }).setTween(fadeOut2).addTo(controller);
+  var scene2_5 = new ScrollMagic.Scene({ triggerElement: "#card3" }).setTween(fadeOut2).addTo(controller).on('start', function () {
+    document.querySelector('#service-design').pause();
+  }).on('leave', function () {
+    document.querySelector('#service-design').play();
+  });
 
   // Card 3
   var fadeIn3 = TweenMax.to("#text3", 1, { x: 0, opacity: 1 }, 1);
   var fadeOut3 = TweenMax.to("#text3", 1, { x: -150, opacity: 0 }, 1);
 
-  var scene3 = new ScrollMagic.Scene({ triggerElement: "#card3" }).setTween(fadeIn3).addTo(controller);
+  var scene3 = new ScrollMagic.Scene({ triggerElement: "#card3" }).setTween(fadeIn3).addTo(controller).on('start', function () {
+    document.querySelector('#service-video').play();
+  }).on('leave', function () {
+    document.querySelector('#service-video').pause();
+  });
 
-  var scene3_5 = new ScrollMagic.Scene({ triggerElement: "#card4" }).setTween(fadeOut3).addTo(controller);
+  var scene3_5 = new ScrollMagic.Scene({ triggerElement: "#card4" }).setTween(fadeOut3).addTo(controller).on('start', function () {
+    document.querySelector('#service-video').pause();
+  }).on('leave', function () {
+    document.querySelector('#service-video').play();
+  });
 
   // Card 4
   var fadeIn4 = TweenMax.to("#text4", 1, { x: 0, opacity: 1 }, 1);
   var fadeOut4 = TweenMax.to("#text4", 1, { x: -150, opacity: 0 }, 1);
 
-  var scene4 = new ScrollMagic.Scene({ triggerElement: "#card4" }).setTween(fadeIn4).addTo(controller);
+  var scene4 = new ScrollMagic.Scene({ triggerElement: "#card4" }).setTween(fadeIn4).addTo(controller).on('start', function () {
+    document.querySelector('#service-web').play();
+  }).on('leave', function () {
+    document.querySelector('#service-web').pause();
+  });
 
-  var scene4_5 = new ScrollMagic.Scene({ triggerElement: ".contact" }).setTween(fadeOut4).addTo(controller);
+  var scene4_5 = new ScrollMagic.Scene({ triggerElement: ".contact" }).setTween(fadeOut4).addTo(controller).on('start', function () {
+    document.querySelector('#service-web').pause();
+  }).on('leave', function () {
+    document.querySelector('#service-web').play();
+  });
 }
 
 // Mobile scripts {
