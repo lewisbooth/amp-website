@@ -373,6 +373,10 @@ nav li:last-child {
   margin-right: 1em;
 }
 
+.social-nav a:last-child {
+  margin-right: 0;
+}
+
 .social-nav svg {
   box-sizing: border-box;
   fill: #ffffff;
@@ -397,6 +401,7 @@ canvas {
 
 .home-title {
   height: 100vh;
+  min-height: 500px;
   width: 100%;
   display: flex;
   overflow: hidden;
@@ -428,7 +433,7 @@ canvas {
   p {
     font-family: $montserrat;
     font-size: 1.2rem;
-    max-width: 380px;
+    max-width: 20rem;
     margin-top: 0.8em;
   }
   a {
@@ -622,7 +627,7 @@ canvas {
 
 .service-card-text p {
   font-weight: 300;
-  max-width: 480px;
+  max-width: 30rem;
   margin-top: 2em;
   line-height: 1.8;
 }
@@ -724,12 +729,16 @@ li a.scrollDown {
   margin-bottom: 2em;
 }
 
+.contact-form input {
+  box-sizing: border-box;
+}
+
 .contact-form input, .contact-form textarea {
   font-size: 1.2rem;
   font-family: $montserrat;
   font-weight: 700;
   display: block;
-  padding: 0.3em 0.3em 0.3em 0;
+  padding: 0.3em 0 0.3em 0;
   width: 100%;
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.5);
@@ -796,6 +805,7 @@ input.valid ~ span:after,
 textarea.valid ~ span:After {
   animation: valid .5s forwards ease-in-out;
   opacity: 1;
+  will-change: transform;
 }
 
 input:focus ~ label, input:valid ~ label, textarea:focus ~ label, textarea:valid ~ label {
@@ -1015,6 +1025,10 @@ nav {
   transform: translateY(100%);
 }
 
+.mobile-bg {
+  display: none;
+}
+
 //Media queries
 
 @media only screen and (min-width: $breakpoint-large) {
@@ -1061,6 +1075,9 @@ nav {
 @media only screen and (min-width: 1024px) {
   // Touchscreen styling
   html.touch {
+    nav {
+      padding-bottom: 0;
+    }
 
     body {
       overflow: hidden;
@@ -1068,6 +1085,22 @@ nav {
 
     canvas, .scroll-wrapper, .section-scroll, #bubbles {
       display: none;
+    }
+
+    .change-colour2 {
+      fill: #000000;
+    }
+
+    .home-top-bg {
+      display: none;
+    }
+
+    .mobile-bg {
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 100vh;
+      top: -120vh;
     }
 
     .mobile-top-bg {
@@ -1079,15 +1112,13 @@ nav {
       z-index: 2;
     }
 
-    .change-colour2 {
-      fill: #000000;
-    }
-
-    .home-top-bg {
+    .home-top-bg2 {
+      position: absolute;
+      z-index: 2;
       width: 0;
       border-top: 100vh solid #fff;
       border-right: 100vw solid transparent;
-      margin-top: calc(20vh - 1px);
+      margin-top: calc(20vh - 2px);
     }
 
     .services {
@@ -1133,7 +1164,6 @@ nav {
     .services-btn:hover .service-menu span {
       width: 7px;
       height: 7px;
-      background-color: black;
     }
 
     .services-btn:hover .service-menu-top span,
@@ -1144,17 +1174,21 @@ nav {
 
     .services-btn:hover .service-menu-top span:nth-child(1) {
       transform: translate(-1px, -1px);
+      background-color: black;
     }
 
     .services-btn:hover .service-menu-top span:nth-child(2) {
       transform: translate(1px, -1px);
+      background-color: black;
     }
     .services-btn:hover .service-menu-bottom span:nth-child(1) {
       transform: translate(-1px, 1px);
+      background-color: black;
     }
 
     .services-btn:hover .service-menu-bottom span:nth-child(2) {
       transform: translate(1px, 1px);
+      background-color: black;
     }
 
     .services-btn:hover .service-menu {
@@ -1170,26 +1204,273 @@ nav {
     .slide-in-bottom, nav {
       transform: translateY(0);
     }
-
-    .slide-in-down1 {
-      transform: translateY(-100%);
-    }
-
-    .slide-in-down2 {
-      transform: translateY(calc(-100% - 20vh));
-    }
     
   }
 }
 
 @media only screen and (max-width: 1020px) {
 
+  nav {
+    padding-bottom: 0;
+  }
+
   .hide-1020 {
     display: none;
+  }
+
+  h2 {
+    font-size: 1.65rem;
+  }
+
+  .contact-form .title h2 {
+    font-size: 2.2rem;
   }
 
   .service-card-text p.even {
     transform: translateX(0);
   }
 
+  body {
+      overflow: hidden;
+    }
+
+    canvas, .scroll-wrapper, .section-scroll, #bubbles {
+      display: none;
+    }
+
+    .home-top-bg {
+      display: none;
+    }
+
+    .mobile-bg {
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 100vh;
+      top: -120vh;
+    }
+
+    .mobile-top-bg {
+      height: 60vh;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      background-color: #ffffff;
+      z-index: 2;
+    }
+
+    .home-top-bg2 {
+      position: absolute;
+      z-index: 2;
+      width: 0;
+      border-top: 40vh solid #fff;
+      border-right: 100vw solid transparent;
+      margin-top: calc(60vh - 1px);
+    }
+
+    .change-colour2 {
+      fill: #000000;
+    }
+
+    .services {
+      position: relative;
+      z-index: -99;
+      height: 50vh;
+    }
+
+    .services-circle {
+      width: 50%;
+      padding-top: 50%;
+    }
+    .circle-2 {
+      width: 52%;
+      padding-top: 52%;
+    }
+
+    .services, .service-text {
+      opacity: 1;
+    }
+
+    .service-card {
+      margin-bottom: 8em;
+    }
+    
+    nav {
+      position: relative;
+      z-index: 99;
+    }
+
+    .main-bg {
+      max-height: 10000px !important;
+      padding-top: 100vh;
+    }
+
+    .services-btn:hover {
+      -webkit-box-shadow: 0px 0px 0px 3px rgba(0,0,0,0.75);
+      -moz-box-shadow: 0px 0px 0px 3px rgba(0,0,0,0.75);
+      box-shadow: 0px 0px 0px 3px rgba(0,0,0,0.75);
+      color: #000000;
+    }
+
+    .services-btn:hover .service-menu span {
+      width: 7px;
+      height: 7px;
+    }
+
+    .services-btn:hover .service-menu-top span,
+    .services-btn:hover .service-menu-bottom span {
+      background-color: #000000;
+      border-radius: 0;
+    }
+
+    .services-btn:hover .service-menu-top span:nth-child(1) {
+      transform: translate(-1px, -1px);
+      background-color: black;
+    }
+
+    .services-btn:hover .service-menu-top span:nth-child(2) {
+      transform: translate(1px, -1px);
+      background-color: black;
+    }
+    .services-btn:hover .service-menu-bottom span:nth-child(1) {
+      transform: translate(-1px, 1px);
+      background-color: black;
+    }
+
+    .services-btn:hover .service-menu-bottom span:nth-child(2) {
+      transform: translate(1px, 1px);
+      background-color: black;
+    }
+
+    .services-btn:hover .service-menu {
+      animation: none;
+      margin-left: 0.7rem;
+    }
+
+    .service-card-text h3.odd, .service-card-text h2.odd {
+      transform: translateX(0);
+    }
+
+    .service-card-text p.odd {
+      margin-left: 0;
+    }
+
+    //Generic animations
+    .slide-in-left {
+      transform: translateX(0);
+    }
+
+    .slide-in-bottom {
+      transform: translateY(0);
+    }
+
 }
+
+@media only screen and (max-width: 800px) {
+
+  .services {
+    margin-top: -10vh;
+  }
+
+  .services h1 {
+    font-size: 20vw;
+    background-image:
+    radial-gradient(
+      rgba(255, 255, 255, 0.3),
+      rgba(255, 255, 255, 0)
+    );
+  }
+
+  .service-text p, .service-card-text p {
+    max-width: 500px;
+  }
+  
+  .service-card {
+    flex-direction: column;
+    margin-bottom: 4em;
+  }
+  
+  .service-card .service-image {
+    width: 100%;
+    max-width: 500px;
+    margin-right: 0;
+    flex-basis: auto;
+    order: 1;
+  }
+
+  .service-card .service-card-text {
+    margin-top: 2em;
+    width: 100%;
+    max-width: 500px;
+    margin-right: 0;
+    flex-basis: auto;
+    order: 2;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  .services h1 {
+    display: none;
+  }
+  
+  .title-content h1, .title-content span {
+    font-size: 3.5rem;
+  }
+
+  .main-nav, .social-nav {
+    display: none;
+  }
+
+  .mobile-top-bg {
+    height: 70vh;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    background-color: #ffffff;
+    z-index: 2;
+  }
+
+  .home-top-bg2 {
+    position: absolute;
+    z-index: 2;
+    width: 0;
+    border-top: 25vh solid #fff;
+    border-right: 100vw solid transparent;
+    margin-top: calc(70vh - 1px);
+  }
+
+  .services {
+    margin: 0 0 5em 0;
+    height: auto;
+  }
+
+  .services-circle {
+    display: none;
+  }
+
+  .contact {
+    min-height: 600px;
+  }
+
+  .social-nav-footer {
+    display: none;
+  }
+
+  .footer-nav, .social-nav-footer, footer p {
+    flex-basis: calc(100% / 2);
+  }
+}
+
+@media only screen and (max-width: 350px) {
+
+  h2 {
+    font-size: 1.4rem;
+  }
+
+}
+

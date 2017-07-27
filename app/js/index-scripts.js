@@ -4,7 +4,7 @@ var html = document.querySelector('html');
 let transitioning = false;
 
 // Disable animations on touchscreen
-if (html.classList.contains("no-touch")) {
+if (html.classList.contains("no-touch") && window.innerWidth > 1020) {
 
 // Top animations
 var mainBg = document.querySelector(".main-bg");
@@ -316,31 +316,29 @@ var scene2 = new ScrollMagic.Scene({triggerElement: "#card2"})
           .addTo(controller);
 
 // Scene 3
-var tween2 =  TweenMax.staggerFromTo("#text3", 1, {x: -150, opacity: 0}, {x: 0, opacity: 1}, 1);
+var tween3 =  TweenMax.staggerFromTo("#text3", 1, {x: -150, opacity: 0}, {x: 0, opacity: 1},  1);
 
-var scene2 = new ScrollMagic.Scene({triggerElement: "#card3"})
-          .setTween(tween2)
+var scene3 = new ScrollMagic.Scene({triggerElement: "#card3"})
+          .setTween(tween3)
           .addTo(controller);
 
 // Scene 4
-var tween2 =  TweenMax.staggerFromTo("#text4", 1, {x: 150, opacity: 0}, {x: 0, opacity: 1}, 1);
+var tween4 =  TweenMax.staggerFromTo("#text4", 1, {x: 150, opacity: 0}, {x: 0, opacity: 1}, 1);
 
-var scene2 = new ScrollMagic.Scene({triggerElement: "#card4"})
-					.setTween(tween2)
+var scene4 = new ScrollMagic.Scene({triggerElement: "#card4"})
+					.setTween(tween4)
           .addTo(controller);
 
 }
 
 // Mobile scripts {
-if (html.classList.contains("touch")) {
+if (html.classList.contains("touch") | window.innerWidth <= 1020) {
 
   // Full screen top section
   var titleSection = document.querySelector('.home-title');
-
   var navHeight = document.querySelector('.nav').offsetHeight;
-
-  titleSection.style.height =  `calc(100vh - ${navHeight}px)`;
-  titleSection.style.transform =  `translateY(-${navHeight / 2}px)`;
+  titleSection.style.height =  `${window.innerHeight}px`;
+  titleSection.style.transform =  `translateY(-${navHeight}px)`;
 
   $('.scrollDown').click(function(){
 
@@ -355,8 +353,8 @@ if (html.classList.contains("touch")) {
   });
 
   var slideInLeftDelay = document.querySelectorAll(".slide-in-left-delay");
-  var slideInDown1 = document.querySelectorAll(".slide-in-down1");
-  var slideInDown2 = document.querySelectorAll(".slide-in-down2");
+  var slideInDown = document.querySelectorAll(".mobile-bg");
+  var navDown = document.querySelector("nav");
 
   // Slide in left with fade and delay
   TweenMax.to(slideInLeftDelay, 0.6, {
@@ -366,16 +364,15 @@ if (html.classList.contains("touch")) {
     ease:Power1.easeNone
   }).timeScale(1);
 
-  // Slide top bg in from top
-  TweenMax.to(slideInDown2, 0.8, {
-    y: 0,
+  // Slide in mobile bg from top
+  TweenMax.to(slideInDown, 1, {
+    top: 0,
     ease:Power3.easeInOut
   }).timeScale(1);
 
-  // Slide in mobile bg from top
-  TweenMax.to(slideInDown1, 0.3, {
+  // Nav slide down
+  TweenMax.to(navDown, 1, {
     y: 0,
-    delay: 0.39,
     ease:Power3.easeInOut
   }).timeScale(1);
 

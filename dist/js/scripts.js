@@ -20,7 +20,7 @@ function autosize() {
 textarea.addEventListener('keydown', autosize);
 
 // Disable animations on touchscreen
-if (html.classList.contains("no-touch")) {
+if (html.classList.contains("no-touch") && window.innerWidth > 1020) {
 
   // Change nav colour on contact form
   var navRecolour = function navRecolour() {
