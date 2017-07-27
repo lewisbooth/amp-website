@@ -1148,6 +1148,11 @@ nav {
     .service-card {
       margin-bottom: 8em;
     }
+
+    .service-card-text {
+      opacity: 1;
+      transform: translateX(0);
+    }
     
     nav {
       position: relative;
@@ -1350,6 +1355,11 @@ nav {
     .services-btn:hover .service-menu {
       animation: none;
       margin-left: 0.7rem;
+    }
+
+    .service-card-text {
+      opacity: 1;
+      transform: translateX(0);
     }
 
     .service-card-text h3.odd, .service-card-text h2.odd {
