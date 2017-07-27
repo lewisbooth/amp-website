@@ -301,32 +301,52 @@ $(".bubble-4").click(function() {
 // init controller
 var controller = new ScrollMagic.Controller();
 
-// Scene 1
-var tween1 = TweenMax.staggerFromTo("#text1", 1, {x: -150, opacity: 0}, {x: 0, opacity: 1}, 1);
+// Card 1
+var fadeIn1 = TweenMax.to("#text1", 1, {x: 0, opacity: 1}, 1);
+var fadeOut1 = TweenMax.to("#text1", 1, {x: -150, opacity: 0}, 1);
 
 var scene1 = new ScrollMagic.Scene({triggerElement: "#card1"})
-					.setTween(tween1)
+					.setTween(fadeIn1)
+          .addTo(controller);
+          
+var scene1_5 = new ScrollMagic.Scene({triggerElement: "#card2"})
+					.setTween(fadeOut1)
           .addTo(controller);
 
-// Scene 2
-var tween2 =  TweenMax.staggerFromTo("#text2", 1, {x: 150, opacity: 0}, {x: 0, opacity: 1}, 1);
+// Card 2
+var fadeIn2 = TweenMax.to("#text2", 1, {x: 0, opacity: 1}, 1);
+var fadeOut2 = TweenMax.to("#text2", 1, {x: -150, opacity: 0}, 1);
 
 var scene2 = new ScrollMagic.Scene({triggerElement: "#card2"})
-					.setTween(tween2)
+					.setTween(fadeIn2)
+          .addTo(controller);
+          
+var scene2_5 = new ScrollMagic.Scene({triggerElement: "#card3"})
+					.setTween(fadeOut2)
           .addTo(controller);
 
-// Scene 3
-var tween3 =  TweenMax.staggerFromTo("#text3", 1, {x: -150, opacity: 0}, {x: 0, opacity: 1},  1);
+// Card 3
+var fadeIn3 = TweenMax.to("#text3", 1, {x: 0, opacity: 1}, 1);
+var fadeOut3 = TweenMax.to("#text3", 1, {x: -150, opacity: 0}, 1);
 
 var scene3 = new ScrollMagic.Scene({triggerElement: "#card3"})
-          .setTween(tween3)
+					.setTween(fadeIn3)
+          .addTo(controller);
+          
+var scene3_5 = new ScrollMagic.Scene({triggerElement: "#card4"})
+					.setTween(fadeOut3)
           .addTo(controller);
 
-// Scene 4
-var tween4 =  TweenMax.staggerFromTo("#text4", 1, {x: 150, opacity: 0}, {x: 0, opacity: 1}, 1);
+// Card 4
+var fadeIn4 = TweenMax.to("#text4", 1, {x: 0, opacity: 1}, 1);
+var fadeOut4 = TweenMax.to("#text4", 1, {x: -150, opacity: 0}, 1);
 
 var scene4 = new ScrollMagic.Scene({triggerElement: "#card4"})
-					.setTween(tween4)
+					.setTween(fadeIn4)
+          .addTo(controller);
+          
+var scene4_5 = new ScrollMagic.Scene({triggerElement: ".contact"})
+					.setTween(fadeOut4)
           .addTo(controller);
 
 }
