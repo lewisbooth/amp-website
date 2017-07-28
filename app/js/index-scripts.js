@@ -444,7 +444,5 @@ if (html.classList.contains("touch") | window.innerWidth <= 1020) {
     ease:Power3.easeInOut
   }).timeScale(1);
 
-  $('video').prop("controls", true);
-
 };
 
