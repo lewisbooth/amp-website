@@ -627,7 +627,7 @@ canvas {
 
 .service-card-text p.even {
   transform: translateX(15%);
-  margin-left: 2em;
+  margin-left: 1em;
 }
 
 .service-card-text h3 {
@@ -1034,7 +1034,7 @@ nav {
   transform: translateY(100%);
 }
 
-.mobile-bg {
+.mobile-bg, .mobile-menu {
   display: none;
 }
 
@@ -1433,12 +1433,22 @@ nav {
     font-size: 1.6rem;
   }
 
+  .title-content {
+    margin: 0;
+    width: auto;
+  }
+
+  .home-title .row {
+    display: flex;
+    justify-content: center;
+  }
+
   .services h1 {
     display: none;
   }
   
   .title-content h1, .title-content span {
-    font-size: 3.5rem;
+    font-size: 4rem;
   }
 
   .main-nav, .social-nav {
@@ -1482,6 +1492,38 @@ nav {
 
   .footer-nav, .social-nav-footer, footer p {
     flex-basis: calc(100% / 2);
+  }
+
+  // Mobile menu
+  nav {
+    padding-top: 30px;
+  }
+
+  .mobile-menu {
+    display: block;
+    height: 23px;
+    width: 30px;
+    float: right;
+
+    span {
+      display: block;
+      background-color: black;
+      height: 1px;
+      margin-bottom: 10px;
+      width: 100%;
+    }
+
+    span:nth-child(2) {
+      transform: translateX(33%);
+      width: 75%;
+    }
+
+    span:last-child {
+      margin-bottom: -10px;
+      transform: translateX(100%);
+      width: 50%;
+    }
+
   }
 }
 
