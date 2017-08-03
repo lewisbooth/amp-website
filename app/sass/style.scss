@@ -216,6 +216,7 @@ $breakpoint-large: 1640px;
   font-family: $play;
   font-weight: 400;
   text-transform: uppercase;
+  letter-spacing: 0.1em;
   display: inline-block;
 }
 
@@ -641,10 +642,40 @@ canvas {
 }
 
 
-.service-card{
+.service-card {
   display: flex;
   align-items: center;
   margin-bottom: 12em;
+  transition: all .5s ease-in-out;
+
+    &.even .service-card-text {
+      transform: translateX(0);
+      transition: all .5s ease-in-out;
+    }
+
+    &.odd .service-card-text {
+      transform: translateX(0);
+      transition: all .5s ease-in-out;
+    }
+
+    &.even.slide-out {
+      opacity: 0;
+
+      & .service-card-text {
+        transform: translateX(-100%);
+      }
+
+    }
+
+    &.odd.slide-out {
+      opacity: 0;
+
+      & .service-card-text {
+        transform: translateX(100%);
+      }
+      
+    }
+      
 }
 
 .service-card .col-6 {
@@ -661,6 +692,7 @@ canvas {
 }
 
 .service-card-text p {
+  
   font-weight: 300;
   max-width: 30rem;
   margin-top: 2em;
@@ -668,14 +700,11 @@ canvas {
   line-height: 1.8;
 }
 
-.service-card-text p.odd {
-  margin-left: 2em;
-}
 
 // About page styling
 section.top-title {
-  height: 50vh;
-  padding-bottom: 50vh;
+  height: 30vh;
+  padding-bottom: 70vh;
   min-height: 450px;
   width: 100%;
   background-image:

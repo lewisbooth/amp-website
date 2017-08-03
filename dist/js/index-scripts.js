@@ -52,10 +52,10 @@ if (html.classList.contains("no-touch") && window.innerWidth > 1020) {
   };
 
   var scrollDetect = function scrollDetect(e) {
+    serviceSliderAnimations(e);
     if (transitioning) {
       return;
     }
-    serviceSliders(e);
     if (e.deltaY < 0 && window.scrollY === 0 && canvas.classList.contains('hidden')) {
       scrollUp();
     }
@@ -201,11 +201,37 @@ if (html.classList.contains("no-touch") && window.innerWidth > 1020) {
     }).timeScale(1);
   };
 
-  // Services button function
-
+  var getServiceSliderAreas = function getServiceSliderAreas() {
+    serviceSliderAreas = [];
+    serviceSliders.forEach(function (area) {
+      // Build array of top/bottoms of any .service-card divs on the page
+      var bounds = area.getBoundingClientRect();
+      var navBounds = nav.getBoundingClientRect();
+      var navOffset = navBounds.top + navBounds.height / 2;
+      serviceSliderAreas.push([bounds.top + window.scrollY - navOffset, bounds.bottom + window.scrollY - navOffset]);
+    });
+  };
 
   // Service card animations
-  var serviceSliders = function serviceSliders(e) {};
+  var serviceSliderAnimations = function serviceSliderAnimations(e) {
+    var scrollY = window.scrollY;
+    var windowHeight = window.innerHeight;
+    console.log(e);
+    serviceSliders.forEach(function (slider) {
+      var bounds = slider.getBoundingClientRect();
+      var sliderY = bounds.top + scrollY;
+      var sliderHeight = slider.offsetHeight;
+
+      if (bounds.top < windowHeight - sliderHeight && bounds.top > 1) {
+        slider.classList.remove('slide-out');
+      } else {
+        slider.classList.add('slide-out');
+      }
+    });
+  };
+
+  // Services button function
+
 
   // Top animations
   var mainBg = document.querySelector(".main-bg");
@@ -221,7 +247,13 @@ if (html.classList.contains("no-touch") && window.innerWidth > 1020) {
 
   ;
 
-  $('.scrollDown').click(function () {
+  var serviceSliderAreas = [];
+  var serviceSliders = document.querySelectorAll('.service-card');
+
+  ;
+
+  getServiceSliderAreas();
+  window.addEventListener('resize', getServiceSliderAreas());$('.scrollDown').click(function () {
     scrollDown();
   });
 

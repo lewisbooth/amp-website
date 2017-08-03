@@ -1,5 +1,6 @@
 let transitioning = false;
 
+
 // Disable animations on touchscreen
 if (html.classList.contains("no-touch") && window.innerWidth > 1020) {
 
@@ -61,8 +62,8 @@ if (html.classList.contains("no-touch") && window.innerWidth > 1020) {
   };
 
   function scrollDetect(e) {
+    serviceSliderAnimations(e);
     if (transitioning) { return; }
-    serviceSliders(e);
     if ((e.deltaY < 0) && window.scrollY === 0 && canvas.classList.contains('hidden')) {    
       scrollUp();
     }
@@ -205,6 +206,41 @@ if (html.classList.contains("no-touch") && window.innerWidth > 1020) {
     
   }
 
+  let serviceSliderAreas = [];
+  const serviceSliders = document.querySelectorAll('.service-card');
+
+  function getServiceSliderAreas() {
+    serviceSliderAreas = [];
+    serviceSliders.forEach(area => {
+      // Build array of top/bottoms of any .service-card divs on the page
+      var bounds = area.getBoundingClientRect();
+      var navBounds = nav.getBoundingClientRect();
+      var navOffset = navBounds.top + navBounds.height / 2
+      serviceSliderAreas.push([bounds.top + window.scrollY - navOffset, bounds.bottom + window.scrollY - navOffset])
+    });
+  };
+
+  getServiceSliderAreas();
+  window.addEventListener('resize', getServiceSliderAreas());
+
+  // Service card animations
+  function serviceSliderAnimations(e) {    
+    let scrollY = window.scrollY;
+    let windowHeight = window.innerHeight;
+    console.log(e);
+    serviceSliders.forEach(slider => {
+      let bounds = slider.getBoundingClientRect();
+      let sliderY = bounds.top + scrollY;
+      let sliderHeight = slider.offsetHeight;
+            
+      if ( bounds.top < windowHeight - sliderHeight && bounds.top > 1 ) {
+        slider.classList.remove('slide-out');
+      } else {
+        slider.classList.add('slide-out');
+      }
+    });
+  }
+
   // Services button function
   $('.scrollDown').click(function(){
     scrollDown();
@@ -282,10 +318,6 @@ if (html.classList.contains("no-touch") && window.innerWidth > 1020) {
       }, 1700);
   });
 
-  // Service card animations
-  function serviceSliders(e) {
-
-  }
 
 }
 
