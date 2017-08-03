@@ -1,10 +1,9 @@
-var gulp = require('gulp'),
-    include = require('gulp-html-tag-include'),
-    sass = require('gulp-sass'),
-    sassFile = 'app/sass/*.scss',
-    cleanCSS = require('gulp-clean-css'),
-    babel = require('gulp-babel'),
-    concat = require('gulp-concat'),
+var gulp = require('gulp');
+    include = require('gulp-html-tag-include');
+    sass = require('gulp-sass');
+    sassFile = 'app/sass/*.scss';
+    cleanCSS = require('gulp-clean-css');
+    babel = require('gulp-babel');
     browserSync = require('browser-sync').create();
 
 // sass
@@ -18,25 +17,17 @@ gulp.task('sass', function() {
 
 // include tags
 gulp.task('html-include', function() {
-    return gulp.src('./app/index.html')
+    return gulp.src('./app/*.html')
         .pipe(include())
         .pipe(gulp.dest('./dist/'));
 });
 
-// Bundle JS local scripts
-gulp.task('scripts', function() {
+// Babel convert JS
+gulp.task('babel', function() {
     gulp.src('app/js/*.js')
         .pipe(babel({
             presets: ['es2015']
         }))
-        .pipe(concat('scripts.min.js'))
-        .pipe(gulp.dest('dist/js/'));
-});
-
-// Bundle JS libraries
-gulp.task('scripts-libs', function() {
-    gulp.src('app/js/libs/*.js')
-        .pipe(concat('libs.min.js'))
         .pipe(gulp.dest('dist/js/'));
 });
 
@@ -54,7 +45,7 @@ gulp.task('watch', function () {
     gulp.watch('./app/**/*.html', ['html-include']);
     gulp.watch(['dist/**/*.{html,php}', 'dist/js/scripts.js']).on('change', browserSync.reload);
     gulp.watch('app/sass/*.scss', ['sass']);
-    gulp.watch('app/js/*.js', ['scripts', 'scripts-libs']);
+    gulp.watch('app/js/*.js', ['babel']);
 });
 
 // The default task (called when you run `gulp` from cli) 

@@ -1,86 +1,112 @@
-// Generic scripts
-
+// Common scripts for every page
 var html = document.querySelector('html');
+var nav = document.querySelector('nav .container');
+var darkNavAreas = [];
+window.pageYOffset = 0;
 
-// Textarea expand
-var textarea = document.querySelector('textarea');
-
-                
-function autosize(){
-  var el = this;
-  setTimeout(function(){
-    el.style.cssText = 'height:auto; padding:0';
-    // for box-sizing other than "content-box" use:
-    // el.style.cssText = '-moz-box-sizing:content-box';
-    el.style.cssText = 'height:' + el.scrollHeight + 'px';
-  },0);
+window.onload = function() {
+    if (document.querySelector('#canvas')) { initCanvas() }
+    navLoad();
+    load();
+    getDarkNavAreas();
 };
 
-textarea.addEventListener('keydown', autosize);
+function navLoad() {
+  var delay = window.location.pathname === '/' ? 0.5 : 0;
+  // Nav slide down
+  TweenMax.to($('nav'), 1, {
+      y: 0,
+      delay: delay,
+      ease:Power3.easeInOut
+  }).timeScale(1);
+}
 
-// Disable animations on touchscreen
-if (html.classList.contains("no-touch") && window.innerWidth > 1020) {
+function getDarkNavAreas() {
+  darkNavAreas = [];
+  document.querySelectorAll('.dark-nav').forEach(area => {
+    // Build array of top/bottoms of any .dark-nav divs on the page
+    var bounds = area.getBoundingClientRect();
+    var navBounds = nav.getBoundingClientRect();
+    var navOffset = navBounds.top + navBounds.height / 2
+    darkNavAreas.push([bounds.top + window.scrollY - navOffset, bounds.bottom + window.scrollY - navOffset])
+  });
+}
 
-// Change nav colour on contact form
-function navRecolour() {
-  if (window.scrollY < 500) { return; }
-  var navHeight = document.querySelector('.nav').offsetHeight;
-  var colourChange = document.querySelectorAll('.change-colour');
-  var colourChangeOnce = document.querySelectorAll('.change-colour2');
-  var contactTop = document.querySelector('.contact');
-  var contactBottom = (contactTop.offsetTop + contactTop.offsetHeight) - (navHeight / 2);
-  var isNotScrolledPast = (window.scrollY + window.innerHeight) > contactBottom;
+// Change nav colour over areas with .dark-nav class
+function navRecolour(e) {  
+  getDarkNavAreas();
+  var onWhiteSection = false;
+  darkNavAreas.forEach(area => {
+    if (window.scrollY >= area[0] && window.scrollY <= area[1] ) {
+      onWhiteSection = true;
+    }
+  });
 
-  if (isNotScrolledPast) {
+  if (onWhiteSection) { 
+    $('nav').addClass('dark') 
+  } else { 
+    $('nav').removeClass('dark') 
+  }
+}
 
-    TweenMax.to(colourChange, 0.5, {
-      color: "#000000",
-      fill: "#000000",
-      ease: Linear.easeNone
-    }).timeScale(1);
+window.addEventListener('scroll', (e) => navRecolour(e));
+window.addEventListener('resize', getDarkNavAreas());
 
-    TweenMax.to(colourChangeOnce, 0.5, {
-      color: "#000000",
-      fill: "#000000",
-      ease: Linear.easeNone
-    }).timeScale(1);
 
-  } else {
+// Mobile menu scripts {
+var mobileMenuBtn = document.querySelector(".mobile-menu-btn");
 
-    TweenMax.to(colourChange, 0.5, {
-      color: "#ffffff",
-      fill: "#ffffff",
-      ease: Linear.easeNone
-    }).timeScale(1);
+if (html.classList.contains("touch") | window.innerWidth <= 1020) {
 
-    TweenMax.to(colourChangeOnce, 0.5, {
-      color: "#ffffff",
-      fill: "#ffffff",
-      ease: Linear.easeNone
-    }).timeScale(1);
+   $(mobileMenuBtn).click(function(){
 
-      TweenMax.to(colourChange, 0.5, {
-        color: "#ffffff",
-        fill: "#ffffff",
-        ease:Power3.easeInOut,
+    if (mobileMenuBtn.classList.contains("closed")) {
+
+      $(mobileMenuBtn).removeClass('closed');
+      $(mobileMenuBtn).addClass('open');
+
+      TweenMax.to(".mobile-menu", 0.4, {
+        transform: "translateX(0)",
+        ease:Power1.easeOut
       }).timeScale(1);
 
-      TweenMax.to(colourChangeOnce, 0.5, {
-        color: "#ffffff",
+      TweenMax.to("html", 0.1, {
+        overflowY: "hidden",
+        ease:Power1.easeOut
+      }).timeScale(1);
+      
+      TweenMax.to(".logo-mobile", 0.2, {
         fill: "#ffffff",
-        ease:Power3.easeInOut,
+        delay: 0.2,
+        ease:Power1.easeOut
+      }).timeScale(1);
+
+    } else {
+
+      $(mobileMenuBtn).removeClass('open');
+      $(mobileMenuBtn).addClass('closed');
+
+      TweenMax.to(".mobile-menu", 0.4, {
+        xPercent: 140,
+        ease:Power1.easeOut
+      }).timeScale(1);
+
+      TweenMax.to("html", 0.1, {
+        overflowY: "auto",
+        ease:Power1.easeOut
+      }).timeScale(1);
+      
+      TweenMax.to(".logo-mobile", 0.2, {
+        fill: "#000000",
+        ease:Power1.easeOut
       }).timeScale(1);
 
     }
-  }
-window.addEventListener('scroll', navRecolour);
-}
 
+   });
 
-
-// Scroll to contact form
-$(".contactScroll").click(function() {
-    $('html, body').animate({
-        scrollTop: $(".contact").offset().top
-    }, 500);
-});
+   // Correctly size mobile menu wrapper
+   var menuWrapper = document.querySelector(".menu-wrapper");
+   menuWrapper.style.height = `${window.innerHeight}px`;
+   
+};
