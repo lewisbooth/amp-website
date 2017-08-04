@@ -49,4 +49,4 @@ gulp.task('watch', function () {
 });
 
 // The default task (called when you run `gulp` from cli) 
-gulp.task('default', ['watch', 'serve']);
+gulp.task('default', ['watch', 'serve', 'babel', 'html-include', 'sass']);
