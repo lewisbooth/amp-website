@@ -21,7 +21,7 @@ function load() {
   // Fade in contact details
   TweenMax.to($("#fade-in2"), 0.5, {
     opacity: 1,
-    delay: 1.5,
+    delay: 1.8,
     ease: Power3.easeInOut
   }).timeScale(1);
 };

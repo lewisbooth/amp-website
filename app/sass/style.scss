@@ -659,18 +659,18 @@ canvas {
     }
 
     &.even.slide-out {
-      opacity: 0;
 
       & .service-card-text {
+        opacity: 0;
         transform: translateX(-100%);
       }
 
     }
 
     &.odd.slide-out {
-      opacity: 0;
 
       & .service-card-text {
+        opacity: 0;
         transform: translateX(100%);
       }
       

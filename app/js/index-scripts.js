@@ -16,47 +16,57 @@ if (html.classList.contains("no-touch") && window.innerWidth > 1020) {
   var slideInBottom = document.querySelectorAll(".slide-in-bottom");
   var slideInLeftDelay = document.querySelectorAll(".slide-in-left-delay");
 
-
   // On load animations
   function load() {
 
-    transitioning = true;
-    canvas.classList.remove("hidden");
+    var getQueryString = function ( field, url ) {
+      var href = url ? url : window.location.href;
+      var reg = new RegExp( '[?&]' + field + '=([^&#]*)', 'i' );
+      var string = reg.exec(href);
+      return string ? string[1] : null;
+    };
 
-    // Slide in from bottom
-    TweenMax.to(slideInBottom, 1, {
-      y: 0,
-      delay: 0.5,
-      ease:Power3.easeInOut
-    }).timeScale(1);
+    if (getQueryString('ref') === 'services') {
+      scrollDown();
+    } else {
+      transitioning = true;
+      canvas.classList.remove("hidden");
 
-    // Slide in from left
-    TweenMax.to(slideInLeft, 1, {
-      x: 0,
-      ease:Power3.easeInOut
-    }).timeScale(1);
+      // Slide in from bottom
+      TweenMax.to(slideInBottom, 1, {
+        y: 0,
+        delay: 0.5,
+        ease:Power3.easeInOut
+      }).timeScale(1);
 
-    // Fade in
-    TweenMax.to(fadeIn, 1, {
-      opacity: 1,
-      ease:Power3.easeInOut
-    }).timeScale(1);
+      // Slide in from left
+      TweenMax.to(slideInLeft, 1, {
+        x: 0,
+        ease:Power3.easeInOut
+      }).timeScale(1);
 
-    // Slide in from left width fade and delay
-    TweenMax.to(slideInLeftDelay, 0.6, {
-      x: 0,
-      opacity: 1,
-      delay: 0.8,
-      ease:Power1.easeNone
-    }).timeScale(1);
+      // Fade in
+      TweenMax.to(fadeIn, 1, {
+        opacity: 1,
+        ease:Power3.easeInOut
+      }).timeScale(1);
 
-    // Canvas fade in
-    TweenMax.to("#canvas", 0.8, {
-      opacity: 1,
-      delay: 1.6,
-      onComplete: function() { transitioning = false },
-      ease:Power0.easeNone
-    }).timeScale(1);
+      // Slide in from left width fade and delay
+      TweenMax.to(slideInLeftDelay, 0.6, {
+        x: 0,
+        opacity: 1,
+        delay: 0.8,
+        ease:Power1.easeNone
+      }).timeScale(1);
+
+      // Canvas fade in
+      TweenMax.to("#canvas", 0.8, {
+        opacity: 1,
+        delay: 1.6,
+        onComplete: function() { transitioning = false },
+        ease:Power0.easeNone
+      }).timeScale(1);
+    }
 
     window.addEventListener('wheel', scrollDetect);
   };
@@ -224,39 +234,40 @@ if (html.classList.contains("no-touch") && window.innerWidth > 1020) {
   window.addEventListener('resize', getServiceSliderAreas());
 
   // Service card animations
-  function serviceSliderAnimations(e) {    
+  function serviceSliderAnimations(e, i) {    
     let scrollY = window.scrollY;
     let windowHeight = window.innerHeight;
-    console.log(e);
+    
     serviceSliders.forEach(slider => {
       let bounds = slider.getBoundingClientRect();
       let sliderY = bounds.top + scrollY;
       let sliderHeight = slider.offsetHeight;
-            
-      if ( bounds.top < windowHeight - sliderHeight && bounds.top > 1 ) {
+      console.log(sliderHeight)
+      if ( bounds.top <= windowHeight - sliderHeight / 2 && bounds.top > -Math.abs(sliderHeight / 2)) {
         slider.classList.remove('slide-out');
+        slider.querySelector('video').play();
       } else {
         slider.classList.add('slide-out');
+        slider.querySelector('video').pause();
       }
     });
   }
 
   // Services button function
   $('.scrollDown').click(function(){
-    scrollDown();
+    if ($(this).hasClass('transitioned')) {
+      $('html, body').animate({
+          scrollTop: 1
+      }, 500);
+    } else {
+      scrollDown();
+    }
   });
-
-  $('.scrollDown').click(function(){
-    if (this.classList.contains("transitioned")) {
-        $('html, body').animate({
-            scrollTop: $(".services").offset().top
-        }, 600);
-      }
-  });
+  
   // Scroll to contact form
   $(".contactScroll").click(function() {
       $('html, body').animate({
-          scrollTop: parseInt($(".contact").offset().top) + window.scrollY
+          scrollTop: getScrollPos('.contact')
       }, 500);
   });
 
@@ -288,34 +299,36 @@ if (html.classList.contains("no-touch") && window.innerWidth > 1020) {
     }
   );
   
+  function getScrollPos(element, offset) {
+    return $(element).offset().top + window.scrollY - (offset || 0);
+  }
+
   // Service bubble scrolls to
-  var card = document.querySelector("#card1");
-  var style = card.currentStyle || window.getComputedStyle(card);
-  var cardBottomMargin = style.marginBottom;
-  var cardScrollOffset = parseInt(cardBottomMargin, 10);
+  var cardMargin = parseInt($('#card1').css('margin-bottom'));
+
 
   $(".bubble-1").click(function() {
       $('html, body').animate({
-          scrollTop: $("#card1").offset().top - cardScrollOffset
-      }, 800);
+          scrollTop: getScrollPos('#card1', cardMargin)
+      }, 800, serviceSliderAnimations);
   });
 
   $(".bubble-2").click(function() {
       $('html, body').animate({
-          scrollTop: $("#card2").offset().top - cardScrollOffset
-      }, 1100);
+          scrollTop: getScrollPos('#card2', cardMargin)
+      }, 1100, serviceSliderAnimations);
   });
 
   $(".bubble-3").click(function() {
       $('html, body').animate({
-          scrollTop: $("#card3").offset().top - cardScrollOffset
-      }, 1400);
+          scrollTop: getScrollPos('#card3', cardMargin)
+      }, 1400, serviceSliderAnimations);
   });
 
   $(".bubble-4").click(function() {
       $('html, body').animate({
-          scrollTop: $("#card4").offset().top - cardScrollOffset
-      }, 1700);
+          scrollTop: getScrollPos('#card4', cardMargin)
+      }, 1700, serviceSliderAnimations);
   });
 
 
