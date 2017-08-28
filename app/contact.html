@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-    <include src="includes/header.html" title="" keywords="" description=""></include>
+    <include src="includes/header.html" title="ΛMP Studio : Get in Touch" indexing="index" following="follow" description="Get in touch for a free digital marketing consultation today."></include>
     
     <body class="relative">
         <include src="includes/nav-common.html"></include>
@@ -19,7 +19,7 @@
                         </div>
                         <div class="email">
                             <h3 class="pink">Leave A Message_</h3>
-                            <a href="mailto:enquire@amp.studio" itemprop="email">enquire@amp.studio</a>
+                            <a href="mailto:enquire@amp.studio" itemprop="email">enquires@amp.studio</a>
                         </div>
                     </div>
                 </div>
@@ -27,9 +27,9 @@
         </section>
 
         <section class="contact-intro intro row">
-            <div class="col-6-sm address">
+            <div class="address">
                 <div itemscope itemtype="http://schema.org/PostalAddress" class="address-wrapper">
-                    <h3 class="pink">Drop in, we have biscuits_</h3>
+                    <h3 class="pink">Fancy a Brew?_</h3>
                     <p itemprop="name">Amp Studio</p>
                     <p>Unit 5</p>
                     <p itemprop="streetAddress">Burslem Enterprise Centre</p>
@@ -38,7 +38,7 @@
                     <a href="https://www.google.co.uk/maps/place/Amp+Studio/@53.0464475,-2.1926811,17z/data=!4m8!1m2!2m1!1samp+studio+Burslem+Enterprise+Centre,+Moorland+Rd,+Stoke-on-Trent+ST6+1JN!3m4!1s0x0:0xdf20cb42b369661f!8m2!3d53.0464728!4d-2.1905239" target="_blank">Get Directions</a>
                 </div>
             </div>
-            <div class="col-6-sm">
+            <div id="gmap" class="map">
             </div>
         </section>
 
@@ -46,5 +46,6 @@
         <include src="includes/contact-form.html"></include>
         <include src="includes/scripts.html"></include>
        <script src="js/contact-scripts.js"></script>
+       <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBmGJfvFp7Xkqyxm-B11ScVxkgAendHzbw&callback=initMap"></script>
     </body>
 </html>

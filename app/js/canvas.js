@@ -86,7 +86,7 @@ function getNodeQuantity() {
 function getDistance(a, b, x, y) {
   var xDelta = Math.abs(a - x),
       yDelta = Math.abs(b - y);
-  return Math.sqrt(xDelta ** 2 + yDelta ** 2);
+  return Math.sqrt(Math.pow(xDelta, 2) + Math.pow(yDelta, 2));
 }
 
 function addNodes(int = 1, x, y) {
@@ -157,7 +157,7 @@ function stepCanvas() {
         // Links become stronger based on distance
         var strokeOpacity = config.nodes.linkOpacity - config.nodes.linkOpacity / config.nodes.linkLength * distance;
         // Links become stronger based on pulse strength
-        strokeOpacity *= node[5]**2;
+        strokeOpacity *= Math.pow(node[5], 2);
         c.strokeStyle = 'rgba(225,225,225,' + strokeOpacity + ')';
         c.lineWidth = 1.5;
         c.stroke();

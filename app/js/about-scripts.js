@@ -2,11 +2,10 @@
 function load() {
 
   // Title height to 50vh
-  TweenMax.to($(".top-title"), 0.8, {
+  TweenMax.to($(".top-title"), 1, {
     css: {
         paddingBottom: "0",
     },
-    delay: 0,
     ease:Power3.easeInOut
   }).timeScale(1);
 
@@ -20,7 +19,7 @@ function load() {
   // Fade in title
   TweenMax.to($("#fade-in-2"), 0.5, {
     opacity: 1,
-    delay: 2,
+    delay: 1.8,
     ease:Power3.easeInOut
   }).timeScale(1);
 

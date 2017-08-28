@@ -63,14 +63,15 @@ if (html.classList.contains("no-touch") && window.innerWidth > 1020) {
   };
 
   var scrollDetect = function scrollDetect(e) {
+
     serviceSliderAnimations(e);
     if (transitioning) {
       return;
     }
-    if (e.deltaY < 0 && window.scrollY === 0 && canvas.classList.contains('hidden')) {
+    if (e.deltaY < 0 && document.documentElement.scrollTop + document.body.scrollTop === 0 && canvas.classList.contains('hidden')) {
       scrollUp();
     }
-    if (e.deltaY > 0 && window.scrollY === 0 && !canvas.classList.contains('hidden')) {
+    if (e.deltaY > 0 && document.documentElement.scrollTop + document.body.scrollTop === 0 && !canvas.classList.contains('hidden')) {
       scrollDown();
     }
   };
@@ -213,14 +214,15 @@ if (html.classList.contains("no-touch") && window.innerWidth > 1020) {
   };
 
   var getServiceSliderAreas = function getServiceSliderAreas() {
+
     serviceSliderAreas = [];
-    serviceSliders.forEach(function (area) {
-      // Build array of top/bottoms of any .service-card divs on the page
-      var bounds = area.getBoundingClientRect();
+
+    for (var i = 0; i < serviceSliders.length; i++) {
+      var bounds = serviceSliders[i].getBoundingClientRect();
       var navBounds = nav.getBoundingClientRect();
       var navOffset = navBounds.top + navBounds.height / 2;
       serviceSliderAreas.push([bounds.top + window.scrollY - navOffset, bounds.bottom + window.scrollY - navOffset]);
-    });
+    }
   };
 
   // Service card animations
@@ -228,29 +230,22 @@ if (html.classList.contains("no-touch") && window.innerWidth > 1020) {
     var scrollY = window.scrollY;
     var windowHeight = window.innerHeight;
 
-    serviceSliders.forEach(function (slider) {
-      var bounds = slider.getBoundingClientRect();
+    for (var i = 0; i < serviceSliders.length; i++) {
+      var bounds = serviceSliders[i].getBoundingClientRect();
       var sliderY = bounds.top + scrollY;
-      var sliderHeight = slider.offsetHeight;
-      console.log(sliderHeight);
+      var sliderHeight = serviceSliders[i].offsetHeight;
+
       if (bounds.top <= windowHeight - sliderHeight / 2 && bounds.top > -Math.abs(sliderHeight / 2)) {
-        slider.classList.remove('slide-out');
-        slider.querySelector('video').play();
+        serviceSliders[i].classList.remove('slide-out');
+        serviceSliders[i].querySelector('video').play();
       } else {
-        slider.classList.add('slide-out');
-        slider.querySelector('video').pause();
+        // serviceSliders[i].classList.add('slide-out');
+        serviceSliders[i].querySelector('video').pause();
       }
-    });
+    };
   };
 
   // Services button function
-
-
-  var getScrollPos = function getScrollPos(element, offset) {
-    return $(element).offset().top + window.scrollY - (offset || 0);
-  };
-
-  // Service bubble scrolls to
 
 
   // Top animations
@@ -286,7 +281,7 @@ if (html.classList.contains("no-touch") && window.innerWidth > 1020) {
   // Scroll to contact form
   $(".contactScroll").click(function () {
     $('html, body').animate({
-      scrollTop: getScrollPos('.contact')
+      scrollTop: $('.contact').position().top
     }, 500);
   });
 
@@ -294,7 +289,7 @@ if (html.classList.contains("no-touch") && window.innerWidth > 1020) {
   var serviceBubbles = document.querySelectorAll(".bubble");
 
   $(serviceBubbles).hover(function () {
-    TweenMax.to($(this), 1, { scale: 1.1, transformOrigin: "center center", ease: Back.easeOut }).timeScale(1);
+    TweenMax.to($(this), 1, { scale: 1.1, transformOrigin: "center center", force3D: true, ease: Back.easeOut }).timeScale(1);
     TweenMax.to($(this).find('.outer-full'), 1, { scale: 1.2, transformOrigin: "center center", ease: Back.easeOut }).timeScale(1);
     TweenMax.to($(this).find('.outer-top'), 1, { scale: 1.1, transformOrigin: "center center", ease: Back.easeOut }).timeScale(1);
     TweenMax.to($(this).find('.inner-left'), 1, { scale: 0.9, transformOrigin: "center center", ease: Back.easeOut }).timeScale(1);
@@ -315,29 +310,32 @@ if (html.classList.contains("no-touch") && window.innerWidth > 1020) {
     TweenMax.to($(this).find('.inner-right'), .3, { rotation: '0', transformOrigin: "center center", ease: Linear.easeIn, repeat: 0 }).timeScale(1);
   });
 
-  var cardMargin = parseInt($('#card1').css('margin-bottom'));
+  // Service bubble scrolls to
+  // var cardMargin = parseInt($('#card1').css('margin-bottom'));
+
 
   $(".bubble-1").click(function () {
+    var card1 = document.querySelector('#card1');
     $('html, body').animate({
-      scrollTop: getScrollPos('#card1', cardMargin)
+      scrollTop: $('#card1').position().top + ($('#card1').height() - window.innerHeight) / 2
     }, 800, serviceSliderAnimations);
   });
 
   $(".bubble-2").click(function () {
     $('html, body').animate({
-      scrollTop: getScrollPos('#card2', cardMargin)
+      scrollTop: $('#card2').position().top + ($('#card2').height() - window.innerHeight) / 2
     }, 1100, serviceSliderAnimations);
   });
 
   $(".bubble-3").click(function () {
     $('html, body').animate({
-      scrollTop: getScrollPos('#card3', cardMargin)
+      scrollTop: $('#card3').position().top + ($('#card3').height() - window.innerHeight) / 2
     }, 1400, serviceSliderAnimations);
   });
 
   $(".bubble-4").click(function () {
     $('html, body').animate({
-      scrollTop: getScrollPos('#card4', cardMargin)
+      scrollTop: $('#card4').position().top + ($('#card4').height() - window.innerHeight) / 2
     }, 1700, serviceSliderAnimations);
   });
 }
@@ -381,5 +379,5 @@ if (html.classList.contains("touch") | window.innerWidth <= 1020) {
     ease: Power3.easeInOut
   }).timeScale(1);
 
-  $('video').prop("controls", true);
+  // $('video').prop("controls", true);
 };

@@ -4,7 +4,7 @@
 var html = document.querySelector('html');
 var nav = document.querySelector('nav .container');
 var darkNavAreas = [];
-window.pageYOffset = 0;
+var pageYOffset = 0;
 
 window.onload = function () {
   if (document.querySelector('#canvas')) {
@@ -23,28 +23,30 @@ function navLoad() {
     delay: delay,
     ease: Power3.easeInOut
   }).timeScale(1);
-}
+};
 
 function getDarkNavAreas() {
   darkNavAreas = [];
-  document.querySelectorAll('.dark-nav').forEach(function (area) {
+  var darkNav = document.querySelectorAll('.dark-nav');
+
+  for (var i = 0; i < darkNav.length; i++) {
     // Build array of top/bottoms of any .dark-nav divs on the page
-    var bounds = area.getBoundingClientRect();
+    var bounds = darkNav[i].getBoundingClientRect();
     var navBounds = nav.getBoundingClientRect();
     var navOffset = navBounds.top + navBounds.height / 2;
-    darkNavAreas.push([bounds.top + window.scrollY - navOffset, bounds.bottom + window.scrollY - navOffset]);
-  });
-}
+    darkNavAreas.push([bounds.top + (document.documentElement.scrollTop + document.body.scrollTop) - navOffset, bounds.bottom + (document.documentElement.scrollTop + document.body.scrollTop) - navOffset]);
+  };
+};
 
 // Change nav colour over areas with .dark-nav class
 function navRecolour(e) {
   getDarkNavAreas();
   var onWhiteSection = false;
-  darkNavAreas.forEach(function (area) {
-    if (window.scrollY >= area[0] && window.scrollY <= area[1]) {
+  for (var i = 0; i < darkNavAreas.length; i++) {
+    if (document.documentElement.scrollTop + document.body.scrollTop >= darkNavAreas[i][0] && document.documentElement.scrollTop + document.body.scrollTop <= darkNavAreas[i][1]) {
       onWhiteSection = true;
     }
-  });
+  };
 
   if (onWhiteSection) {
     $('nav').addClass('dark');
@@ -82,7 +84,6 @@ if (html.classList.contains("touch") | window.innerWidth <= 1020) {
 
       TweenMax.to(".logo-mobile", 0.2, {
         fill: "#ffffff",
-        delay: 0.2,
         ease: Power1.easeOut
       }).timeScale(1);
     } else {

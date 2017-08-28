@@ -5,11 +5,16 @@ var gulp = require('gulp');
     cleanCSS = require('gulp-clean-css');
     babel = require('gulp-babel');
     browserSync = require('browser-sync').create();
+    autoprefixer = require('gulp-autoprefixer');
 
-// sass
+// sass + prefix
 gulp.task('sass', function() {
   gulp.src(sassFile)
     .pipe(sass())
+    .pipe(autoprefixer({
+        browsers: ['last 3 versions'],
+        cascade: false
+    }))
     .pipe(cleanCSS({compatibility: 'ie8'}))
     .pipe(gulp.dest('dist/css/'))
     .pipe(browserSync.stream());
