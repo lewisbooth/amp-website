@@ -4,7 +4,7 @@
   "description": "AMP Studio",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "gulp"
   },
   "repository": {
     "type": "git",
@@ -16,18 +16,25 @@
     "url": "https://github.com/danielmountford/amp-elements/issues"
   },
   "homepage": "https://github.com/danielmountford/amp-elements#readme",
-  "dependencies": {
-    "gulp": "^3.9.1"
-  },
+  "dependencies": {},
   "devDependencies": {
     "babel-cli": "^6.24.1",
     "babel-preset-es2015": "^6.24.1",
     "browser-sync": "^2.18.12",
+    "del": "^3.0.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.0.0",
     "gulp-babel": "^6.1.2",
     "gulp-clean-css": "^3.7.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-html-minifier": "^0.1.8",
     "gulp-html-tag-include": "^1.0.1",
-    "gulp-sass": "^3.1.0"
+    "gulp-htmlmin": "^3.0.0",
+    "gulp-inject-string": "^1.1.0",
+    "gulp-remove-html-comments": "^1.0.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^3.0.0",
+    "pump": "^1.0.2"
   }
 }

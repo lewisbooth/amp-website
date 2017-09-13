@@ -1,4 +1,11 @@
-let transitioning = false;
+var transitioning = false;
+
+var getQueryString = function ( field, url ) {
+  var href = url ? url : window.location.href;
+  var reg = new RegExp( '[?&]' + field + '=([^&#]*)', 'i' );
+  var string = reg.exec(href);
+  return string ? string[1] : null;
+};
 
 // Disable animations on touchscreen
 if (html.classList.contains("no-touch") && window.innerWidth > 1020) {
@@ -17,13 +24,6 @@ if (html.classList.contains("no-touch") && window.innerWidth > 1020) {
 
   // On load animations
   function load() {
-
-    var getQueryString = function ( field, url ) {
-      var href = url ? url : window.location.href;
-      var reg = new RegExp( '[?&]' + field + '=([^&#]*)', 'i' );
-      var string = reg.exec(href);
-      return string ? string[1] : null;
-    };
 
     if (getQueryString('ref') === 'services') {
       scrollDown();
@@ -68,6 +68,7 @@ if (html.classList.contains("no-touch") && window.innerWidth > 1020) {
     }
 
     window.addEventListener('wheel', scrollDetect);
+    window.addEventListener('scroll', scrollDetect);
   };
 
   function scrollDetect(e) {
@@ -216,38 +217,24 @@ if (html.classList.contains("no-touch") && window.innerWidth > 1020) {
     
   }
 
-  let serviceSliderAreas = [];
   const serviceSliders = document.querySelectorAll('.service-card');
 
-  function getServiceSliderAreas() {
-
-    serviceSliderAreas = [];
-
-    for (var i = 0; i < serviceSliders.length; i++) {
-      var bounds = serviceSliders[i].getBoundingClientRect();
-      var navBounds = nav.getBoundingClientRect();
-      var navOffset = navBounds.top + navBounds.height / 2
-      serviceSliderAreas.push([bounds.top + window.scrollY - navOffset, bounds.bottom + window.scrollY - navOffset])
-    }
-  };
-
-  getServiceSliderAreas();
-  window.addEventListener('resize', getServiceSliderAreas());
-
   // Service card animations
-  function serviceSliderAnimations(e, i) { 
-    let scrollY = window.scrollY;
-    let windowHeight = window.innerHeight;
+  function serviceSliderAnimations(e) { 
+    var scrollY = window.scrollY;
+    var windowHeight = window.innerHeight;
     
     for (var i = 0; i < serviceSliders.length; i++) {
-      let bounds = serviceSliders[i].getBoundingClientRect();
-      let sliderY = bounds.top + scrollY;
-      let sliderHeight = serviceSliders[i].offsetHeight;
+      var bounds = serviceSliders[i].getBoundingClientRect();
+      var sliderY = bounds.top + scrollY;
+      var sliderHeight = serviceSliders[i].offsetHeight;
 
       if ( bounds.top <= windowHeight - sliderHeight / 2 && bounds.top > -Math.abs(sliderHeight / 2)) {
         serviceSliders[i].classList.remove('slide-out');
-        serviceSliders[i].querySelector('video').play();
-      } else {
+        if (serviceSliders[i].querySelector('video')) {
+          serviceSliders[i].querySelector('video').play();
+        }
+      } else if (serviceSliders[i].querySelector('video')) {
         // serviceSliders[i].classList.add('slide-out');
         serviceSliders[i].querySelector('video').pause();
       }
@@ -336,6 +323,12 @@ if (html.classList.contains("no-touch") && window.innerWidth > 1020) {
 // Mobile scripts {
 if (html.classList.contains("touch") | window.innerWidth <= 1020) {
 
+  if (getQueryString('ref') === 'services') {
+    $('html, body').animate({
+      scrollTop: $("section.services").offset().top
+  }, 600);
+  }
+
   // Full screen top section
   var titleSection = document.querySelector('.home-title');
   var navHeight = document.querySelector('.nav').offsetHeight;
@@ -373,6 +366,35 @@ if (html.classList.contains("touch") | window.innerWidth <= 1020) {
   }).timeScale(1);
 
   // $('video').prop("controls", true);
+
+  // Mobile service link home
+  $('.mobile-service-home').click(function(){
+  
+      $(mobileMenuBtn).removeClass('open');
+      $(mobileMenuBtn).addClass('closed');
+  
+      TweenMax.to(".mobile-menu", 0.4, {
+        xPercent: 140,
+        ease:Power1.easeOut
+      }).timeScale(1);
+  
+      TweenMax.to("html", 0.1, {
+        overflowY: "auto",
+        ease:Power1.easeOut
+      }).timeScale(1);
+      
+      TweenMax.to(".logo-mobile", 0.2, {
+        fill: "#000000",
+        ease:Power1.easeOut
+      }).timeScale(1);
+  
+      setTimeout(function() {
+        $('html, body').animate({
+          scrollTop: $("#card1").offset().top
+        }, 600);
+      }, 400);
+  
+    });
 
 };
 

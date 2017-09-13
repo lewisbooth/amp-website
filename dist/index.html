@@ -7,9 +7,9 @@
         <meta name="robots" content="index, follow">
         <meta name="description" content="ΛMP Studio is a digital marketing agency based in Stoke-on-Trent, UK, specialising in brand strategy, content creation and web design.">
         <meta name="format-detection" content="telephone=no"/>
-        <link href="css/style.css" rel="stylesheet">
+        <link href="css/style.css?ver=1505315563141" rel="stylesheet">
 
-        <!-- Favicons -->
+        
         <link rel="apple-touch-icon-precomposed" sizes="57x57" href="images/favicons/apple-touch-icon-57x57.png" />
         <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/favicons/apple-touch-icon-114x114.png" />
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/favicons/apple-touch-icon-72x72.png" />
@@ -31,584 +31,495 @@
         <meta name="msapplication-wide310x150logo" content="images/favicons/mstile-310x150.png" />
         <meta name="msapplication-square310x310logo" content="images/favicons/mstile-310x310.png" />
 
-        <!-- Fonts -->
+        
         <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Play:400,700" rel="stylesheet">
 
-        <!-- GA -->
+        
         <script>
             (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
             (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
             m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
+            })(window,document,'script','https://www.google-analytics.com/analytics.' + 'js','ga');
             ga('create', 'UA-104172468-1', 'auto');
             ga('send', 'pageview');
         </script>
+
+        
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site" content="@AMPstudioUK">
+        <meta property="og:site_name" content="AMP Studio">
+        <meta property="og:title" content="ΛMP Studio : Digital Marketing and Creative Agency">
+        <meta property="og:description" content="We create CGI, branding, designs and websites to help any size business grow.">
+        <meta property="og:url" content="https://amp.studio/">
+        <meta property="og:image" content="https://amp.studio/images/twitter-card.jpg">
+
     </head>
     
-    <body class="colour">
-        <!-- Page wrapper -->
-        <div class="y-scroll">
-            <canvas id="canvas" class="hidden hide-1020"></canvas>
-            <nav class="nav dark-split slide-in-down">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-3-sm logo">
-                            <a href="/">
-                                <svg width="88" height="23" viewBox="0 0 88 23" xmlns="http://www.w3.org/2000/svg">
-                                    <path class="change-colour logo-mobile" d="M78.327 12.754c4.24 0 7.11-2.218 7.11-5.61V7.08c0-3.623-2.805-5.514-6.914-5.514h-6.456v11.188h6.26zM70.37 0h8.283c5.022 0 8.478 2.577 8.478 6.98v.066c0 4.794-4.14 7.274-8.9 7.274h-6.163v8.67H70.37V0zM12.628.79c-.01-.026-.02-.05-.033-.073l-.012-.025c-.21-.41-.637-.692-1.13-.692-.507 0-.944.3-1.148.73h-.013L0 22.99h1.76L11.266 2.18c.057-.127.238-.127.296 0l5.853 12.885 3.62 7.927h1.858L12.63.79zM55.437 0c-.327 0-.614.162-.792.408l-8.9 13.118c-.044.065-.14.065-.185 0L36.66.408C36.483.162 36.196 0 35.87 0c-.54 0-.978.405-.978.945V22.99h1.63V3.16l8.23 11.976c.418.61 1.318.61 1.738 0L54.718 3.16v19.83h1.696V.946c0-.54-.438-.945-.977-.945"/>
-                                </svg>
-                            </a>
-                        </div>
-                            <div class="col-6-sm main-nav">
-                                <ul>
-                                    <li><a class="change-colour" href="/">Home</a></li>
-                                    <li><a class="change-colour scrollDown">Services</a></li>
-                                    <li><a class="change-colour" href="about.html">About</a></li>
-                                    <li><a class="change-colour" href="contact.html">Contact</a></li>
-                                </ul>
-                            </div>
-                            <a class="mobile-menu-btn closed">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </a>
-                            <div class="col-3-sm social-nav">
-                                <a href="https://www.facebook.com/Ampstudiouk/">
-                                    <svg width="12" height="22" viewBox="0 0 12 22" xmlns="http://www.w3.org/2000/svg">
-                                        <path class="change-colour" d="M11.52.08L8.647.075c-3.225 0-5.31 2.118-5.31 5.396v2.49H.45c-.248 0-.45.2-.45.446v3.604c0 .247.202.447.45.447H3.34v9.096c0 .247.202.447.452.447h3.766c.25 0 .452-.2.452-.447v-9.096h3.375c.25 0 .45-.2.45-.447l.003-3.604c0-.12-.048-.232-.132-.316-.085-.084-.2-.13-.32-.13H8.008V5.85c0-1.014.243-1.53 1.577-1.53h1.934c.248 0 .45-.2.45-.446V.527c0-.247-.202-.447-.45-.447z" />
-                                    </svg>
-                                </a>
-                                <a href="https://twitter.com/AMPstudioUK">
-                                    <svg width="23" height="18" viewBox="0 0 23 18" xmlns="http://www.w3.org/2000/svg">
-                                        <path class="change-colour" d="M22.977 2.143c-.845.362-1.753.606-2.706.716.975-.563 1.72-1.454 2.073-2.512-.913.52-1.92.898-2.995 1.102-.86-.884-2.084-1.434-3.44-1.434-2.604 0-4.714 2.033-4.714 4.54 0 .356.04.703.122 1.035C7.4 5.403 3.926 3.594 1.6.847c-.406.67-.637 1.45-.637 2.283 0 1.574.833 2.965 2.097 3.778-.773-.025-1.5-.23-2.135-.57v.057c0 2.2 1.625 4.036 3.78 4.454-.395.1-.81.158-1.242.158-.304 0-.6-.03-.887-.085.6 1.806 2.34 3.12 4.402 3.155-1.612 1.217-3.645 1.94-5.854 1.94-.38 0-.755-.02-1.124-.062C2.086 17.246 4.563 18 7.225 18c8.67 0 13.41-6.92 13.41-12.922l-.015-.588c.926-.637 1.727-1.436 2.357-2.347z" />
-                                    </svg>
-                                </a>
-                                <a href="https://www.instagram.com/ampstudiouk/">
-                                    <svg width="23" height="22" viewBox="0 0 23 22" xmlns="http://www.w3.org/2000/svg">
-                                        <path class="change-colour" d="M2.95.02h17.078c1.622 0 2.95 1.147 2.95 2.815v16.298c0 1.668-1.328 2.814-2.95 2.814H2.948C1.33 21.947 0 20.8 0 19.133V2.835C0 1.167 1.327.02 2.95.02zm13.788 2.437c-.57 0-1.034.444-1.034.987v2.363c0 .543.465.987 1.034.987h2.597c.57 0 1.035-.444 1.035-.987V3.444c0-.543-.466-.987-1.035-.987h-2.597zm3.643 6.836H18.36c.19.597.295 1.228.295 1.88 0 3.648-3.198 6.604-7.142 6.604-3.944 0-7.14-2.956-7.14-6.603 0-.653.102-1.285.294-1.88h-2.11v9.26c0 .48.41.873.913.873h16c.503 0 .914-.393.914-.872V9.293zM11.51 6.67c-2.548 0-4.614 1.91-4.614 4.266 0 2.357 2.066 4.267 4.614 4.267 2.55 0 4.615-1.91 4.615-4.267 0-2.356-2.066-4.266-4.615-4.266z" />
-                                    </svg>
-                                </a>
-                            </div>
+    <body class="colour y-scroll">
+        <canvas id="canvas" class="hidden hide-1020"></canvas>
+        <div class="page-transition"></div>
+        <nav class="nav dark-split slide-in-down">
+            <div class="container">
+                <div class="row">
+                    <div class="col-3-sm logo">
+                        <a class="page-transition-link" href="/">
+                            <svg width="88" height="23" viewBox="0 0 88 23" xmlns="http://www.w3.org/2000/svg">
+                                <path class="change-colour logo-mobile" d="M78.327 12.754c4.24 0 7.11-2.218 7.11-5.61V7.08c0-3.623-2.805-5.514-6.914-5.514h-6.456v11.188h6.26zM70.37 0h8.283c5.022 0 8.478 2.577 8.478 6.98v.066c0 4.794-4.14 7.274-8.9 7.274h-6.163v8.67H70.37V0zM12.628.79c-.01-.026-.02-.05-.033-.073l-.012-.025c-.21-.41-.637-.692-1.13-.692-.507 0-.944.3-1.148.73h-.013L0 22.99h1.76L11.266 2.18c.057-.127.238-.127.296 0l5.853 12.885 3.62 7.927h1.858L12.63.79zM55.437 0c-.327 0-.614.162-.792.408l-8.9 13.118c-.044.065-.14.065-.185 0L36.66.408C36.483.162 36.196 0 35.87 0c-.54 0-.978.405-.978.945V22.99h1.63V3.16l8.23 11.976c.418.61 1.318.61 1.738 0L54.718 3.16v19.83h1.696V.946c0-.54-.438-.945-.977-.945"/>
+                            </svg>
+                        </a>
                     </div>
-                </div>
-            </nav>
-            <div class="mobile-menu">
-                <div class="mobile-menu-angle"></div>
-                <div class="menu-wrapper">
-                    <div class="mobile-menu-content-wrapper">
-                        <ul>
-                            <li><a href="/">Home</a></li>
-                            <li><a href="about.html">About</a></li>
-                            <li><a href="contact.html">Contact</a></li>
-                        </ul>
-                        <div class="divider"></div>
-                        <div class="mobile-social-nav">
+                        <div class="col-6-sm main-nav">
+                            <ul>
+                                <li><a class="page-transition-link change-colour" href="/">Home</a></li>
+                                <li><a class="change-colour scrollDown">Services</a></li>
+                                <li><a class="page-transition-link change-colour" href="about.html">About</a></li>
+                                <li><a class="page-transition-link change-colour" href="contact.html">Contact</a></li>
+                            </ul>
+                        </div>
+                        <a class="mobile-menu-btn closed">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </a>
+                        <div class="col-3-sm social-nav">
                             <a href="https://www.facebook.com/Ampstudiouk/">
                                 <svg width="12" height="22" viewBox="0 0 12 22" xmlns="http://www.w3.org/2000/svg">
-                                    <path class="fill-white" d="M11.52.08L8.647.075c-3.225 0-5.31 2.118-5.31 5.396v2.49H.45c-.248 0-.45.2-.45.446v3.604c0 .247.202.447.45.447H3.34v9.096c0 .247.202.447.452.447h3.766c.25 0 .452-.2.452-.447v-9.096h3.375c.25 0 .45-.2.45-.447l.003-3.604c0-.12-.048-.232-.132-.316-.085-.084-.2-.13-.32-.13H8.008V5.85c0-1.014.243-1.53 1.577-1.53h1.934c.248 0 .45-.2.45-.446V.527c0-.247-.202-.447-.45-.447z" />
+                                    <path class="change-colour" d="M11.52.08L8.647.075c-3.225 0-5.31 2.118-5.31 5.396v2.49H.45c-.248 0-.45.2-.45.446v3.604c0 .247.202.447.45.447H3.34v9.096c0 .247.202.447.452.447h3.766c.25 0 .452-.2.452-.447v-9.096h3.375c.25 0 .45-.2.45-.447l.003-3.604c0-.12-.048-.232-.132-.316-.085-.084-.2-.13-.32-.13H8.008V5.85c0-1.014.243-1.53 1.577-1.53h1.934c.248 0 .45-.2.45-.446V.527c0-.247-.202-.447-.45-.447z" />
                                 </svg>
                             </a>
                             <a href="https://twitter.com/AMPstudioUK">
                                 <svg width="23" height="18" viewBox="0 0 23 18" xmlns="http://www.w3.org/2000/svg">
-                                    <path class="fill-white" d="M22.977 2.143c-.845.362-1.753.606-2.706.716.975-.563 1.72-1.454 2.073-2.512-.913.52-1.92.898-2.995 1.102-.86-.884-2.084-1.434-3.44-1.434-2.604 0-4.714 2.033-4.714 4.54 0 .356.04.703.122 1.035C7.4 5.403 3.926 3.594 1.6.847c-.406.67-.637 1.45-.637 2.283 0 1.574.833 2.965 2.097 3.778-.773-.025-1.5-.23-2.135-.57v.057c0 2.2 1.625 4.036 3.78 4.454-.395.1-.81.158-1.242.158-.304 0-.6-.03-.887-.085.6 1.806 2.34 3.12 4.402 3.155-1.612 1.217-3.645 1.94-5.854 1.94-.38 0-.755-.02-1.124-.062C2.086 17.246 4.563 18 7.225 18c8.67 0 13.41-6.92 13.41-12.922l-.015-.588c.926-.637 1.727-1.436 2.357-2.347z" />
+                                    <path class="change-colour" d="M22.977 2.143c-.845.362-1.753.606-2.706.716.975-.563 1.72-1.454 2.073-2.512-.913.52-1.92.898-2.995 1.102-.86-.884-2.084-1.434-3.44-1.434-2.604 0-4.714 2.033-4.714 4.54 0 .356.04.703.122 1.035C7.4 5.403 3.926 3.594 1.6.847c-.406.67-.637 1.45-.637 2.283 0 1.574.833 2.965 2.097 3.778-.773-.025-1.5-.23-2.135-.57v.057c0 2.2 1.625 4.036 3.78 4.454-.395.1-.81.158-1.242.158-.304 0-.6-.03-.887-.085.6 1.806 2.34 3.12 4.402 3.155-1.612 1.217-3.645 1.94-5.854 1.94-.38 0-.755-.02-1.124-.062C2.086 17.246 4.563 18 7.225 18c8.67 0 13.41-6.92 13.41-12.922l-.015-.588c.926-.637 1.727-1.436 2.357-2.347z" />
                                 </svg>
                             </a>
                             <a href="https://www.instagram.com/ampstudiouk/">
                                 <svg width="23" height="22" viewBox="0 0 23 22" xmlns="http://www.w3.org/2000/svg">
-                                    <path class="fill-white" d="M2.95.02h17.078c1.622 0 2.95 1.147 2.95 2.815v16.298c0 1.668-1.328 2.814-2.95 2.814H2.948C1.33 21.947 0 20.8 0 19.133V2.835C0 1.167 1.327.02 2.95.02zm13.788 2.437c-.57 0-1.034.444-1.034.987v2.363c0 .543.465.987 1.034.987h2.597c.57 0 1.035-.444 1.035-.987V3.444c0-.543-.466-.987-1.035-.987h-2.597zm3.643 6.836H18.36c.19.597.295 1.228.295 1.88 0 3.648-3.198 6.604-7.142 6.604-3.944 0-7.14-2.956-7.14-6.603 0-.653.102-1.285.294-1.88h-2.11v9.26c0 .48.41.873.913.873h16c.503 0 .914-.393.914-.872V9.293zM11.51 6.67c-2.548 0-4.614 1.91-4.614 4.266 0 2.357 2.066 4.267 4.614 4.267 2.55 0 4.615-1.91 4.615-4.267 0-2.356-2.066-4.266-4.615-4.266z" />
+                                    <path class="change-colour" d="M2.95.02h17.078c1.622 0 2.95 1.147 2.95 2.815v16.298c0 1.668-1.328 2.814-2.95 2.814H2.948C1.33 21.947 0 20.8 0 19.133V2.835C0 1.167 1.327.02 2.95.02zm13.788 2.437c-.57 0-1.034.444-1.034.987v2.363c0 .543.465.987 1.034.987h2.597c.57 0 1.035-.444 1.035-.987V3.444c0-.543-.466-.987-1.035-.987h-2.597zm3.643 6.836H18.36c.19.597.295 1.228.295 1.88 0 3.648-3.198 6.604-7.142 6.604-3.944 0-7.14-2.956-7.14-6.603 0-.653.102-1.285.294-1.88h-2.11v9.26c0 .48.41.873.913.873h16c.503 0 .914-.393.914-.872V9.293zM11.51 6.67c-2.548 0-4.614 1.91-4.614 4.266 0 2.357 2.066 4.267 4.614 4.267 2.55 0 4.615-1.91 4.615-4.267 0-2.356-2.066-4.266-4.615-4.266z" />
                                 </svg>
                             </a>
                         </div>
+                </div>
+            </div>
+        </nav>
+        <div class="mobile-menu">
+            <div class="mobile-menu-angle"></div>
+            <div class="menu-wrapper">
+                <div class="mobile-menu-content-wrapper">
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a class="mobile-service-home">Services</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                    <div class="divider"></div>
+                    <div class="mobile-social-nav">
+                        <a href="https://www.facebook.com/Ampstudiouk/">
+                            <svg width="12" height="22" viewBox="0 0 12 22" xmlns="http://www.w3.org/2000/svg">
+                                <path class="fill-white" d="M11.52.08L8.647.075c-3.225 0-5.31 2.118-5.31 5.396v2.49H.45c-.248 0-.45.2-.45.446v3.604c0 .247.202.447.45.447H3.34v9.096c0 .247.202.447.452.447h3.766c.25 0 .452-.2.452-.447v-9.096h3.375c.25 0 .45-.2.45-.447l.003-3.604c0-.12-.048-.232-.132-.316-.085-.084-.2-.13-.32-.13H8.008V5.85c0-1.014.243-1.53 1.577-1.53h1.934c.248 0 .45-.2.45-.446V.527c0-.247-.202-.447-.45-.447z" />
+                            </svg>
+                        </a>
+                        <a href="https://twitter.com/AMPstudioUK">
+                            <svg width="23" height="18" viewBox="0 0 23 18" xmlns="http://www.w3.org/2000/svg">
+                                <path class="fill-white" d="M22.977 2.143c-.845.362-1.753.606-2.706.716.975-.563 1.72-1.454 2.073-2.512-.913.52-1.92.898-2.995 1.102-.86-.884-2.084-1.434-3.44-1.434-2.604 0-4.714 2.033-4.714 4.54 0 .356.04.703.122 1.035C7.4 5.403 3.926 3.594 1.6.847c-.406.67-.637 1.45-.637 2.283 0 1.574.833 2.965 2.097 3.778-.773-.025-1.5-.23-2.135-.57v.057c0 2.2 1.625 4.036 3.78 4.454-.395.1-.81.158-1.242.158-.304 0-.6-.03-.887-.085.6 1.806 2.34 3.12 4.402 3.155-1.612 1.217-3.645 1.94-5.854 1.94-.38 0-.755-.02-1.124-.062C2.086 17.246 4.563 18 7.225 18c8.67 0 13.41-6.92 13.41-12.922l-.015-.588c.926-.637 1.727-1.436 2.357-2.347z" />
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com/ampstudiouk/">
+                            <svg width="23" height="22" viewBox="0 0 23 22" xmlns="http://www.w3.org/2000/svg">
+                                <path class="fill-white" d="M2.95.02h17.078c1.622 0 2.95 1.147 2.95 2.815v16.298c0 1.668-1.328 2.814-2.95 2.814H2.948C1.33 21.947 0 20.8 0 19.133V2.835C0 1.167 1.327.02 2.95.02zm13.788 2.437c-.57 0-1.034.444-1.034.987v2.363c0 .543.465.987 1.034.987h2.597c.57 0 1.035-.444 1.035-.987V3.444c0-.543-.466-.987-1.035-.987h-2.597zm3.643 6.836H18.36c.19.597.295 1.228.295 1.88 0 3.648-3.198 6.604-7.142 6.604-3.944 0-7.14-2.956-7.14-6.603 0-.653.102-1.285.294-1.88h-2.11v9.26c0 .48.41.873.913.873h16c.503 0 .914-.393.914-.872V9.293zM11.51 6.67c-2.548 0-4.614 1.91-4.614 4.266 0 2.357 2.066 4.267 4.614 4.267 2.55 0 4.615-1.91 4.615-4.267 0-2.356-2.066-4.266-4.615-4.266z" />
+                            </svg>
+                        </a>
                     </div>
                 </div>
             </div>
-            <div class="home-top-bg slide-in-left slide-out-left"></div>
-            <!-- mobile bg -->
-            <div class="mobile-bg">
-                <div class="mobile-top-bg"></div>
-                <div class="home-top-bg2"></div>
-            </div>
-            <section class="container home-title">
-                <div class="row">
-                    <div class="col-10 title-content slide-in-left-delay slide-out-left-fade">
-                        <h1>Loud<br />&amp; clear<span>.</span></h1>
-                        <p>We cut through the noise to deliver engaging digital marketing that helps your business grow.</p>
-                        <a class="button btn-md services-btn scrollDown">our services<div class="service-menu"><div class="service-menu-top"><span></span><span></span></div><div class="service-menu-bottom"><span></span><span></span></div></div></a>
-                    </div>
-                </div>
-            </section>
-            <div class="scroll-wrapper">
-                <a class="scrollDown"><div class="section-scroll slide-in-bottom">
-                    <img src="images/arrow-down.svg">
-                </div></a>
-            </div>
-            
-            <section class="main-bg">
-
-                <!-- Services Bubbles -->
-                <section class="services">
-                    <h1>Our<br />services</h1>
-                    <div class="services-circle"></div>
-                    <div class="services-circle circle-2"></div>
-                    <div class="container service-content">
-                        <div class="service-text row">
-                            <h2 class="white">Powerful marketing<br />for the connected world</h2>
-                            <p class="white">ΛMP is a brand new creative agency dedicated to producing high quality custom websites, online marketing campaigns, brand strategies and visual content.</p>
-                        </div>
-                        <div id="bubbles" class="service-bubbles">
-                            <div class="bubble bubble-1">
-                                <div class="bubble-text">
-                                    <h2 class="white">01</h2>
-                                    <h3 class="white">Digital<br />Marketing</h3>
-                                </div>
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 314 328" enable-background="new 0 0 314 328">
-                                    <style>
-                                        .st1 {
-                                            fill: none;
-                                            stroke: #FFFFFF;
-                                            stroke-width: 3;
-                                        }
-                                        /* .st2 {
-                                            filter: url(#Adobe_OpacityMaskFilter);
-                                        } */
-                                        .small-circle {
-                                            fill: #FFFFFF;
-                                        }
-                                        .inner-right {
-                                            opacity: 0.5088;
-                                            mask: url(#mask-7);
-                                            fill: none;
-                                            stroke: #FFFFFF;
-                                            stroke-width: 2;
-                                            enable-background: new;
-                                        }
-                                        /* .st5 {
-                                            filter: url(#Adobe_OpacityMaskFilter_1_);
-                                        } */
-                                        .inner-left {
-                                            opacity: 0.5088;
-                                            mask: url(#mask-9);
-                                            fill: none;
-                                            stroke: #FFFFFF;
-                                            stroke-width: 2;
-                                            enable-background: new;
-                                        }
-                                        /* .st7 {
-                                            filter: url(#Adobe_OpacityMaskFilter_2_);
-                                        } */
-                                        .outer-top {
-                                            opacity: 0.35;
-                                            mask: url(#mask-11);
-                                            fill: none;
-                                            stroke: #FFFFFF;
-                                            stroke-width: 2;
-                                            enable-background: new;
-                                        }
-                                        /* .st9 {
-                                            filter: url(#filter-3);
-                                        } */
-                                        .st10 {
-                                            opacity: 0.15;
-                                            fill: none;
-                                            stroke: #FFFFFF;
-                                            stroke-width: 2;
-                                            enable-background: new;
-                                        }
-                                    </style>
-                                    <filter filterUnits="objectBoundingBox" height="816.7%" id="filter-3" width="816.7%" x="-358.3%" y="-341.7%">
-                                        <feMorphology in="SourceAlpha" operator="dilate" radius="2.5" result="shadowSpreadOuter1" />
-                                        <feOffset dy="2" in="shadowSpreadOuter1" result="shadowOffsetOuter1" />
-                                        <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="11.5" />
-                                        <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.5 0" />
-                                    </filter>
-                                    <g>
-                                        <circle class="st1" cx="156.8" cy="161.7" r="116.8" />
-                                    </g>
-                                    <g transform="translate(137 26)">
-                                        <defs>
-                                            <filter filterUnits="userSpaceOnUse" x="-98.1" y="17.9" width="235.7" height="235.7">
-                                                <feColorMatrix values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" />
-                                            </filter>
-                                        </defs>
-                                        <mask maskUnits="userSpaceOnUse" x="-98.1" y="17.9" width="235.7" height="235.7" id="mask-7">
-                                            <g class="st2">
-                                                <path class="small-circle" d="M17.8 12.3h123.9v248.4H17.8z" />
-                                            </g>
-                                        </mask>
-                                        <circle class="inner-right" cx="19.8" cy="135.7" r="116.8" />
-                                    </g>
-                                    <g transform="translate(13 115)">
-                                        <defs>
-                                            <filter filterUnits="userSpaceOnUse" x="25.9" y="-71.1" width="235.7" height="235.7">
-                                                <feColorMatrix values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" />
-                                            </filter>
-                                        </defs>
-                                        <mask maskUnits="userSpaceOnUse" x="25.9" y="-71.1" width="235.7" height="235.7" id="mask-9">
-                                            <g class="st5">
-                                                <path id="path-8" class="small-circle" d="M5.6 21h49.3v50.7H5.6z" />
-                                            </g>
-                                        </mask>
-                                        <circle class="inner-left" cx="143.8" cy="46.7" r="116.8" />
-                                    </g>
-                                    <g transform="translate(100 6)">
-                                        <defs>
-                                            <filter filterUnits="userSpaceOnUse" x="-60.6" y="38.4" width="235.7" height="235.7">
-                                                <feColorMatrix values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" />
-                                            </filter>
-                                        </defs>
-                                        <mask maskUnits="userSpaceOnUse" x="-60.6" y="38.4" width="235.7" height="235.7" id="mask-11">
-                                            <g class="st7">
-                                                <path class="small-circle" d="M22.4 36.3h72.8v20.6H22.4z" />
-                                            </g>
-                                        </mask>
-                                        <circle class="outer-top" cx="57.2" cy="156.2" r="116.8" />
-                                    </g>
-                                    <g class="outer-full">
-                                        <g class="st9" transform="translate(131 270)">
-                                            <circle class="small-circle" cx="24.6" cy="8" r="5.1" />
-                                        </g>
-                                        <g transform="translate(131 270)">
-                                            <circle class="small-circle" cx="24.6" cy="8" r="5.1" />
-                                        </g>
-                                        <circle class="st10" cx="156.8" cy="161.7" r="116.8" />
-                                    </g>
-                                </svg>
-                            </div>
-                            <div class="bubble bubble-2">
-                                <div class="bubble-text">
-                                    <h2 class="white">02</h2>
-                                    <h3 class="white">Brand Strategy<br />&amp; Creative</h3>
-                                </div>
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 314 328" enable-background="new 0 0 314 328">
-                                    <filter filterUnits="objectBoundingBox" height="816.7%" id="filter-3" width="816.7%" x="-358.3%" y="-341.7%">
-                                        <feMorphology in="SourceAlpha" operator="dilate" radius="2.5" result="shadowSpreadOuter1" />
-                                        <feOffset dy="2" in="shadowSpreadOuter1" result="shadowOffsetOuter1" />
-                                        <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="11.5" />
-                                        <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.5 0" />
-                                    </filter>
-                                    <g>
-                                        <circle class="st1" cx="156.8" cy="161.7" r="116.8" />
-                                    </g>
-                                    <g transform="translate(137 26)">
-                                        <defs>
-                                            <filter filterUnits="userSpaceOnUse" x="-98.1" y="17.9" width="235.7" height="235.7">
-                                                <feColorMatrix values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" />
-                                            </filter>
-                                        </defs>
-                                        <mask maskUnits="userSpaceOnUse" x="-98.1" y="17.9" width="235.7" height="235.7" id="mask-7">
-                                            <g class="st2">
-                                                <path class="small-circle" d="M17.8 12.3h123.9v248.4H17.8z" />
-                                            </g>
-                                        </mask>
-                                        <circle class="inner-right" cx="19.8" cy="135.7" r="116.8" />
-                                    </g>
-                                    <g transform="translate(13 115)">
-                                        <defs>
-                                            <filter filterUnits="userSpaceOnUse" x="25.9" y="-71.1" width="235.7" height="235.7">
-                                                <feColorMatrix values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" />
-                                            </filter>
-                                        </defs>
-                                        <mask maskUnits="userSpaceOnUse" x="25.9" y="-71.1" width="235.7" height="235.7" id="mask-9">
-                                            <g class="st5">
-                                                <path id="path-8" class="small-circle" d="M5.6 21h49.3v50.7H5.6z" />
-                                            </g>
-                                        </mask>
-                                        <circle class="inner-left" cx="143.8" cy="46.7" r="116.8" />
-                                    </g>
-                                    <g transform="translate(100 6)">
-                                        <defs>
-                                            <filter filterUnits="userSpaceOnUse" x="-60.6" y="38.4" width="235.7" height="235.7">
-                                                <feColorMatrix values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" />
-                                            </filter>
-                                        </defs>
-                                        <mask maskUnits="userSpaceOnUse" x="-60.6" y="38.4" width="235.7" height="235.7" id="mask-11">
-                                            <g class="st7">
-                                                <path class="small-circle" d="M22.4 36.3h72.8v20.6H22.4z" />
-                                            </g>
-                                        </mask>
-                                        <circle class="outer-top" cx="57.2" cy="156.2" r="116.8" />
-                                    </g>
-                                    <g class="outer-full">
-                                        <g class="st9" transform="translate(131 270)">
-                                            <circle class="small-circle" cx="24.6" cy="8" r="5.1" />
-                                        </g>
-                                        <g transform="translate(131 270)">
-                                            <circle class="small-circle" cx="24.6" cy="8" r="5.1" />
-                                        </g>
-                                        <circle class="st10" cx="156.8" cy="161.7" r="116.8" />
-                                    </g>
-                                </svg>
-                            </div>
-                            <div class="bubble bubble-3">
-                                <div class="bubble-text">
-                                    <h2 class="white">03</h2>
-                                    <h3 class="white">Content<br />Creation</h3>
-                                </div>
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 314 328" enable-background="new 0 0 314 328">
-                                    <filter filterUnits="objectBoundingBox" height="816.7%" id="filter-3" width="816.7%" x="-358.3%" y="-341.7%">
-                                        <feMorphology in="SourceAlpha" operator="dilate" radius="2.5" result="shadowSpreadOuter1" />
-                                        <feOffset dy="2" in="shadowSpreadOuter1" result="shadowOffsetOuter1" />
-                                        <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="11.5" />
-                                        <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.5 0" />
-                                    </filter>
-                                    <g>
-                                        <circle class="st1" cx="156.8" cy="161.7" r="116.8" />
-                                    </g>
-                                    <g transform="translate(137 26)">
-                                        <defs>
-                                            <filter filterUnits="userSpaceOnUse" x="-98.1" y="17.9" width="235.7" height="235.7">
-                                                <feColorMatrix values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" />
-                                            </filter>
-                                        </defs>
-                                        <mask maskUnits="userSpaceOnUse" x="-98.1" y="17.9" width="235.7" height="235.7" id="mask-7">
-                                            <g class="st2">
-                                                <path class="small-circle" d="M17.8 12.3h123.9v248.4H17.8z" />
-                                            </g>
-                                        </mask>
-                                        <circle class="inner-right" cx="19.8" cy="135.7" r="116.8" />
-                                    </g>
-                                    <g transform="translate(13 115)">
-                                        <defs>
-                                            <filter filterUnits="userSpaceOnUse" x="25.9" y="-71.1" width="235.7" height="235.7">
-                                                <feColorMatrix values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" />
-                                            </filter>
-                                        </defs>
-                                        <mask maskUnits="userSpaceOnUse" x="25.9" y="-71.1" width="235.7" height="235.7" id="mask-9">
-                                            <g class="st5">
-                                                <path id="path-8" class="small-circle" d="M5.6 21h49.3v50.7H5.6z" />
-                                            </g>
-                                        </mask>
-                                        <circle class="inner-left" cx="143.8" cy="46.7" r="116.8" />
-                                    </g>
-                                    <g transform="translate(100 6)">
-                                        <defs>
-                                            <filter filterUnits="userSpaceOnUse" x="-60.6" y="38.4" width="235.7" height="235.7">
-                                                <feColorMatrix values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" />
-                                            </filter>
-                                        </defs>
-                                        <mask maskUnits="userSpaceOnUse" x="-60.6" y="38.4" width="235.7" height="235.7" id="mask-11">
-                                            <g class="st7">
-                                                <path class="small-circle" d="M22.4 36.3h72.8v20.6H22.4z" />
-                                            </g>
-                                        </mask>
-                                        <circle class="outer-top" cx="57.2" cy="156.2" r="116.8" />
-                                    </g>
-                                    <g class="outer-full">
-                                        <g class="st9" transform="translate(131 270)">
-                                            <circle class="small-circle" cx="24.6" cy="8" r="5.1" />
-                                        </g>
-                                        <g transform="translate(131 270)">
-                                            <circle class="small-circle" cx="24.6" cy="8" r="5.1" />
-                                        </g>
-                                        <circle class="st10" cx="156.8" cy="161.7" r="116.8" />
-                                    </g>
-                                </svg>
-                            </div>
-                            <div class="bubble bubble-4">
-                                <div class="bubble-text">
-                                    <h2 class="white">04</h2>
-                                    <h3 class="white">Web<br />Design</h3>
-                                </div>
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 314 328" enable-background="new 0 0 314 328">
-                                    <filter filterUnits="objectBoundingBox" height="816.7%" id="filter-3" width="816.7%" x="-358.3%" y="-341.7%">
-                                        <feMorphology in="SourceAlpha" operator="dilate" radius="2.5" result="shadowSpreadOuter1" />
-                                        <feOffset dy="2" in="shadowSpreadOuter1" result="shadowOffsetOuter1" />
-                                        <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="11.5" />
-                                        <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.5 0" />
-                                    </filter>
-                                    <g>
-                                        <circle class="st1" cx="156.8" cy="161.7" r="116.8" />
-                                    </g>
-                                    <g transform="translate(137 26)">
-                                        <defs>
-                                            <filter filterUnits="userSpaceOnUse" x="-98.1" y="17.9" width="235.7" height="235.7">
-                                                <feColorMatrix values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" />
-                                            </filter>
-                                        </defs>
-                                        <mask maskUnits="userSpaceOnUse" x="-98.1" y="17.9" width="235.7" height="235.7" id="mask-7">
-                                            <g class="st2">
-                                                <path class="small-circle" d="M17.8 12.3h123.9v248.4H17.8z" />
-                                            </g>
-                                        </mask>
-                                        <circle class="inner-right" cx="19.8" cy="135.7" r="116.8" />
-                                    </g>
-                                    <g transform="translate(13 115)">
-                                        <defs>
-                                            <filter filterUnits="userSpaceOnUse" x="25.9" y="-71.1" width="235.7" height="235.7">
-                                                <feColorMatrix values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" />
-                                            </filter>
-                                        </defs>
-                                        <mask maskUnits="userSpaceOnUse" x="25.9" y="-71.1" width="235.7" height="235.7" id="mask-9">
-                                            <g class="st5">
-                                                <path id="path-8" class="small-circle" d="M5.6 21h49.3v50.7H5.6z" />
-                                            </g>
-                                        </mask>
-                                        <circle class="inner-left" cx="143.8" cy="46.7" r="116.8" />
-                                    </g>
-                                    <g transform="translate(100 6)">
-                                        <defs>
-                                            <filter filterUnits="userSpaceOnUse" x="-60.6" y="38.4" width="235.7" height="235.7">
-                                                <feColorMatrix values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" />
-                                            </filter>
-                                        </defs>
-                                        <mask maskUnits="userSpaceOnUse" x="-60.6" y="38.4" width="235.7" height="235.7" id="mask-11">
-                                            <g class="st7">
-                                                <path class="small-circle" d="M22.4 36.3h72.8v20.6H22.4z" />
-                                            </g>
-                                        </mask>
-                                        <circle class="outer-top" cx="57.2" cy="156.2" r="116.8" />
-                                    </g>
-                                    <g class="outer-full">
-                                        <g class="st9" transform="translate(131 270)">
-                                            <circle class="small-circle" cx="24.6" cy="8" r="5.1" />
-                                        </g>
-                                        <g transform="translate(131 270)">
-                                            <circle class="small-circle" cx="24.6" cy="8" r="5.1" />
-                                        </g>
-                                        <circle class="st10" cx="156.8" cy="161.7" r="116.8" />
-                                    </g>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <section id="card1" class="intro dark-nav digital-marketing service-card odd slide-out">
-                    <div class="col-6-sm intro-image">
-                        <video id="service-video" src="videos/service-video.mp4" muted loop></video>
-                    </div>
-                    <div class="col-6-sm pl3">
-                        <div class="intro-text-wrapper">
-                            <h3 class="pink">Digital Marketing_</h3>
-                            <h2>Social Media, PPC, Email<br class="hidden-400" /> &amp; Affiliate Marketing</h2>
-                            <p>Whether it’s friendly advice or a fully managed online marketing campaign, we set clear data-driven goals and offer constant feedback to ensure that your brand builds and maintains a strong social presence.</p>
-                        </div>
-                    </div>
-                </section>
-
-                <section id="card2" class="intro brand-strategy service-card even slide-out">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-6-sm pl3">
-                                <div class="intro-text-wrapper nmrl">
-                                    <h3 class="white">Brand Strategy &amp; creative_</h3>
-                                    <h2 class="white">Branding, Strategy &amp;<br class="hidden-400" /> Creative Vision</h2>
-                                    <p class="white">Our experience building some of the fastest growing brands in the UK allows us to deliver confident, tailored designs that put you ahead of the pack. We’ll help you to define goals, understand the market and find your voice in an increasingly noisy world.</p>
-                                </div>
-                            </div>  
-                            <div class="col-6-sm intro-image nmt">
-                                <video id="service-video" src="videos/service-video.mp4" muted loop></video>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <section id="card3" class="intro dark-nav digital-marketing service-card odd slide-out">
-                    <div class="col-6-sm intro-image">
-                        <video id="service-video" src="videos/service-video.mp4" muted loop></video>
-                    </div>
-                    <div class="col-6-sm pl3">
-                        <div class="intro-text-wrapper">
-                            <h3 class="pink">Content Creation_</h3>
-                            <h2>CGI, Video, Photography<br />&amp; TV Advertising</h2>
-                            <p>From entertaining social media content to national TV campaigns and exhibitions, our CGI imagery, photography &amp; video production skills help you to visualise your ideas, communicate with your audience and offer a competitive edge for your business.</p>
-                        </div>
-                    </div>
-                </section>
-
-                <section id="card4" class="intro web-design service-card even slide-out">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-6-sm pl3">
-                                <div class="intro-text-wrapper nmrl">
-                                    <h3 class="white">Web Design_</h3>
-                                    <h2 class="white">Website Development,<br /> SEO, E-commerce<br class="show-400" /> &amp; Hosting</h2>
-                                    <p class="white">We strive to build fast, reliable websites that deliver content efficiently on all devices as standard. Our rock-solid hosting packages are capable of scaling seamlessly to handle busy periods, backed with 24/7 monitoring and easy-to-use content management systems.</p>
-                                </div>
-                            </div>  
-                            <div class="col-6-sm intro-image nmt">
-                                <video id="service-video" src="videos/web-design.mp4" muted loop></video>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Contact form -->
-                <section class="contact dark-nav">
-                    <div class="container contact-form">
-                        <div class="row">
-                            <div class="title">
-                                <h2>Hello, <span id="contact-name">You</span>.</h2>
-                                <h4>Let's get down to business.</h4>
-                            </div>
-                            <form action="/contact_submit.php" method="post">
-                                <div class="form-input">
-                                    <input type="text" name="name" id="form-name" required>
-                                    <label>Your Name</label>
-                                    <span></span>
-                                </div>
-                                <div class="form-input">
-                                    <input type="text" name="email" id="form-email" required>
-                                    <label>Your Email</label>
-                                    <span></span>
-                                </div>
-                                <div class="form-input">
-                                    <textarea type="text" name="message" id="form-message" rows="1" required></textarea>
-                                    <label>How can we help?</label>
-                                    <span></span>
-                                </div>
-                                <div class="button-wrapper">
-                                    <button name="submit" type="submit" disabled><div class="arrow"><img src="images/arrow-right.svg"></div></button>
-                                </div>
-                                <div id="form-reset-container">
-                                    <div id="form-reset-text">Send another message</div>
-                                </div>
-                            </form>
-                            <div class="contact-details">
-                                <p><span>Or speak to us direct:</span><br />enquiries@amp.studio<br />(+44) 01782 853973</p>
-                            </div>
-                        </div>
-                    </div>
-                        <footer class="container">
-                            <div class="row">
-                                <p>© Amp Studio 2017</p>
-                                <div class="social-nav-footer">
-                                    <a href="https://www.facebook.com/Ampstudiouk/"><img class="facebook" src="images/facebook-black.svg" alt="Facebook"></a>
-                                    <a href="https://twitter.com/AMPstudioUK"><img class="twitter" src="images/twitter-black.svg" alt="Facebook"></a>
-                                    <a href="https://www.instagram.com/ampstudiouk/"><img class="instagram" src="images/instagram-black.svg" alt="Facebook"></a>
-                                </div>
-                                <div class="footer-nav">
-                                    <a href="terms.html">Terms</a>&nbsp;&nbsp;<span>|</span>&nbsp;&nbsp;<a href="privacy.html">Privacy</a>
-                                </div>
-                            </div>
-                        </footer>
-                </section>
-
-            </section>
-            
-            
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TweenMax.min.js"></script>
-            <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script> -->
-            <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.js"></script> -->
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-            <script src="js/scripts.js"></script>
-            <script src="js/contact-form.js"></script>
-            <script src="js/index-scripts.js"></script>
-            <script src="js/canvas.js"></script>
-            <script>
-                window.onload = function() {
-                    if (document.querySelector('#canvas')) { 
-                    initCanvas(); 
-                    }
-                    navLoad();
-                    if (html.classList.contains("no-touch") && window.innerWidth > 1020) {
-                    load();
-                    }
-                    getDarkNavAreas();
-                };
-            </script>
         </div>
+        <div class="home-top-bg slide-in-left slide-out-left"></div>
+        
+        <div class="mobile-bg">
+            <div class="mobile-top-bg"></div>
+            <div class="home-top-bg2"></div>
+        </div>
+        <section class="container home-title">
+            <div class="row">
+                <div class="col-10 title-content slide-in-left-delay slide-out-left-fade">
+                    <h1>Loud<br />&amp; clear<span>.</span></h1>
+                    <p>We cut through the noise to deliver engaging digital marketing that helps your business grow.</p>
+                    <a class="button btn-md services-btn scrollDown">our services<div class="service-menu"><div class="service-menu-top"><span></span><span></span></div><div class="service-menu-bottom"><span></span><span></span></div></div></a>
+                </div>
+            </div>
+        </section>
+        <div class="scroll-wrapper">
+            <a class="scrollDown"><div class="section-scroll slide-in-bottom">
+                <img src="images/arrow-down.svg">
+            </div></a>
+        </div>
+        
+        <section class="main-bg">
+
+            
+            <section class="services">
+                <h1>Our<br />services</h1>
+                <div class="services-circle"></div>
+                <div class="services-circle circle-2"></div>
+                <div class="container service-content">
+                    <div class="service-text row">
+                        <h2 class="white">Powerful marketing<br />for the connected world</h2>
+                        <p class="white">ΛMP is a brand new creative agency dedicated to producing high quality custom websites, online marketing campaigns, brand strategies and visual content.</p>
+                    </div>
+                    <div id="bubbles" class="service-bubbles">
+                        <div class="bubble bubble-1">
+                            <div class="bubble-text">
+                                <h2 class="white">01</h2>
+                                <h3 class="white">Brand Strategy<br />&amp; Creative</h3>
+                            </div>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 314 328" enable-background="new 0 0 314 328"> <style>.st1{fill: none; stroke: #FFFFFF; stroke-width: 3;}.small-circle{fill: #FFFFFF;}.inner-right{opacity: 0.5088; mask: url(#mask-7); fill: none; stroke: #FFFFFF; stroke-width: 2; enable-background: new;}.inner-left{opacity: 0.5088; mask: url(#mask-9); fill: none; stroke: #FFFFFF; stroke-width: 2; enable-background: new;}.outer-top{opacity: 0.35; mask: url(#mask-11); fill: none; stroke: #FFFFFF; stroke-width: 2; enable-background: new;}.st10{opacity: 0.15; fill: none; stroke: #FFFFFF; stroke-width: 2; enable-background: new;}</style> <filter filterUnits="objectBoundingBox" height="816.7%" id="filter-3" width="816.7%" x="-358.3%" y="-341.7%"> <feMorphology in="SourceAlpha" operator="dilate" radius="2.5" result="shadowSpreadOuter1"/> <feOffset dy="2" in="shadowSpreadOuter1" result="shadowOffsetOuter1"/> <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="11.5"/> <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.5 0"/> </filter> <g> <circle class="st1" cx="156.8" cy="161.7" r="116.8"/> </g> <g transform="translate(137 26)"> <defs> <filter filterUnits="userSpaceOnUse" x="-98.1" y="17.9" width="235.7" height="235.7"> <feColorMatrix values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0"/> </filter> </defs> <mask maskUnits="userSpaceOnUse" x="-98.1" y="17.9" width="235.7" height="235.7" id="mask-7"> <g class="st2"> <path class="small-circle" d="M17.8 12.3h123.9v248.4H17.8z"/> </g> </mask> <circle class="inner-right" cx="19.8" cy="135.7" r="116.8"/> </g> <g transform="translate(13 115)"> <defs> <filter filterUnits="userSpaceOnUse" x="25.9" y="-71.1" width="235.7" height="235.7"> <feColorMatrix values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0"/> </filter> </defs> <mask maskUnits="userSpaceOnUse" x="25.9" y="-71.1" width="235.7" height="235.7" id="mask-9"> <g class="st5"> <path id="path-8" class="small-circle" d="M5.6 21h49.3v50.7H5.6z"/> </g> </mask> <circle class="inner-left" cx="143.8" cy="46.7" r="116.8"/> </g> <g transform="translate(100 6)"> <defs> <filter filterUnits="userSpaceOnUse" x="-60.6" y="38.4" width="235.7" height="235.7"> <feColorMatrix values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0"/> </filter> </defs> <mask maskUnits="userSpaceOnUse" x="-60.6" y="38.4" width="235.7" height="235.7" id="mask-11"> <g class="st7"> <path class="small-circle" d="M22.4 36.3h72.8v20.6H22.4z"/> </g> </mask> <circle class="outer-top" cx="57.2" cy="156.2" r="116.8"/> </g> <g class="outer-full"> <g class="st9" transform="translate(131 270)"> <circle class="small-circle" cx="24.6" cy="8" r="5.1"/> </g> <g transform="translate(131 270)"> <circle class="small-circle" cx="24.6" cy="8" r="5.1"/> </g> <circle class="st10" cx="156.8" cy="161.7" r="116.8"/> </g> </svg>
+                        </div>
+                        <div class="bubble bubble-2">
+                            <div class="bubble-text">
+                                <h2 class="white">02</h2>
+                                <h3 class="white">Motion<br />Graphics &amp; CGI</h3>
+                            </div>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 314 328" enable-background="new 0 0 314 328">
+                                <filter filterUnits="objectBoundingBox" height="816.7%" id="filter-3" width="816.7%" x="-358.3%" y="-341.7%">
+                                    <feMorphology in="SourceAlpha" operator="dilate" radius="2.5" result="shadowSpreadOuter1" />
+                                    <feOffset dy="2" in="shadowSpreadOuter1" result="shadowOffsetOuter1" />
+                                    <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="11.5" />
+                                    <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.5 0" />
+                                </filter>
+                                <g>
+                                    <circle class="st1" cx="156.8" cy="161.7" r="116.8" />
+                                </g>
+                                <g transform="translate(137 26)">
+                                    <defs>
+                                        <filter filterUnits="userSpaceOnUse" x="-98.1" y="17.9" width="235.7" height="235.7">
+                                            <feColorMatrix values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" />
+                                        </filter>
+                                    </defs>
+                                    <mask maskUnits="userSpaceOnUse" x="-98.1" y="17.9" width="235.7" height="235.7" id="mask-7">
+                                        <g class="st2">
+                                            <path class="small-circle" d="M17.8 12.3h123.9v248.4H17.8z" />
+                                        </g>
+                                    </mask>
+                                    <circle class="inner-right" cx="19.8" cy="135.7" r="116.8" />
+                                </g>
+                                <g transform="translate(13 115)">
+                                    <defs>
+                                        <filter filterUnits="userSpaceOnUse" x="25.9" y="-71.1" width="235.7" height="235.7">
+                                            <feColorMatrix values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" />
+                                        </filter>
+                                    </defs>
+                                    <mask maskUnits="userSpaceOnUse" x="25.9" y="-71.1" width="235.7" height="235.7" id="mask-9">
+                                        <g class="st5">
+                                            <path id="path-8" class="small-circle" d="M5.6 21h49.3v50.7H5.6z" />
+                                        </g>
+                                    </mask>
+                                    <circle class="inner-left" cx="143.8" cy="46.7" r="116.8" />
+                                </g>
+                                <g transform="translate(100 6)">
+                                    <defs>
+                                        <filter filterUnits="userSpaceOnUse" x="-60.6" y="38.4" width="235.7" height="235.7">
+                                            <feColorMatrix values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" />
+                                        </filter>
+                                    </defs>
+                                    <mask maskUnits="userSpaceOnUse" x="-60.6" y="38.4" width="235.7" height="235.7" id="mask-11">
+                                        <g class="st7">
+                                            <path class="small-circle" d="M22.4 36.3h72.8v20.6H22.4z" />
+                                        </g>
+                                    </mask>
+                                    <circle class="outer-top" cx="57.2" cy="156.2" r="116.8" />
+                                </g>
+                                <g class="outer-full">
+                                    <g class="st9" transform="translate(131 270)">
+                                        <circle class="small-circle" cx="24.6" cy="8" r="5.1" />
+                                    </g>
+                                    <g transform="translate(131 270)">
+                                        <circle class="small-circle" cx="24.6" cy="8" r="5.1" />
+                                    </g>
+                                    <circle class="st10" cx="156.8" cy="161.7" r="116.8" />
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="bubble bubble-3">
+                            <div class="bubble-text">
+                                <h2 class="white">03</h2>
+                                <h3 class="white">Web<br />Design</h3>
+                            </div>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 314 328" enable-background="new 0 0 314 328">
+                                <filter filterUnits="objectBoundingBox" height="816.7%" id="filter-3" width="816.7%" x="-358.3%" y="-341.7%">
+                                    <feMorphology in="SourceAlpha" operator="dilate" radius="2.5" result="shadowSpreadOuter1" />
+                                    <feOffset dy="2" in="shadowSpreadOuter1" result="shadowOffsetOuter1" />
+                                    <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="11.5" />
+                                    <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.5 0" />
+                                </filter>
+                                <g>
+                                    <circle class="st1" cx="156.8" cy="161.7" r="116.8" />
+                                </g>
+                                <g transform="translate(137 26)">
+                                    <defs>
+                                        <filter filterUnits="userSpaceOnUse" x="-98.1" y="17.9" width="235.7" height="235.7">
+                                            <feColorMatrix values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" />
+                                        </filter>
+                                    </defs>
+                                    <mask maskUnits="userSpaceOnUse" x="-98.1" y="17.9" width="235.7" height="235.7" id="mask-7">
+                                        <g class="st2">
+                                            <path class="small-circle" d="M17.8 12.3h123.9v248.4H17.8z" />
+                                        </g>
+                                    </mask>
+                                    <circle class="inner-right" cx="19.8" cy="135.7" r="116.8" />
+                                </g>
+                                <g transform="translate(13 115)">
+                                    <defs>
+                                        <filter filterUnits="userSpaceOnUse" x="25.9" y="-71.1" width="235.7" height="235.7">
+                                            <feColorMatrix values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" />
+                                        </filter>
+                                    </defs>
+                                    <mask maskUnits="userSpaceOnUse" x="25.9" y="-71.1" width="235.7" height="235.7" id="mask-9">
+                                        <g class="st5">
+                                            <path id="path-8" class="small-circle" d="M5.6 21h49.3v50.7H5.6z" />
+                                        </g>
+                                    </mask>
+                                    <circle class="inner-left" cx="143.8" cy="46.7" r="116.8" />
+                                </g>
+                                <g transform="translate(100 6)">
+                                    <defs>
+                                        <filter filterUnits="userSpaceOnUse" x="-60.6" y="38.4" width="235.7" height="235.7">
+                                            <feColorMatrix values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" />
+                                        </filter>
+                                    </defs>
+                                    <mask maskUnits="userSpaceOnUse" x="-60.6" y="38.4" width="235.7" height="235.7" id="mask-11">
+                                        <g class="st7">
+                                            <path class="small-circle" d="M22.4 36.3h72.8v20.6H22.4z" />
+                                        </g>
+                                    </mask>
+                                    <circle class="outer-top" cx="57.2" cy="156.2" r="116.8" />
+                                </g>
+                                <g class="outer-full">
+                                    <g class="st9" transform="translate(131 270)">
+                                        <circle class="small-circle" cx="24.6" cy="8" r="5.1" />
+                                    </g>
+                                    <g transform="translate(131 270)">
+                                        <circle class="small-circle" cx="24.6" cy="8" r="5.1" />
+                                    </g>
+                                    <circle class="st10" cx="156.8" cy="161.7" r="116.8" />
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="bubble bubble-4">
+                            <div class="bubble-text">
+                                <h2 class="white">04</h2>
+                                <h3 class="white">Image<br />Production</h3>
+                            </div>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 314 328" enable-background="new 0 0 314 328">
+                                <filter filterUnits="objectBoundingBox" height="816.7%" id="filter-3" width="816.7%" x="-358.3%" y="-341.7%">
+                                    <feMorphology in="SourceAlpha" operator="dilate" radius="2.5" result="shadowSpreadOuter1" />
+                                    <feOffset dy="2" in="shadowSpreadOuter1" result="shadowOffsetOuter1" />
+                                    <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="11.5" />
+                                    <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.5 0" />
+                                </filter>
+                                <g>
+                                    <circle class="st1" cx="156.8" cy="161.7" r="116.8" />
+                                </g>
+                                <g transform="translate(137 26)">
+                                    <defs>
+                                        <filter filterUnits="userSpaceOnUse" x="-98.1" y="17.9" width="235.7" height="235.7">
+                                            <feColorMatrix values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" />
+                                        </filter>
+                                    </defs>
+                                    <mask maskUnits="userSpaceOnUse" x="-98.1" y="17.9" width="235.7" height="235.7" id="mask-7">
+                                        <g class="st2">
+                                            <path class="small-circle" d="M17.8 12.3h123.9v248.4H17.8z" />
+                                        </g>
+                                    </mask>
+                                    <circle class="inner-right" cx="19.8" cy="135.7" r="116.8" />
+                                </g>
+                                <g transform="translate(13 115)">
+                                    <defs>
+                                        <filter filterUnits="userSpaceOnUse" x="25.9" y="-71.1" width="235.7" height="235.7">
+                                            <feColorMatrix values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" />
+                                        </filter>
+                                    </defs>
+                                    <mask maskUnits="userSpaceOnUse" x="25.9" y="-71.1" width="235.7" height="235.7" id="mask-9">
+                                        <g class="st5">
+                                            <path id="path-8" class="small-circle" d="M5.6 21h49.3v50.7H5.6z" />
+                                        </g>
+                                    </mask>
+                                    <circle class="inner-left" cx="143.8" cy="46.7" r="116.8" />
+                                </g>
+                                <g transform="translate(100 6)">
+                                    <defs>
+                                        <filter filterUnits="userSpaceOnUse" x="-60.6" y="38.4" width="235.7" height="235.7">
+                                            <feColorMatrix values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" />
+                                        </filter>
+                                    </defs>
+                                    <mask maskUnits="userSpaceOnUse" x="-60.6" y="38.4" width="235.7" height="235.7" id="mask-11">
+                                        <g class="st7">
+                                            <path class="small-circle" d="M22.4 36.3h72.8v20.6H22.4z" />
+                                        </g>
+                                    </mask>
+                                    <circle class="outer-top" cx="57.2" cy="156.2" r="116.8" />
+                                </g>
+                                <g class="outer-full">
+                                    <g class="st9" transform="translate(131 270)">
+                                        <circle class="small-circle" cx="24.6" cy="8" r="5.1" />
+                                    </g>
+                                    <g transform="translate(131 270)">
+                                        <circle class="small-circle" cx="24.6" cy="8" r="5.1" />
+                                    </g>
+                                    <circle class="st10" cx="156.8" cy="161.7" r="116.8" />
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="statement service-card slide-out dark-nav">
+                <div class="mission slide-up">
+                    <h3 class="pink">How We Deliver</h3>
+                </div>
+                <div class="mission slide-up">
+                    <p>We build meaningful experiences that get the engagement required for your growing business.</p>
+                </div>
+                <div class="slide-up">
+                    <a href="about.html" class="button btn-md standard-btn">Who We Are</a>
+                </div>
+            </section>
+
+            <section id="card1" class="intro brand-strategy service-card even slide-out">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-6-sm pl3">
+                            <div class="intro-text-wrapper nmrl">
+                                <h3 class="white">Brand Strategy &amp; creative_</h3>
+                                <h2 class="white">Branding, Strategy &amp;&nbsp;<br class="hidden-400" />Creative Vision</h2>
+                                <p class="white">Our experience building some of the fastest growing brands in the UK allows us to deliver confident, tailored designs that put you ahead of the pack. We’ll help you to define goals, understand the market and find your voice in an increasingly noisy world.</p>
+                            </div>
+                        </div>  
+                        <div class="col-6-sm intro-image nm">
+                            <div class="video-overlay-pink"></div>
+                            <video id="service-video" src="videos/branding-video.mp4" muted loop></video>
+                            <img class="mobile-video-poster" src="images/branding-video-poster.png" alt="brand strategy">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="card2" class="intro dark-nav digital-marketing service-card odd slide-out">
+                <div class="col-6-sm intro-image">
+                        <video id="service-video" src="videos/adidas-entrance.mp4" poster="images/adidas-entrance-cgi.jpg" muted loop></video>
+                        <img class="show-1020" src="images/adidas-entrance-cgi.jpg" alt="Adidas CGI">
+                </div>
+                <div class="col-6-sm pl3">
+                    <div class="intro-text-wrapper">
+                        <h3 class="pink">Motion Graphics &amp; CGI_</h3>
+                        <h2>CGI, Motion Graphics,<br />Animation &amp; TV Advertising</h2>
+                        <p>With over 25 years of 3D image production experience, our CGI imagery, motion graphics &amp; animation skills help you to visualise your ideas, communicate with your audience and offer a competitive edge for your business.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="card3" class="intro web-design service-card even slide-out">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-6-sm pl3">
+                            <div class="intro-text-wrapper nmrl">
+                                <h3 class="white">Web Design_</h3>
+                                <h2 class="white">Website Development,<br /> SEO, E-commerce&nbsp;<br class="show-400" />&amp; Hosting</h2>
+                                <p class="white">We strive to build fast, reliable websites that deliver content efficiently on all devices as standard. Our rock-solid hosting packages are capable of scaling seamlessly to handle busy periods, backed with 24/7 monitoring and easy-to-use content management systems.</p>
+                            </div>
+                        </div>  
+                        <div class="col-6-sm intro-image nm">
+                            <div class="video-overlay-blue"></div>
+                            <video id="service-video" src="videos/web-video.mp4" muted loop></video>
+                            <img class="mobile-video-poster" src="images/web-video-poster.png" alt="web design">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="card4" class="intro dark-nav digital-marketing service-card odd slide-out">
+                <div class="col-6-sm intro-image">
+                        <video id="service-video" src="videos/social-video.mp4" poster="images/social-video-poster.jpg" muted loop></video>
+                        <img class="show-1020" src="images/social-video-poster.jpg" alt="Great Bear Social Media">
+                </div>
+                <div class="col-6-sm pl3">
+                    <div class="intro-text-wrapper">
+                        <h3 class="pink">Image Production_</h3>
+                        <h2>Video Production<br />&amp; Photography</h2>
+                        <p>Impressions matter, and professional imagery makes all the difference when it comes to marketing your business. We produce meaningful imagery that will inspire your customers to engage with your brand.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="cta">
+                <h2>Ready to work with us?</h2>
+                <a href="contact.html" class="button btn-md cta-btn">Get Started</a>
+            </section>
+
+            
+            <section class="contact dark-nav">
+                <div class="container contact-form">
+                    <div class="row">
+                        <div class="title">
+                            <h2>Hello, <span id="contact-name">You</span>.</h2>
+                            <h4>Let's get down to business.</h4>
+                        </div>
+                        <form action="/contact_submit.php" method="post">
+                            <div class="form-input">
+                                <input type="text" name="name" id="form-name" required>
+                                <label>Your Name</label>
+                                <span></span>
+                            </div>
+                            <div class="form-input">
+                                <input type="text" name="email" id="form-email" required>
+                                <label>Your Email</label>
+                                <span></span>
+                            </div>
+                            <div class="form-input">
+                                <textarea type="text" name="message" id="form-message" rows="1" required></textarea>
+                                <label>How can we help?</label>
+                                <span></span>
+                            </div>
+                            <div class="button-wrapper">
+                                <button name="submit" type="submit" disabled><div class="arrow"><img src="images/arrow-right.svg"></div></button>
+                            </div>
+                            <div id="form-reset-container">
+                                <div id="form-reset-text">Send another message</div>
+                            </div>
+                        </form>
+                        <div class="contact-details">
+                            <p><span>Or speak to us direct:</span><br />enquiries@amp.studio<br />(+44) 01782 853973</p>
+                        </div>
+                    </div>
+                </div>
+                    <footer class="container">
+                        <div class="row">
+                            <p>© Amp Studio 2017</p>
+                            <div class="social-nav-footer">
+                                <a href="https://www.facebook.com/Ampstudiouk/"><img class="facebook" src="images/facebook-black.svg" alt="Facebook"></a>
+                                <a href="https://twitter.com/AMPstudioUK"><img class="twitter" src="images/twitter-black.svg" alt="Facebook"></a>
+                                <a href="https://www.instagram.com/ampstudiouk/"><img class="instagram" src="images/instagram-black.svg" alt="Facebook"></a>
+                            </div>
+                            <div class="footer-nav">
+                                <a href="terms.html">Terms</a>&nbsp;&nbsp;<span>|</span>&nbsp;&nbsp;<a href="privacy.html">Privacy</a>
+                            </div>
+                        </div>
+                    </footer>
+            </section>
+
+        </section>
+        
+        <script src="js/all.js?ver=1505315563141"></script>
+        <script src="js/index-scripts.js?ver=1505315563141"></script>
+        <script>
+            window.onload = function() {
+                if (document.querySelector('#canvas')) { initCanvas(); }
+                navLoad(); 
+                if (html.classList.contains("no-touch") && window.innerWidth > 1020) { 
+                    load(); 
+                } 
+                getDarkNavAreas(); 
+                initPageTransitions();
+            };
+        </script>
     </body>
 </html>

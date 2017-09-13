@@ -22,27 +22,26 @@ if ( $_SERVER['REQUEST_METHOD'] !== 'POST' ) {
         
         return $result;
     }
-    // Handle post data
+
+    // New arrays to hold the response data
     $errors = array();
     $response = array();
-    if (empty($_POST['name']))
+
+    if (empty($_POST['name']))    
         $errors['name'] = 'Name is required';
     if (empty($_POST['email']))
-    {
         $errors['email'] = 'Email is required';
-    }
     if (empty($_POST['message']))
         $errors['message'] = 'A message is required';
+
     $name = htmlspecialchars($_POST['name']);
     $email = $_POST['email'];
     $message = htmlspecialchars($_POST['message']);
     
     if ($email && !filter_var($email, FILTER_VALIDATE_EMAIL))
-    {
         $errors['email_valid'] = 'Invalid email address';
-    }
-    if (empty($errors)) 
-    {
+
+    if (empty($errors)) {
         slack($name, $email, $message);
         $response['success'] = true;
         $response['success_text'] = 'Form submitted';
@@ -50,6 +49,7 @@ if ( $_SERVER['REQUEST_METHOD'] !== 'POST' ) {
         $response['success'] = false;
         $response['errors'] = $errors;
     }
+
     echo json_encode($response);
 }
 ?>

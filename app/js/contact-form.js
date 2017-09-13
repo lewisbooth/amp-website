@@ -9,7 +9,7 @@ $(document).ready(function() {
     }
     $.ajax({
       type: 'POST',
-      url: '/contact-form.php',
+      url: '/contact_submit.php',
       data: formData,
       dataType: 'json',
       encode: true

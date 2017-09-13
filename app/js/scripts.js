@@ -11,7 +11,23 @@ window.onload = function() {
     navLoad();
     load();
     getDarkNavAreas();
+    initPageTransitions();
 };
+
+function initPageTransitions() {
+  var transition = document.querySelector('.page-transition')
+  var links = document.querySelectorAll('.page-transition-link')
+  links.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      var linkLocation = link.getAttribute('href')
+      transition.classList.add('page-transition-active');
+      setTimeout(function(e) {
+        window.location.replace(linkLocation)
+      }, 500)
+    })
+  })
+}
 
 function navLoad() {
   var delay = window.location.pathname === '/' ? 0.5 : 0;
@@ -53,11 +69,11 @@ function navRecolour(e) {
   }
 }
 
-window.addEventListener('scroll', (e) => navRecolour(e));
+window.addEventListener('scroll', function (e) { navRecolour(e) });
 window.addEventListener('resize', getDarkNavAreas());
 
 
-// Mobile menu scripts {
+// Mobile menu scripts
 var mobileMenuBtn = document.querySelector(".mobile-menu-btn");
 
 if (html.classList.contains("touch") | window.innerWidth <= 1020) {

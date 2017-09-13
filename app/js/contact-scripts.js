@@ -6,7 +6,8 @@ function load() {
     css: {
         paddingBottom: "0",
     },
-    ease:Power3.easeInOut
+    delay: 0.2,
+    ease: Power2.easeOut
   }).timeScale(1);
 
   // Fade in title
