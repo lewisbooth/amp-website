@@ -15,10 +15,10 @@ window.onload = function() {
 };
 
 function initPageTransitions() {
-  var transition = document.querySelector('.page-transition');
-  var links = document.querySelectorAll('.page-transition-link');
-  for (i = 0; i < links.length; i++) {
-    links[i].addEventListener('click', function(e) {
+  var transition = document.querySelector('.page-transition')
+  var links = document.querySelectorAll('.page-transition-link')
+  links.forEach(link => {
+    link.addEventListener('click', function(e) {
       e.preventDefault();
       var linkLocation = link.getAttribute('href')
       transition.classList.add('page-transition-active');
@@ -26,7 +26,7 @@ function initPageTransitions() {
         window.location.replace(linkLocation)
       }, 500)
     })
-  }
+  })
 }
 
 function navLoad() {
@@ -41,7 +41,8 @@ function navLoad() {
 
 function getDarkNavAreas() {
   darkNavAreas = [];
-  var darkNav = document.querySelectorAll('.dark-nav');  
+  var darkNav = document.querySelectorAll('.dark-nav');
+  
   for (var i = 0; i < darkNav.length; i++) {
     // Build array of top/bottoms of any .dark-nav divs on the page
     var bounds = darkNav[i].getBoundingClientRect();
