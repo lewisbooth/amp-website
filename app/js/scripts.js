@@ -17,16 +17,16 @@ window.onload = function() {
 function initPageTransitions() {
   var transition = document.querySelector('.page-transition')
   var links = document.querySelectorAll('.page-transition-link')
-  links.forEach(link => {
-    link.addEventListener('click', function(e) {
+  for (i = 0; i < links.length; i++) {
+    links[i].addEventListener('click', function(e) {
       e.preventDefault();
-      var linkLocation = link.getAttribute('href')
+      var linkLocation = links[i].getAttribute('href')
       transition.classList.add('page-transition-active');
       setTimeout(function(e) {
         window.location.replace(linkLocation)
       }, 500)
     })
-  })
+  }
 }
 
 function navLoad() {
