@@ -20,7 +20,7 @@ function initPageTransitions() {
   for (i = 0; i < links.length; i++) {
     links[i].addEventListener('click', function(e) {
       e.preventDefault();
-      var linkLocation = links[i].getAttribute('href')
+      var linkLocation = e.target.getAttribute('href') || '/'
       transition.classList.add('page-transition-active');
       setTimeout(function(e) {
         window.location.replace(linkLocation)
@@ -71,7 +71,6 @@ function navRecolour(e) {
 
 window.addEventListener('scroll', function (e) { navRecolour(e) });
 window.addEventListener('resize', getDarkNavAreas());
-
 
 // Mobile menu scripts
 var mobileMenuBtn = document.querySelector(".mobile-menu-btn");
